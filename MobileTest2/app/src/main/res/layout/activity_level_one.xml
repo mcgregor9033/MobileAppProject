@@ -15,10 +15,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:src="@drawable/ka"
-        android:layout_below="@+id/textview"
-        android:layout_alignParentLeft="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp" />
+        android:layout_above="@+id/editText"
+        android:layout_alignRight="@+id/editText"
+        android:layout_alignEnd="@+id/editText"
+        android:layout_marginBottom="92dp" />
 
     <EditText
         android:layout_width="200dp"
