@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class LevelHiragana extends Activity {
@@ -21,7 +20,6 @@ public class LevelHiragana extends Activity {
     private Button check;
     private ImageView img;
     private EditText enterText;
-    private TextView test;
 
     private Hiragana [] myHiraganaSet = new Hiragana[] {
             new Hiragana("a"), new Hiragana("i"), new Hiragana("u"), new Hiragana("e"), new Hiragana("o")/*,
@@ -69,7 +67,6 @@ public class LevelHiragana extends Activity {
         check = (Button) findViewById(R.id.btnCheck);
         img = (ImageView) findViewById(R.id.imageView);
         enterText = (EditText) findViewById(R.id.editText);
-        test = (TextView) findViewById(R.id.txtTest);
 
         audio.setOnClickListener(new View.OnClickListener() {
             @Override
