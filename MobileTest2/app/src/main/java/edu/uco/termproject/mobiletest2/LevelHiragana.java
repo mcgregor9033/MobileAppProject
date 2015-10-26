@@ -10,16 +10,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LevelHiragana extends Activity {
+    private static final String KEY_INDEX = "index";
+
     private ImageButton audio;
+    private ImageButton next;
     private Button check;
     private ImageView img;
     private EditText enterText;
+    private TextView test;
 
     private Hiragana [] myHiraganaSet = new Hiragana[] {
-            new Hiragana("a"), new Hiragana("i"), new Hiragana("u"), new Hiragana("e"), new Hiragana("o"),
+            new Hiragana("a"), new Hiragana("i"), new Hiragana("u"), new Hiragana("e"), new Hiragana("o")/*,
             new Hiragana("ka"), new Hiragana("ki"), new Hiragana("ku"), new Hiragana("ke"), new Hiragana("ko"),
             new Hiragana("sa"), new Hiragana("si"), new Hiragana("su"), new Hiragana("se"), new Hiragana("so"),
             new Hiragana("ta"), new Hiragana("chi"), new Hiragana("tsu"), new Hiragana("te"), new Hiragana("to"),
@@ -28,7 +33,7 @@ public class LevelHiragana extends Activity {
             new Hiragana("ma"), new Hiragana("mi"), new Hiragana("mu"), new Hiragana("me"), new Hiragana("mo"),
             new Hiragana("ya"), new Hiragana("yu"), new Hiragana("yo"),
             new Hiragana("ra"), new Hiragana("ri"), new Hiragana("ru"), new Hiragana("re"), new Hiragana("ro"),
-            new Hiragana("wa"), new Hiragana("wo"), new Hiragana("n")
+            new Hiragana("wa"), new Hiragana("wo"), new Hiragana("n")*/
     };
 
     private int myCurrentIndex = 0;
@@ -45,8 +50,9 @@ public class LevelHiragana extends Activity {
         String answer = myHiraganaSet[myCurrentIndex].getMyAnswer();
         int messageResId = 0;
 
-        if(answer == userEnterAnswer)
+        if(answer.equals(userEnterAnswer))
             messageResId = R.string.correct_toast;
+
         else
             messageResId = R.string.incorrect_toast;
 
@@ -59,14 +65,24 @@ public class LevelHiragana extends Activity {
         setContentView(R.layout.activity_level_hiragana);
 
         audio = (ImageButton) findViewById(R.id.btnAudio);
+        next = (ImageButton) findViewById(R.id.btnNext);
         check = (Button) findViewById(R.id.btnCheck);
         img = (ImageView) findViewById(R.id.imageView);
         enterText = (EditText) findViewById(R.id.editText);
+        test = (TextView) findViewById(R.id.txtTest);
 
         audio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(LevelHiragana.this,"Audio Button Clicked!", Toast.LENGTH_LONG).show();
+            }
+        });
 
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myCurrentIndex = (myCurrentIndex + 1) % myHiraganaSet.length;
+                updateCharacter();
             }
         });
 
@@ -76,6 +92,12 @@ public class LevelHiragana extends Activity {
                 checkAnswer(enterText.getText().toString());
             }
         });
+
+        if (savedInstanceState != null) {
+            myCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+        }
+
+        updateCharacter();
     }
 
     @Override
