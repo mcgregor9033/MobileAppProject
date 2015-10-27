@@ -7,13 +7,21 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Objects;
+import java.util.Random;
 
 public class LevelOneQuiz extends Activity {
 
     TextView question;
     ImageButton box00, box01, box10, box11;
+    private int reference, max = 4, min = 0;
+    private Random rand;
+    String answerWord, ans1, ans2, ans3, ans4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +36,77 @@ public class LevelOneQuiz extends Activity {
 
         Resources res = getResources();
         TypedArray pictures = res.obtainTypedArray(R.array.pictures);
-        Drawable drawable = pictures.getDrawable(0);
-
         TypedArray names = res.obtainTypedArray(R.array.names);
-        String name = names.getString(0);
 
-        question.setText(name);
-        box00.setImageDrawable(drawable);
-        box01.setImageDrawable(drawable);
-        box10.setImageDrawable(drawable);
-        box11.setImageDrawable(drawable);
+        rand = new Random();
+
+            int num1, num2, num3, num4;
+            num1 = num2 = num3 = num4 = rand.nextInt((max - min) + 1) + min;
+            while (num2 == num1)
+                num2 = rand.nextInt((max - min) + 1) + min;
+            while (num3 == num1 || num3 == num2)
+                num3 = rand.nextInt((max - min) + 1) + min;
+            while (num4 == num3 || num4 == num2 || num4 == num1)
+                num4 = rand.nextInt((max - min) + 1) + min;
+
+        reference = rand.nextInt((4 - min) + 1) + min;
+
+        ans1 = names.getString(num1);
+        ans2 = names.getString(num2);
+        ans3 = names.getString(num3);
+        ans4 = names.getString(num4);
+
+        switch (reference) {
+            case 0:
+                answerWord = names.getString(num1);
+            case 1:
+                answerWord = names.getString(num2);
+            case 2:
+                answerWord = names.getString(num3);
+            case 3:
+                answerWord = names.getString(num4);
+        }
+
+        names.recycle();
+
+        question.setText(answerWord);
+        box00.setImageDrawable(pictures.getDrawable(num1));
+        box01.setImageDrawable(pictures.getDrawable(num2));
+        box10.setImageDrawable(pictures.getDrawable(num3));
+        box11.setImageDrawable(pictures.getDrawable(num4));
+        pictures.recycle();
+
+        box00.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ans1.equals(answerWord))
+                    Toast.makeText(LevelOneQuiz.this, "Correct!", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        box01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ans2.equals(answerWord))
+                    Toast.makeText(LevelOneQuiz.this,"Correct!", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        box10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ans3.equals(answerWord))
+                    Toast.makeText(LevelOneQuiz.this,"Correct!", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        box11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ans4.equals(answerWord))
+                    Toast.makeText(LevelOneQuiz.this,"Correct!", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
