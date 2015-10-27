@@ -11,9 +11,9 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Objects;
 import java.util.Random;
+
 
 public class LevelOneQuiz extends Activity {
 
@@ -121,13 +121,17 @@ public class LevelOneQuiz extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.settings:
+                return true;
+            case R.id.guess_count:
+                Toast.makeText(LevelOneQuiz.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.themes:
+                Toast.makeText(LevelOneQuiz.this, R.string.theme, Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }
