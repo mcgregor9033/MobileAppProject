@@ -49,23 +49,27 @@ public class LevelOneQuiz extends Activity {
             while (num4 == num3 || num4 == num2 || num4 == num1)
                 num4 = rand.nextInt((max - min) + 1) + min;
 
-        reference = rand.nextInt((4 - min) + 1) + min;
-
         ans1 = names.getString(num1);
         ans2 = names.getString(num2);
         ans3 = names.getString(num3);
         ans4 = names.getString(num4);
 
-        switch (reference) {
-            case 0:
-                answerWord = names.getString(num1);
-            case 1:
-                answerWord = names.getString(num2);
-            case 2:
-                answerWord = names.getString(num3);
-            case 3:
-                answerWord = names.getString(num4);
-        }
+            reference = rand.nextInt((3 - min) + 1) + min;
+
+            switch (reference) {
+                case 0:
+                    answerWord = names.getString(num1);
+                    break;
+                case 1:
+                    answerWord = names.getString(num2);
+                    break;
+                case 2:
+                    answerWord = names.getString(num3);
+                    break;
+                case 3:
+                    answerWord = names.getString(num4);
+                    break;
+            }
 
         names.recycle();
 
