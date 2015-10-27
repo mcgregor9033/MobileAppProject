@@ -17,9 +17,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LevelHiragana"
-            android:label="@string/title_activity_level_one" >
-        </activity>
+            android:name=".LevelOneQuiz"
+            android:label="@string/title_activity_level_one_quiz"></activity>
     </application>
 
 </manifest>
