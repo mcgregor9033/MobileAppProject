@@ -2,15 +2,11 @@
     <string name="app_name">Kanaseur</string>
     <string name="hello_world">ここわれヴぇるわんです！</string>
     <string name="action_settings">Settings</string>
-<<<<<<< HEAD
-    <string name="title_activity_level_one">LevelOne</string>
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect! Try Again</string>
-=======
     <string name="hiragana_button">Hiragana</string>
     <string name="katakana_button">Katakana</string>
     <string name="kanji_button">Kanji</string>
     <string name="game_button">Game</string>
     <string name="title_activity_level_one">ActivityLevelOne</string>
->>>>>>> refs/remotes/origin/master
 </resources>
