@@ -1,20 +1,59 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends Activity {
 
+    private Button gameButton,katakanaButton,hiraganaButton,kanjiButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //test
-    }
+        gameButton = (Button) findViewById(R.id.game_button);
+        katakanaButton = (Button) findViewById(R.id.katakana_button);
+        hiraganaButton = (Button) findViewById(R.id.hiragana_button);
+        kanjiButton = (Button) findViewById(R.id.kanji_button );
 
+        hiraganaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent intent = new Intent(MainActivity.this, LevelHiragana.class);
+               startActivity(intent);
+
+            }
+        });
+        katakanaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LevelHiragana.class);
+                startActivity(intent);
+
+            }
+        });
+        kanjiButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // Intent intent = new Intent(MainActivity.this, LevelOne.class);
+             //   startActivity(intent);
+
+            }
+        });
+        gameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(MainActivity.this, LevelOne.class);
+               // startActivity(intent);
+
+            }
+        });
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
