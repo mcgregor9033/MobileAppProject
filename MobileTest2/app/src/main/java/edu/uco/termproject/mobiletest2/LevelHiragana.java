@@ -1,6 +1,7 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,6 +18,7 @@ public class LevelHiragana extends Activity {
 
     private ImageButton audio;
     private ImageButton next;
+    private Button skip;
     private Button check;
     private ImageView img;
     private EditText enterText;
@@ -65,6 +67,7 @@ public class LevelHiragana extends Activity {
         audio = (ImageButton) findViewById(R.id.btnAudio);
         next = (ImageButton) findViewById(R.id.btnNext);
         check = (Button) findViewById(R.id.btnCheck);
+        skip = (Button) findViewById(R.id.btnQuiz);
         img = (ImageView) findViewById(R.id.imageView);
         enterText = (EditText) findViewById(R.id.editText);
 
@@ -72,6 +75,14 @@ public class LevelHiragana extends Activity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(LevelHiragana.this,"Audio Button Clicked!", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LevelHiragana.this, LevelOneQuiz.class);
+                startActivity (intent);
             }
         });
 
