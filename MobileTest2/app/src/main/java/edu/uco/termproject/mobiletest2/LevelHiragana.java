@@ -120,13 +120,17 @@ public class LevelHiragana extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.settings:
+                return true;
+            case R.id.guess_count:
+                Toast.makeText(LevelHiragana.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.themes:
+                Toast.makeText(LevelHiragana.this, R.string.theme, Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }
