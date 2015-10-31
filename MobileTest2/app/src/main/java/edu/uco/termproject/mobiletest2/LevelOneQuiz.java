@@ -1,6 +1,7 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -8,7 +9,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Objects;
@@ -19,9 +24,12 @@ public class LevelOneQuiz extends Activity {
 
     TextView question;
     ImageButton box00, box01, box10, box11;
-    private int reference, max = 4, min = 0;
+    private int reference, max = 3, min = 0, count = 0, num1, num2, num3, num4;
     private Random rand;
     String answerWord, ans1, ans2, ans3, ans4;
+    Switch help;
+    Button next;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +41,8 @@ public class LevelOneQuiz extends Activity {
         box01 = (ImageButton) findViewById(R.id.button01);
         box10 = (ImageButton) findViewById(R.id.button10);
         box11 = (ImageButton) findViewById(R.id.button11);
+        help = (Switch) findViewById(R.id.help);
+        next = (Button) findViewById(R.id.feedback);
 
         Resources res = getResources();
         TypedArray pictures = res.obtainTypedArray(R.array.pictures);
@@ -40,7 +50,6 @@ public class LevelOneQuiz extends Activity {
 
         rand = new Random();
 
-            int num1, num2, num3, num4;
             num1 = num2 = num3 = num4 = rand.nextInt((max - min) + 1) + min;
             while (num2 == num1)
                 num2 = rand.nextInt((max - min) + 1) + min;
@@ -80,35 +89,125 @@ public class LevelOneQuiz extends Activity {
         box11.setImageDrawable(pictures.getDrawable(num4));
         pictures.recycle();
 
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LevelOneQuiz.this, LevelHiragana.class);
+                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
+                startActivity(intent);
+            }
+        });
+
         box00.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ans1.equals(answerWord))
-                    Toast.makeText(LevelOneQuiz.this, "Correct!", Toast.LENGTH_LONG).show();
+                if (ans1.equals(answerWord)) {
+                    //Toast.makeText(LevelOneQuiz.this, "Correct!", Toast.LENGTH_SHORT).show();
+                    next.setVisibility(View.VISIBLE);
+                    next.setClickable(true);
+                } else
+                    Toast.makeText(LevelOneQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
             }
         });
 
         box01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ans2.equals(answerWord))
-                    Toast.makeText(LevelOneQuiz.this,"Correct!", Toast.LENGTH_LONG).show();
+                if (ans2.equals(answerWord)) {
+                    //Toast.makeText(LevelOneQuiz.this, "Correct!", Toast.LENGTH_SHORT).show();
+                    next.setVisibility(View.VISIBLE);
+                    next.setClickable(true);
+                }
+                else
+                    Toast.makeText(LevelOneQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
             }
         });
 
         box10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ans3.equals(answerWord))
-                    Toast.makeText(LevelOneQuiz.this,"Correct!", Toast.LENGTH_LONG).show();
+                if (ans3.equals(answerWord)) {
+                    //Toast.makeText(LevelOneQuiz.this, "Correct!", Toast.LENGTH_SHORT).show();
+                    next.setVisibility(View.VISIBLE);
+                    next.setClickable(true);
+                }
+                else
+                    Toast.makeText(LevelOneQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
             }
         });
 
         box11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ans4.equals(answerWord))
-                    Toast.makeText(LevelOneQuiz.this,"Correct!", Toast.LENGTH_LONG).show();
+                if (ans4.equals(answerWord)) {
+                    //Toast.makeText(LevelOneQuiz.this, "Correct!", Toast.LENGTH_SHORT).show();
+                    next.setVisibility(View.VISIBLE);
+                    next.setClickable(true);
+                }
+                else
+                    Toast.makeText(LevelOneQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        help.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                //switch true
+                if(isChecked) {
+                    rand = new Random();
+
+                    //get wrong answer
+                    int temp = reference;
+                    while (temp == reference ) {
+                        temp = rand.nextInt((max - min) + 1) + min;
+
+                        //validate
+                        if (temp == 0 && num1 == -1)
+                            temp = reference;
+                        else if (temp == 1 && num2 == -1)
+                            temp = reference;
+                        else if (temp == 2 && num3 == -1)
+                            temp = reference;
+                        else if (temp == 3 && num4 == -1)
+                            temp = reference;
+                        else if (count == 3)
+                            temp = -1;
+
+                    }
+
+                    //set the wrong answer to null and invalidate
+                    switch (temp) {
+                        case 0:
+                            box00.setImageDrawable(null);
+                            num1 = -1;
+                            count++;
+                            break;
+                        case 1:
+                            box01.setImageDrawable(null);
+                            num2 = -1;
+                            count++;
+                            break;
+                        case 2:
+                            box10.setImageDrawable(null);
+                            num3 = -1;
+                            count++;
+                            break;
+                        case 3:
+                            box11.setImageDrawable(null);
+                            num4 = -1;
+                            count++;
+                            break;
+                        default:
+                            System.out.println("error");
+                    }
+
+                    // reset switch
+                    help.setChecked(false);
+                }
+                else {
+                    Toast.makeText(LevelOneQuiz.this, "no help!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
