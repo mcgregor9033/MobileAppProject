@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LevelHiragana extends Activity {
@@ -18,10 +19,11 @@ public class LevelHiragana extends Activity {
 
     private ImageButton audio;
     private ImageButton next;
-    private Button skip;
+    private Button help;
     private Button check;
     private ImageView img;
     private EditText enterText;
+    private TextView hint;
 
     private Hiragana [] myHiraganaSet = new Hiragana[] {
             new Hiragana("a"), new Hiragana("i"), new Hiragana("u"), new Hiragana("e"), new Hiragana("o")/*,
@@ -46,12 +48,17 @@ public class LevelHiragana extends Activity {
         img.setImageDrawable(res);
     }
 
-    private void checkAnswer (String userEnterAnswer){
+    private void checkAnswer(LevelHiragana levelHiragana, String userEnterAnswer){
         String answer = myHiraganaSet[myCurrentIndex].getMyAnswer();
         int messageResId = 0;
 
-        if(answer.equals(userEnterAnswer))
+        if(answer.equals(userEnterAnswer)) {
             messageResId = R.string.correct_toast;
+            Intent intent = new Intent(levelHiragana, LevelOneQuiz.class);
+            intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
+            startActivity (intent);
+        }
+
 
         else
             messageResId = R.string.incorrect_toast;
@@ -67,9 +74,10 @@ public class LevelHiragana extends Activity {
         audio = (ImageButton) findViewById(R.id.btnAudio);
         next = (ImageButton) findViewById(R.id.btnNext);
         check = (Button) findViewById(R.id.btnCheck);
-        skip = (Button) findViewById(R.id.btnQuiz);
+        help = (Button) findViewById(R.id.btnQuiz);
         img = (ImageView) findViewById(R.id.imageView);
         enterText = (EditText) findViewById(R.id.editText);
+        hint = (TextView) findViewById(R.id.pic_hint);
 
         audio.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,11 +86,11 @@ public class LevelHiragana extends Activity {
             }
         });
 
-        skip.setOnClickListener(new View.OnClickListener() {
+        help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LevelHiragana.this, LevelOneQuiz.class);
-                startActivity (intent);
+                hint.setText(myHiraganaSet[myCurrentIndex].getMyImgName());
+                hint.setVisibility(View.VISIBLE);
             }
         });
 
@@ -90,6 +98,7 @@ public class LevelHiragana extends Activity {
             @Override
             public void onClick(View v) {
                 myCurrentIndex = (myCurrentIndex + 1) % myHiraganaSet.length;
+                hint.setVisibility(View.INVISIBLE);
                 updateCharacter();
             }
         });
@@ -97,7 +106,7 @@ public class LevelHiragana extends Activity {
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkAnswer(enterText.getText().toString());
+                checkAnswer(LevelHiragana.this, enterText.getText().toString());
             }
         });
 
