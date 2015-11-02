@@ -24,7 +24,7 @@ public class LevelKatakana extends Activity {
 
     private Katakana [] myKatakanaSet = new Katakana[] {
             new Katakana("a1","a"), new Katakana("i1","i"), new Katakana("u1","u"), new Katakana("e1","e"), new Katakana("o1","o"),
-            new Katakana("ka1","ka"), new Katakana("ki1","ki"), new Katakana("ku1","ku"), new Katakana("ke1","ke"), new Katakana("ko1","ko")/*,
+            new Katakana("ka1","ka"), new Katakana("ki1","ki"), new Katakana("ku1","ku"), new Katakana("ke1","ke"), new Katakana("ko1","ko"),
             new Katakana("sa1","sa"), new Katakana("si1","si"), new Katakana("su1","u"), new Katakana("se1","se"), new Katakana("so1","so"),
             new Katakana("ta1","ta"), new Katakana("chi1","chi"), new Katakana("tsu1","tsu"), new Katakana("te1","te"), new Katakana("to1","to"),
             new Katakana("na1","na"), new Katakana("ni1","ni"), new Katakana("nu1","nu"), new Katakana("ne1","ne"), new Katakana("no1","no"),
@@ -32,7 +32,7 @@ public class LevelKatakana extends Activity {
             new Katakana("ma1","ma"), new Katakana("mi1","mi"), new Katakana("mu1","mu"), new Katakana("me1","me"), new Katakana("mo1","mo"),
             new Katakana("ya1","ya"), new Katakana("yu1","yu"), new Katakana("yo1","yo"),
             new Katakana("ra1","ra"), new Katakana("ri1","ri"), new Katakana("ru1","ru"), new Katakana("re1","re"), new Katakana("ro1","ro"),
-            new Katakana("wa1","wa"), new Katakana("wo1","o"), new Katakana("n1","n")*/
+            new Katakana("wa1","wa"), new Katakana("wo1","o"), new Katakana("n1","n")
     };
 
     private int myCurrentIndex = 0;
