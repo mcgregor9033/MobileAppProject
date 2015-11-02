@@ -1,6 +1,7 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,6 +18,7 @@ public class LevelHiragana extends Activity {
 
     private ImageButton audio;
     private ImageButton next;
+    private Button skip;
     private Button check;
     private ImageView img;
     private EditText enterText;
@@ -65,6 +67,7 @@ public class LevelHiragana extends Activity {
         audio = (ImageButton) findViewById(R.id.btnAudio);
         next = (ImageButton) findViewById(R.id.btnNext);
         check = (Button) findViewById(R.id.btnCheck);
+        skip = (Button) findViewById(R.id.btnQuiz);
         img = (ImageView) findViewById(R.id.imageView);
         enterText = (EditText) findViewById(R.id.editText);
 
@@ -72,6 +75,14 @@ public class LevelHiragana extends Activity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(LevelHiragana.this,"Audio Button Clicked!", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LevelHiragana.this, LevelOneQuiz.class);
+                startActivity (intent);
             }
         });
 
@@ -100,7 +111,7 @@ public class LevelHiragana extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_level_one, menu);
+        getMenuInflater().inflate(R.menu.menu_level_hiragana, menu);
         return true;
     }
 
@@ -109,13 +120,17 @@ public class LevelHiragana extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.settings:
+                return true;
+            case R.id.guess_count:
+                Toast.makeText(LevelHiragana.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.themes:
+                Toast.makeText(LevelHiragana.this, R.string.theme, Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }

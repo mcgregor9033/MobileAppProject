@@ -1,16 +1,22 @@
 <resources>
-    <string name="app_name">Kanaseur</string>
-    <string name="hello_world">ここわれヴぇるわんです！</string>
+    <string name="app_name">MobileTest2</string>
+
+    <string name="hello_world">ここわれヴぇるわんです</string>
     <string name="action_settings">Settings</string>
-<<<<<<< HEAD
-    <string name="title_activity_level_one">LevelOne</string>
     <string name="correct_toast">Correct!</string>
-    <string name="incorrect_toast">Incorrect! Try Again</string>
-=======
+    <string name="incorrect_toast">Incorrect!</string>
+    <string name="title_activity_level_one">Level\u0020One</string>
+    <string name="title_activity_level_one_quiz">Level\u0020One\u0020Quiz</string>
     <string name="hiragana_button">Hiragana</string>
     <string name="katakana_button">Katakana</string>
     <string name="kanji_button">Kanji</string>
+
     <string name="game_button">Game</string>
-    <string name="title_activity_level_one">ActivityLevelOne</string>
->>>>>>> refs/remotes/origin/master
+    <string name="settings">Settings</string>
+    <string name="fonts">Fonts</string>
+    <string name="theme">Themes</string>
+    <string name="guess_count">Guess\u0020Count</string>
+    <string name="title_activity_hangman_game">Hangman</string>
+    <string name="title_activity_kanji">Kanji\u0020Activity</string>
+
 </resources>

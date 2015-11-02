@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="pictures">
+        <item>@drawable/a</item>
+        <item>@drawable/e</item>
+        <item>@drawable/i</item>
+        <item>@drawable/o</item>
+        <item>@drawable/u</item>
+    </array>
+    <array name="names">
+        <item>a</item>
+        <item>e</item>
+        <item>i</item>
+        <item>o</item>
+        <item>u</item>
+    </array>
+</resources>

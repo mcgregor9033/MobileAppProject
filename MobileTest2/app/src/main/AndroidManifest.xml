@@ -18,7 +18,17 @@
         </activity>
         <activity
             android:name=".LevelHiragana"
-            android:label="@string/title_activity_level_one" >
+            android:label="@string/title_activity_level_one" />
+        <activity
+            android:name=".LevelOneQuiz"
+            android:label="@string/title_activity_level_one_quiz" />
+        <activity
+            android:name=".HangmanGame"
+            android:label="@string/title_activity_hangman_game" >
+        </activity>
+        <activity
+            android:name=".KanjiActivity"
+            android:label="@string/title_activity_kanji" >
         </activity>
     </application>
 
