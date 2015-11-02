@@ -25,7 +25,7 @@ public class LevelKatakana extends Activity {
     private Katakana [] myKatakanaSet = new Katakana[] {
             new Katakana("a1","a"), new Katakana("i1","i"), new Katakana("u1","u"), new Katakana("e1","e"), new Katakana("o1","o"),
             new Katakana("ka1","ka"), new Katakana("ki1","ki"), new Katakana("ku1","ku"), new Katakana("ke1","ke"), new Katakana("ko1","ko"),
-            new Katakana("sa1","sa"), new Katakana("si1","si"), new Katakana("su1","u"), new Katakana("se1","se"), new Katakana("so1","so"),
+            new Katakana("sa1","sa"), new Katakana("shi1","shi"), new Katakana("su1","u"), new Katakana("se1","se"), new Katakana("so1","so"),
             new Katakana("ta1","ta"), new Katakana("chi1","chi"), new Katakana("tsu1","tsu"), new Katakana("te1","te"), new Katakana("to1","to"),
             new Katakana("na1","na"), new Katakana("ni1","ni"), new Katakana("nu1","nu"), new Katakana("ne1","ne"), new Katakana("no1","no"),
             new Katakana("ha1","ha"), new Katakana("hi1","hi"), new Katakana("fu1","fu"), new Katakana("he1","he"), new Katakana("ho1","ho"),
