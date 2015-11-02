@@ -3,7 +3,6 @@ package edu.uco.termproject.mobiletest2;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,11 +10,11 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.util.Objects;
+
 import java.util.Random;
 
 
-public class LevelOneQuiz extends Activity {
+public class LevelHiraganaQuiz extends Activity {
 
     TextView question;
     ImageButton box00, box01, box10, box11;
@@ -26,7 +25,7 @@ public class LevelOneQuiz extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level_one_quiz);
+        setContentView(R.layout.activity_level_hiragana_quiz);
 
         question = (TextView) findViewById(R.id.word);
         box00 = (ImageButton) findViewById(R.id.button00);
@@ -84,7 +83,7 @@ public class LevelOneQuiz extends Activity {
             @Override
             public void onClick(View v) {
                 if (ans1.equals(answerWord))
-                    Toast.makeText(LevelOneQuiz.this, "Correct!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LevelHiraganaQuiz.this, "Correct!", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -92,7 +91,7 @@ public class LevelOneQuiz extends Activity {
             @Override
             public void onClick(View v) {
                 if (ans2.equals(answerWord))
-                    Toast.makeText(LevelOneQuiz.this,"Correct!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LevelHiraganaQuiz.this,"Correct!", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -100,7 +99,7 @@ public class LevelOneQuiz extends Activity {
             @Override
             public void onClick(View v) {
                 if (ans3.equals(answerWord))
-                    Toast.makeText(LevelOneQuiz.this,"Correct!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LevelHiraganaQuiz.this,"Correct!", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -108,7 +107,7 @@ public class LevelOneQuiz extends Activity {
             @Override
             public void onClick(View v) {
                 if (ans4.equals(answerWord))
-                    Toast.makeText(LevelOneQuiz.this,"Correct!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LevelHiraganaQuiz.this,"Correct!", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -116,7 +115,7 @@ public class LevelOneQuiz extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_level_one_quiz, menu);
+        getMenuInflater().inflate(R.menu.menu_level_hiragana_quiz, menu);
         return true;
     }
 
@@ -129,10 +128,10 @@ public class LevelOneQuiz extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(LevelOneQuiz.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Toast.makeText(LevelHiraganaQuiz.this, R.string.guess_count, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.themes:
-                Toast.makeText(LevelOneQuiz.this, R.string.theme, Toast.LENGTH_LONG).show();
+                Toast.makeText(LevelHiraganaQuiz.this, R.string.theme, Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

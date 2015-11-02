@@ -12,7 +12,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class LevelHiragana extends Activity {
+public class LevelKanji extends Activity {
+
     private static final String KEY_INDEX = "index";
 
     private ImageButton audio;
@@ -21,23 +22,15 @@ public class LevelHiragana extends Activity {
     private ImageView img;
     private EditText enterText;
 
-    private Hiragana [] myKatakanaSet = new Hiragana[] {
-            new Hiragana("a"), new Hiragana("i"), new Hiragana("u"), new Hiragana("e"), new Hiragana("o"),
-            new Hiragana("ka"), new Hiragana("ki"), new Hiragana("ku"), new Hiragana("ke"), new Hiragana("ko"),
-            new Hiragana("sa"), new Hiragana("si"), new Hiragana("su"), new Hiragana("se"), new Hiragana("so"),
-            new Hiragana("ta"), new Hiragana("chi"), new Hiragana("tsu"), new Hiragana("te"), new Hiragana("to")/*,
-            new Hiragana("na"), new Hiragana("ni"), new Hiragana("nu"), new Hiragana("ne"), new Hiragana("no"),
-            new Hiragana("ha"), new Hiragana("hi"), new Hiragana("fu"), new Hiragana("he"), new Hiragana("ho"),
-            new Hiragana("ma"), new Hiragana("mi"), new Hiragana("mu"), new Hiragana("me"), new Hiragana("mo"),
-            new Hiragana("ya"), new Hiragana("yu"), new Hiragana("yo"),
-            new Hiragana("ra"), new Hiragana("ri"), new Hiragana("ru"), new Hiragana("re"), new Hiragana("ro"),
-            new Hiragana("wa"), new Hiragana("wo"), new Hiragana("n")*/
+    private Kanji [] myKanjiSet = new Kanji[] {
+            new Kanji("sea","うみ"), new Kanji("god","かみ"), new Kanji("moon","つき"),
+            new Kanji("dream","ゆめ"), new Kanji("sky","そら")
     };
 
     private int myCurrentIndex = 0;
 
     private void updateCharacter(){
-        String character = myKatakanaSet[myCurrentIndex].getMyImgName();
+        String character = myKanjiSet[myCurrentIndex].getMyImgName();
         String uri = "@drawable/" + character;
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
@@ -45,7 +38,7 @@ public class LevelHiragana extends Activity {
     }
 
     private void checkAnswer (String userEnterAnswer){
-        String answer = myKatakanaSet[myCurrentIndex].getMyAnswer();
+        String answer = myKanjiSet[myCurrentIndex].getMyAnswer();
         int messageResId = 0;
 
         if(answer.equals(userEnterAnswer))
@@ -62,23 +55,23 @@ public class LevelHiragana extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_hiragana);
 
-        audio = (ImageButton) findViewById(R.id.btnAudio);
-        next = (ImageButton) findViewById(R.id.btnNext);
-        check = (Button) findViewById(R.id.btnCheck);
-        img = (ImageView) findViewById(R.id.imageView);
-        enterText = (EditText) findViewById(R.id.editText);
+        audio = (ImageButton) findViewById(R.id.btnAudio3);
+        next = (ImageButton) findViewById(R.id.btnNext3);
+        check = (Button) findViewById(R.id.btnCheck3);
+        img = (ImageView) findViewById(R.id.imageView3);
+        enterText = (EditText) findViewById(R.id.editText3);
 
         audio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LevelHiragana.this,"Audio Button Clicked!", Toast.LENGTH_LONG).show();
+                Toast.makeText(LevelKanji.this,"Audio Button Clicked!", Toast.LENGTH_LONG).show();
             }
         });
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myCurrentIndex = (myCurrentIndex + 1) % myKatakanaSet.length;
+                myCurrentIndex = (myCurrentIndex + 1) % myKanjiSet.length;
                 updateCharacter();
             }
         });
@@ -100,7 +93,7 @@ public class LevelHiragana extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_level_hiragana, menu);
+        getMenuInflater().inflate(R.menu.menu_level_kanji, menu);
         return true;
     }
 
@@ -113,10 +106,10 @@ public class LevelHiragana extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(LevelHiragana.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Toast.makeText(LevelKanji.this, R.string.guess_count, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.themes:
-                Toast.makeText(LevelHiragana.this, R.string.theme, Toast.LENGTH_LONG).show();
+                Toast.makeText(LevelKanji.this,R.string.theme, Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

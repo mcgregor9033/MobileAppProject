@@ -18,5 +18,10 @@
     <string name="guess_count">Guess\u0020Count</string>
     <string name="title_activity_hangman_game">Hangman</string>
     <string name="title_activity_kanji">Kanji\u0020Activity</string>
-
+    <string name="title_activity_katakana">Katakana</string>
+    <string name="title_activity_level_katakana">LevelKatakana</string>
+    <string name="title_activity_transition_hiragana">TransitionHiragana</string>
+    <string name="title_activity_transition_katakana">TransitionKatakana</string>
+    <string name="question_for_quiz">Are you confident to challenge the Quiz?</string>
+    <string name="title_activity_transition_kanji">TransitionKanji</string>
 </resources>
