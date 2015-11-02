@@ -1,16 +1,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#2E2E2E"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="edu.uco.termproject.mobiletest2.LevelHiragana">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#2E2E2E"
+    tools:context="edu.uco.termproject.mobiletest2.LevelKanji">
 
     <ImageButton
-        android:id="@+id/btnAudio"
+        android:id="@+id/btnAudio3"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="150px"
         android:layout_height="150px"
@@ -20,7 +18,7 @@
         android:src="@mipmap/audio" />
 
     <ImageButton
-        android:id="@+id/btnNext"
+        android:id="@+id/btnNext3"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="150px"
         android:layout_height="150px"
@@ -30,29 +28,28 @@
         android:src="@mipmap/next" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editText3"
         android:layout_width="100dp"
         android:textAlignment="center"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnCheck"
+        android:layout_above="@+id/btnCheck3"
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/btnCheck"
+        android:id="@+id/btnCheck3"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="Check" />
-
 
 
 </RelativeLayout>
