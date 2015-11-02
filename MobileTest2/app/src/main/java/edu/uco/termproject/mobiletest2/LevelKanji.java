@@ -53,7 +53,7 @@ public class LevelKanji extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level_hiragana);
+        setContentView(R.layout.activity_level_kanji);
 
         audio = (ImageButton) findViewById(R.id.btnAudio3);
         next = (ImageButton) findViewById(R.id.btnNext3);

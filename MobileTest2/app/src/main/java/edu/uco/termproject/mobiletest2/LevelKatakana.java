@@ -1,7 +1,6 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,12 +18,11 @@ public class LevelKatakana extends Activity {
 
     private ImageButton audio;
     private ImageButton next;
-    private Button skip;
     private Button check;
     private ImageView img;
     private EditText enterText;
 
-    private Katakana [] myHiraganaSet = new Katakana[] {
+    private Katakana [] myKatakanaSet = new Katakana[] {
             new Katakana("a1","a"), new Katakana("i1","i"), new Katakana("u1","u"), new Katakana("e1","e"), new Katakana("o1","o"),
             new Katakana("ka1","ka"), new Katakana("ki1","ki"), new Katakana("ku1","ku"), new Katakana("ke1","ke"), new Katakana("ko1","ko")/*,
             new Katakana("sa1","sa"), new Katakana("si1","si"), new Katakana("su1","u"), new Katakana("se1","se"), new Katakana("so1","so"),
@@ -40,7 +38,7 @@ public class LevelKatakana extends Activity {
     private int myCurrentIndex = 0;
 
     private void updateCharacter(){
-        String character = myHiraganaSet[myCurrentIndex].getMyImgName();
+        String character = myKatakanaSet[myCurrentIndex].getMyImgName();
         String uri = "@drawable/" + character;
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
@@ -48,7 +46,7 @@ public class LevelKatakana extends Activity {
     }
 
     private void checkAnswer (String userEnterAnswer){
-        String answer = myHiraganaSet[myCurrentIndex].getMyAnswer();
+        String answer = myKatakanaSet[myCurrentIndex].getMyAnswer();
         int messageResId = 0;
 
         if(answer.equals(userEnterAnswer))
@@ -63,12 +61,11 @@ public class LevelKatakana extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level_hiragana);
+        setContentView(R.layout.activity_level_katakana);
 
         audio = (ImageButton) findViewById(R.id.btnAudio2);
         next = (ImageButton) findViewById(R.id.btnNext2);
         check = (Button) findViewById(R.id.btnCheck2);
-        skip = (Button) findViewById(R.id.btnQuiz2);
         img = (ImageView) findViewById(R.id.imageView2);
         enterText = (EditText) findViewById(R.id.editText2);
 
@@ -79,18 +76,10 @@ public class LevelKatakana extends Activity {
             }
         });
 
-        skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LevelKatakana.this, LevelHiraganaQuiz.class);
-                startActivity (intent);
-            }
-        });
-
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myCurrentIndex = (myCurrentIndex + 1) % myHiraganaSet.length;
+                myCurrentIndex = (myCurrentIndex + 1) % myKatakanaSet.length;
                 updateCharacter();
             }
         });

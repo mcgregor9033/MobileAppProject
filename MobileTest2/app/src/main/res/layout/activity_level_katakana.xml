@@ -39,7 +39,7 @@
         android:layout_width="100dp"
         android:textAlignment="center"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnCheck"
+        android:layout_above="@+id/btnCheck2"
         android:layout_centerHorizontal="true" />
 
     <Button
