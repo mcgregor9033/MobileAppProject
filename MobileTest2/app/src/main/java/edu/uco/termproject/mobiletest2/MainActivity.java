@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
         hiraganaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LevelHiragana.class);
+                Intent intent = new Intent(MainActivity.this, TransitionHiragana.class);
                 startActivity(intent);
 
             }
@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
         katakanaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LevelHiragana.class);
+                Intent intent = new Intent(MainActivity.this, TransitionKatakana.class);
                 startActivity(intent);
 
             }
@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
         kanjiButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, KanjiActivity.class);
+                Intent intent = new Intent(MainActivity.this, TransitionKanji.class);
                 startActivity(intent);
 
             }

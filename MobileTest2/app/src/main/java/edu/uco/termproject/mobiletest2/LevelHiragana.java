@@ -26,16 +26,16 @@ public class LevelHiragana extends Activity {
     private TextView hint;
 
     private Hiragana [] myHiraganaSet = new Hiragana[] {
-            new Hiragana("a"), new Hiragana("i"), new Hiragana("u"), new Hiragana("e"), new Hiragana("o")/*,
+            new Hiragana("a"), new Hiragana("i"), new Hiragana("u"), new Hiragana("e"), new Hiragana("o"),
             new Hiragana("ka"), new Hiragana("ki"), new Hiragana("ku"), new Hiragana("ke"), new Hiragana("ko"),
-            new Hiragana("sa"), new Hiragana("si"), new Hiragana("su"), new Hiragana("se"), new Hiragana("so"),
+            new Hiragana("sa"), new Hiragana("shi"), new Hiragana("su"), new Hiragana("se"), new Hiragana("so"),
             new Hiragana("ta"), new Hiragana("chi"), new Hiragana("tsu"), new Hiragana("te"), new Hiragana("to"),
             new Hiragana("na"), new Hiragana("ni"), new Hiragana("nu"), new Hiragana("ne"), new Hiragana("no"),
             new Hiragana("ha"), new Hiragana("hi"), new Hiragana("fu"), new Hiragana("he"), new Hiragana("ho"),
             new Hiragana("ma"), new Hiragana("mi"), new Hiragana("mu"), new Hiragana("me"), new Hiragana("mo"),
             new Hiragana("ya"), new Hiragana("yu"), new Hiragana("yo"),
             new Hiragana("ra"), new Hiragana("ri"), new Hiragana("ru"), new Hiragana("re"), new Hiragana("ro"),
-            new Hiragana("wa"), new Hiragana("wo"), new Hiragana("n")*/
+            new Hiragana("wa"), new Hiragana("wo"), new Hiragana("n")
     };
 
     private int myCurrentIndex = 0;
@@ -50,11 +50,12 @@ public class LevelHiragana extends Activity {
 
     private void checkAnswer(LevelHiragana levelHiragana, String userEnterAnswer){
         String answer = myHiraganaSet[myCurrentIndex].getMyAnswer();
+
         int messageResId = 0;
 
         if(answer.equals(userEnterAnswer)) {
             messageResId = R.string.correct_toast;
-            Intent intent = new Intent(levelHiragana, LevelOneQuiz.class);
+            Intent intent = new Intent(levelHiragana, LevelHiraganaQuiz.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             startActivity (intent);
         }

@@ -20,15 +20,31 @@
             android:name=".LevelHiragana"
             android:label="@string/title_activity_level_one" />
         <activity
-            android:name=".LevelOneQuiz"
+            android:name=".LevelHiraganaQuiz"
             android:label="@string/title_activity_level_one_quiz" />
         <activity
             android:name=".HangmanGame"
             android:label="@string/title_activity_hangman_game" >
         </activity>
         <activity
-            android:name=".KanjiActivity"
+            android:name=".LevelKanji"
             android:label="@string/title_activity_kanji" >
+        </activity>
+        <activity
+            android:name=".LevelKatakana"
+            android:label="@string/title_activity_level_katakana" >
+        </activity>
+        <activity
+            android:name=".TransitionHiragana"
+            android:label="@string/title_activity_transition_hiragana" >
+        </activity>
+        <activity
+            android:name=".TransitionKatakana"
+            android:label="@string/title_activity_transition_katakana" >
+        </activity>
+        <activity
+            android:name=".TransitionKanji"
+            android:label="@string/title_activity_transition_kanji" >
         </activity>
     </application>
 

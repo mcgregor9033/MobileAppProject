@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,11 +15,11 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.util.Objects;
+
 import java.util.Random;
 
 
-public class LevelOneQuiz extends Activity {
+public class LevelHiraganaQuiz extends Activity {
 
     TextView question;
     ImageButton box00, box01, box10, box11;
@@ -34,7 +33,7 @@ public class LevelOneQuiz extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level_one_quiz);
+        setContentView(R.layout.activity_level_hiragana_quiz);
 
         question = (TextView) findViewById(R.id.word);
         box00 = (ImageButton) findViewById(R.id.button00);
@@ -92,7 +91,7 @@ public class LevelOneQuiz extends Activity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LevelOneQuiz.this, LevelHiragana.class);
+                Intent intent = new Intent(LevelHiraganaQuiz.this, LevelHiragana.class);
                 intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
                 startActivity(intent);
             }
@@ -106,7 +105,7 @@ public class LevelOneQuiz extends Activity {
                     next.setVisibility(View.VISIBLE);
                     next.setClickable(true);
                 } else
-                    Toast.makeText(LevelOneQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LevelHiraganaQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -119,7 +118,7 @@ public class LevelOneQuiz extends Activity {
                     next.setClickable(true);
                 }
                 else
-                    Toast.makeText(LevelOneQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LevelHiraganaQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -132,7 +131,7 @@ public class LevelOneQuiz extends Activity {
                     next.setClickable(true);
                 }
                 else
-                    Toast.makeText(LevelOneQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LevelHiraganaQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -145,7 +144,7 @@ public class LevelOneQuiz extends Activity {
                     next.setClickable(true);
                 }
                 else
-                    Toast.makeText(LevelOneQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LevelHiraganaQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -206,7 +205,7 @@ public class LevelOneQuiz extends Activity {
                     help.setChecked(false);
                 }
                 else {
-                    Toast.makeText(LevelOneQuiz.this, "no help!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LevelHiraganaQuiz.this, "no help!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -215,7 +214,7 @@ public class LevelOneQuiz extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_level_one_quiz, menu);
+        getMenuInflater().inflate(R.menu.menu_level_hiragana_quiz, menu);
         return true;
     }
 
@@ -228,10 +227,10 @@ public class LevelOneQuiz extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(LevelOneQuiz.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Toast.makeText(LevelHiraganaQuiz.this, R.string.guess_count, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.themes:
-                Toast.makeText(LevelOneQuiz.this, R.string.theme, Toast.LENGTH_LONG).show();
+                Toast.makeText(LevelHiraganaQuiz.this, R.string.theme, Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
