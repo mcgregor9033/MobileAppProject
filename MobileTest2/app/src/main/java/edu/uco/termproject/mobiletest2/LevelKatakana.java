@@ -1,6 +1,7 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LevelKatakana extends Activity {
@@ -18,9 +20,11 @@ public class LevelKatakana extends Activity {
 
     private ImageButton audio;
     private ImageButton next;
+    private Button help;
     private Button check;
     private ImageView img;
     private EditText enterText;
+    private TextView hint;
 
     private Katakana [] myKatakanaSet = new Katakana[] {
             new Katakana("a1","a"), new Katakana("i1","i"), new Katakana("u1","u"), new Katakana("e1","e"), new Katakana("o1","o"),
@@ -45,12 +49,16 @@ public class LevelKatakana extends Activity {
         img.setImageDrawable(res);
     }
 
-    private void checkAnswer (String userEnterAnswer){
+    private void checkAnswer (LevelKatakana levelKatakana, String userEnterAnswer){
         String answer = myKatakanaSet[myCurrentIndex].getMyAnswer();
         int messageResId = 0;
 
-        if(answer.equals(userEnterAnswer))
+        if(answer.equals(userEnterAnswer)) {
             messageResId = R.string.correct_toast;
+            Intent intent = new Intent(levelKatakana, LevelHiraganaMultipleGuess.class);
+            intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
+            startActivity (intent);
+        }
 
         else
             messageResId = R.string.incorrect_toast;
@@ -66,8 +74,11 @@ public class LevelKatakana extends Activity {
         audio = (ImageButton) findViewById(R.id.btnAudio2);
         next = (ImageButton) findViewById(R.id.btnNext2);
         check = (Button) findViewById(R.id.btnCheck2);
+        help = (Button) findViewById(R.id.btnQuiz2);
         img = (ImageView) findViewById(R.id.imageView2);
         enterText = (EditText) findViewById(R.id.editText2);
+        hint = (TextView) findViewById(R.id.pic_hint2);
+
 
         audio.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,10 +87,19 @@ public class LevelKatakana extends Activity {
             }
         });
 
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hint.setText(myKatakanaSet[myCurrentIndex].getMyAnswer());
+                hint.setVisibility(View.VISIBLE);
+            }
+        });
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 myCurrentIndex = (myCurrentIndex + 1) % myKatakanaSet.length;
+                hint.setVisibility(View.INVISIBLE);
                 updateCharacter();
             }
         });
@@ -87,7 +107,7 @@ public class LevelKatakana extends Activity {
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkAnswer(enterText.getText().toString());
+                checkAnswer(LevelKatakana.this, enterText.getText().toString());
             }
         });
 

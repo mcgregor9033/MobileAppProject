@@ -1,11 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="pictures">
+    <array name="hiragana">
         <item>@drawable/a</item>
         <item>@drawable/e</item>
         <item>@drawable/i</item>
         <item>@drawable/o</item>
         <item>@drawable/u</item>
+        <item>@drawable/chi</item>
+        <item>@drawable/fu</item>
+        <item>@drawable/ha</item>
+        <item>@drawable/he</item>
+        <item>@drawable/hi</item>
+        <item>@drawable/ho</item>
+        <item>@drawable/ka</item>
+        <item>@drawable/ke</item>
+        <item>@drawable/ki</item>
+        <item>@drawable/ko</item>
+        <item>@drawable/ku</item>
+        <item>@drawable/ma</item>
+        <item>@drawable/me</item>
+        <item>@drawable/mi</item>
+        <item>@drawable/mo</item>
+        <item>@drawable/mu</item>
+        <item>@drawable/n</item>
+        <item>@drawable/na</item>
+        <item>@drawable/ne</item>
+        <item>@drawable/ni</item>
+        <item>@drawable/no</item>
+        <item>@drawable/nu</item>
+        <item>@drawable/ra</item>
+        <item>@drawable/re</item>
+        <item>@drawable/ri</item>
+        <item>@drawable/ro</item>
+        <item>@drawable/ru</item>
+        <item>@drawable/sa</item>
+        <item>@drawable/se1</item>
+        <item>@drawable/shi</item>
+        <item>@drawable/so</item>
+        <item>@drawable/su</item>
+        <item>@drawable/ta</item>
+        <item>@drawable/te</item>
+        <item>@drawable/to</item>
+        <item>@drawable/tsu</item>
+        <item>@drawable/wa</item>
+        <item>@drawable/wo</item>
+        <item>@drawable/ya</item>
+        <item>@drawable/yo</item>
+        <item>@drawable/yu</item>
+    </array>
+    <array name="katakana">
+        <item>@drawable/a1</item>
+        <item>@drawable/e1</item>
+        <item>@drawable/i1</item>
+        <item>@drawable/o1</item>
+        <item>@drawable/u1</item>
+        <item>@drawable/chi1</item>
+        <item>@drawable/fu1</item>
+        <item>@drawable/ha1</item>
+        <item>@drawable/he1</item>
+        <item>@drawable/hi1</item>
+        <item>@drawable/ho1</item>
+        <item>@drawable/ka1</item>
+        <item>@drawable/ke1</item>
+        <item>@drawable/ki1</item>
+        <item>@drawable/ko1</item>
+        <item>@drawable/ku1</item>
+        <item>@drawable/ma1</item>
+        <item>@drawable/me1</item>
+        <item>@drawable/mi1</item>
+        <item>@drawable/mo1</item>
+        <item>@drawable/mu1</item>
+        <item>@drawable/n1</item>
+        <item>@drawable/na1</item>
+        <item>@drawable/ne1</item>
+        <item>@drawable/ni1</item>
+        <item>@drawable/no1</item>
+        <item>@drawable/nu1</item>
+        <item>@drawable/ra1</item>
+        <item>@drawable/re1</item>
+        <item>@drawable/ri1</item>
+        <item>@drawable/ro1</item>
+        <item>@drawable/ru1</item>
+        <item>@drawable/sa1</item>
+        <item>@drawable/se1</item>
+        <item>@drawable/shi1</item>
+        <item>@drawable/so1</item>
+        <item>@drawable/su1</item>
+        <item>@drawable/ta1</item>
+        <item>@drawable/te1</item>
+        <item>@drawable/to1</item>
+        <item>@drawable/tsu1</item>
+        <item>@drawable/wa1</item>
+        <item>@drawable/wo1</item>
+        <item>@drawable/ya1</item>
+        <item>@drawable/yo1</item>
+        <item>@drawable/yu1</item>
+    </array>
+    <array name="kanji">
+        <item>@drawable/dream</item>
+        <item>@drawable/god</item>
+        <item>@drawable/moon</item>
+        <item>@drawable/sea</item>
+        <item>@drawable/sky</item>
     </array>
     <array name="names">
         <item>a</item>
@@ -13,5 +109,53 @@
         <item>i</item>
         <item>o</item>
         <item>u</item>
+        <item>chi</item>
+        <item>fu</item>
+        <item>ha</item>
+        <item>he</item>
+        <item>hi</item>
+        <item>ho</item>
+        <item>ka</item>
+        <item>ke</item>
+        <item>ki</item>
+        <item>ko</item>
+        <item>ku</item>
+        <item>ma</item>
+        <item>me</item>
+        <item>mi</item>
+        <item>mo</item>
+        <item>mu</item>
+        <item>n</item>
+        <item>na</item>
+        <item>ne</item>
+        <item>ni</item>
+        <item>no</item>
+        <item>nu</item>
+        <item>ra</item>
+        <item>re</item>
+        <item>ri</item>
+        <item>ro</item>
+        <item>ru</item>
+        <item>sa</item>
+        <item>se</item>
+        <item>shi</item>
+        <item>so</item>
+        <item>su</item>
+        <item>ta</item>
+        <item>te</item>
+        <item>to</item>
+        <item>tsu</item>
+        <item>wa</item>
+        <item>wo</item>
+        <item>ya</item>
+        <item>yo</item>
+        <item>yu</item>
+    </array>
+    <array name="words">
+        <item>dream</item>
+        <item>god</item>
+        <item>moon</item>
+        <item>sea</item>
+        <item>sky</item>
     </array>
 </resources>
