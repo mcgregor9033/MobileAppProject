@@ -24,6 +24,7 @@
     <string name="title_activity_transition_katakana">TransitionKatakana</string>
     <string name="question_for_quiz">Are you confident to challenge the Quiz?</string>
     <string name="title_activity_transition_kanji">TransitionKanji</string>
+
     <string name="title_activity_vocab">VocabActivity</string>
     <string-array name="Vocab">
         <item>dog</item>
@@ -70,4 +71,8 @@
     </string-array>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_activity_level_katakana_multiple_guess">LevelKatakanaMultipleGuess</string>
+    <string name="title_activity_level_kanji_multiple_guess">LevelKanjiMultipleGuess</string>
+
 </resources>
