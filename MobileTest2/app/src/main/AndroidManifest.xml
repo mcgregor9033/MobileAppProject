@@ -46,6 +46,10 @@
             android:name=".TransitionKanji"
             android:label="@string/title_activity_transition_kanji" >
         </activity>
+        <activity
+            android:name=".VocabActivity"
+            android:label="@string/title_activity_vocab" >
+        </activity>
     </application>
 
 </manifest>
