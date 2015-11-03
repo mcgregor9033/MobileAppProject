@@ -8,21 +8,44 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-    private Button gameButton, katakanaButton, hiraganaButton, kanjiButton;
-
+    private Button gameButton, katakanaButton, hiraganaButton, kanjiButton,vocabButton;
+    private ImageButton titleScreen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        titleScreen = (ImageButton) findViewById(R.id.title_screen);
         gameButton = (Button) findViewById(R.id.game_button);
         katakanaButton = (Button) findViewById(R.id.katakana_button);
         hiraganaButton = (Button) findViewById(R.id.hiragana_button);
         kanjiButton = (Button) findViewById(R.id.kanji_button);
+        vocabButton = (Button) findViewById(R.id.vocab_button);
+
+        gameButton.setVisibility(View.INVISIBLE);
+        hiraganaButton.setVisibility(View.INVISIBLE);
+        katakanaButton.setVisibility(View.INVISIBLE);
+        kanjiButton.setVisibility(View.INVISIBLE);
+
+
+
+        titleScreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gameButton.setVisibility(View.VISIBLE);
+                hiraganaButton.setVisibility(View.VISIBLE);
+                katakanaButton.setVisibility(View.VISIBLE);
+                kanjiButton.setVisibility(View.VISIBLE);
+                titleScreen.setVisibility(View.INVISIBLE);
+            }
+        });
+
 
         hiraganaButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +83,19 @@ public class MainActivity extends Activity {
 
             }
         });
+        vocabButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, VocabActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

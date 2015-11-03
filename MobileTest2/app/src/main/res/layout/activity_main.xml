@@ -31,4 +31,23 @@
         android:text="@string/game_button"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
+    <Button
+        android:layout_below="@+id/game_button"
+        android:id="@+id/vocab_button"
+        android:text="@string/vocab_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/title_screen"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/japantitlescreen"
+        android:cropToPadding="false"
+
+        android:scaleType="fitXY" />
+
 </RelativeLayout>
