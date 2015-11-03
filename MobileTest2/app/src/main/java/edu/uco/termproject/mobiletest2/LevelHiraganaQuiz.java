@@ -23,7 +23,7 @@ public class LevelHiraganaQuiz extends Activity {
 
     TextView question;
     ImageButton box00, box01, box10, box11;
-    private int reference, max = 3, min = 0, count = 0, num1, num2, num3, num4;
+    private int reference, max = 45, min = 0, count = 0, num1, num2, num3, num4;
     private Random rand;
     String answerWord, ans1, ans2, ans3, ans4;
     Switch help;
@@ -44,7 +44,7 @@ public class LevelHiraganaQuiz extends Activity {
         next = (Button) findViewById(R.id.feedback);
 
         Resources res = getResources();
-        TypedArray pictures = res.obtainTypedArray(R.array.pictures);
+        TypedArray pictures = res.obtainTypedArray(R.array.hiragana);
         TypedArray names = res.obtainTypedArray(R.array.names);
 
         rand = new Random();

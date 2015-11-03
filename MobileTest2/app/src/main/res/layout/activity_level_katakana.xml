@@ -34,6 +34,15 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageView"
+        android:id="@+id/pic_hint2"
+        android:layout_marginLeft="30sp"
+        android:textSize="45sp"
+        android:layout_centerVertical="true"/>
+
     <EditText
         android:id="@+id/editText2"
         android:layout_width="100dp"
@@ -50,5 +59,15 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="Check" />
+
+    <Button
+        android:id="@+id/btnQuiz2"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Help"
+        android:textSize="20sp"/>
 
 </RelativeLayout>

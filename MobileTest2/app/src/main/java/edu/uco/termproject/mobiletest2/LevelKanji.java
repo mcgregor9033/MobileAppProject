@@ -1,6 +1,7 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LevelKanji extends Activity {
@@ -18,9 +20,11 @@ public class LevelKanji extends Activity {
 
     private ImageButton audio;
     private ImageButton next;
+    private Button help;
     private Button check;
     private ImageView img;
     private EditText enterText;
+    private TextView hint;
 
     private Kanji [] myKanjiSet = new Kanji[] {
             new Kanji("sea","うみ"), new Kanji("god","かみ"), new Kanji("moon","つき"),
@@ -37,12 +41,16 @@ public class LevelKanji extends Activity {
         img.setImageDrawable(res);
     }
 
-    private void checkAnswer (String userEnterAnswer){
+    private void checkAnswer (LevelKanji levelKanji, String userEnterAnswer){
         String answer = myKanjiSet[myCurrentIndex].getMyAnswer();
         int messageResId = 0;
 
-        if(answer.equals(userEnterAnswer))
+        if(answer.equals(userEnterAnswer)) {
             messageResId = R.string.correct_toast;
+            Intent intent = new Intent(levelKanji, LevelHiraganaQuiz.class);
+            intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
+            startActivity (intent);
+        }
 
         else
             messageResId = R.string.incorrect_toast;
@@ -58,8 +66,10 @@ public class LevelKanji extends Activity {
         audio = (ImageButton) findViewById(R.id.btnAudio3);
         next = (ImageButton) findViewById(R.id.btnNext3);
         check = (Button) findViewById(R.id.btnCheck3);
+        help = (Button) findViewById(R.id.btnQuiz3);
         img = (ImageView) findViewById(R.id.imageView3);
         enterText = (EditText) findViewById(R.id.editText3);
+        hint = (TextView) findViewById(R.id.pic_hint3);
 
         audio.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,10 +78,19 @@ public class LevelKanji extends Activity {
             }
         });
 
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hint.setText(myKanjiSet[myCurrentIndex].getMyImgName());
+                hint.setVisibility(View.VISIBLE);
+            }
+        });
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 myCurrentIndex = (myCurrentIndex + 1) % myKanjiSet.length;
+                hint.setVisibility(View.INVISIBLE);
                 updateCharacter();
             }
         });
@@ -79,7 +98,7 @@ public class LevelKanji extends Activity {
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkAnswer(enterText.getText().toString());
+                checkAnswer(LevelKanji.this, enterText.getText().toString());
             }
         });
 

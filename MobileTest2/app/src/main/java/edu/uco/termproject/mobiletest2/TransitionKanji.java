@@ -24,6 +24,7 @@ public class TransitionKanji extends Activity {
             @Override
             public void onClick(View v) {
                 /*Intent intent = new Intent(TransitionKanji.this, LevelKanjiQuiz.class);
+                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
                 startActivity(intent);*/
                 Toast.makeText(TransitionKanji.this, "Go to Kanji Quiz", Toast.LENGTH_LONG).show();
             }
@@ -33,6 +34,7 @@ public class TransitionKanji extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TransitionKanji.this, LevelKanji.class);
+                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
                 startActivity(intent);
             }
         });
