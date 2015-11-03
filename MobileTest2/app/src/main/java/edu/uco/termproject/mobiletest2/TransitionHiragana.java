@@ -22,7 +22,8 @@ public class TransitionHiragana extends Activity {
         quiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TransitionHiragana.this, LevelHiraganaQuiz.class);
+                Intent intent = new Intent(TransitionHiragana.this, LevelHiraganaMultipleGuess.class);
+                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
                 startActivity (intent);
             }
         });
@@ -31,6 +32,7 @@ public class TransitionHiragana extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TransitionHiragana.this, LevelHiragana.class);
+                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
                 startActivity(intent);
             }
         });
