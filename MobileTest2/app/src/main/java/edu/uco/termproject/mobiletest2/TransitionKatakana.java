@@ -23,10 +23,10 @@ public class TransitionKatakana extends Activity {
         quiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent intent = new Intent(TransitionKatakana.this, Levelkatakanaquiz.class);
+                Intent intent = new Intent(TransitionKatakana.this, LevelKatakanaMultipleGuess.class);
                 intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
-                startActivity (intent);*/
-                Toast.makeText(TransitionKatakana.this,"Go to Katakana Quiz", Toast.LENGTH_LONG).show();
+                startActivity (intent);
+                //Toast.makeText(TransitionKatakana.this,"Go to Katakana Quiz", Toast.LENGTH_LONG).show();
             }
         });
 

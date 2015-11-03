@@ -55,7 +55,7 @@ public class LevelHiragana extends Activity {
 
         if(answer.equals(userEnterAnswer)) {
             messageResId = R.string.correct_toast;
-            Intent intent = new Intent(levelHiragana, LevelHiraganaQuiz.class);
+            Intent intent = new Intent(levelHiragana, LevelHiraganaMultipleGuess.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             startActivity (intent);
         }

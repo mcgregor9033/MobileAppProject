@@ -14,8 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 public class LevelKatakana extends Activity {
 
     private static final String KEY_INDEX = "index";
@@ -57,7 +55,7 @@ public class LevelKatakana extends Activity {
 
         if(answer.equals(userEnterAnswer)) {
             messageResId = R.string.correct_toast;
-            Intent intent = new Intent(levelKatakana, LevelHiraganaQuiz.class);
+            Intent intent = new Intent(levelKatakana, LevelHiraganaMultipleGuess.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             startActivity (intent);
         }
@@ -92,7 +90,7 @@ public class LevelKatakana extends Activity {
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                hint.setText(myKatakanaSet[myCurrentIndex].getMyImgName());
+                hint.setText(myKatakanaSet[myCurrentIndex].getMyAnswer());
                 hint.setVisibility(View.VISIBLE);
             }
         });

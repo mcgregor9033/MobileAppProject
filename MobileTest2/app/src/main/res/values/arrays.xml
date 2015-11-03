@@ -96,6 +96,13 @@
         <item>@drawable/yo1</item>
         <item>@drawable/yu1</item>
     </array>
+    <array name="kanji">
+        <item>@drawable/dream</item>
+        <item>@drawable/god</item>
+        <item>@drawable/moon</item>
+        <item>@drawable/sea</item>
+        <item>@drawable/sky</item>
+    </array>
     <array name="names">
         <item>a</item>
         <item>e</item>
@@ -143,5 +150,12 @@
         <item>ya</item>
         <item>yo</item>
         <item>yu</item>
+    </array>
+    <array name="words">
+        <item>dream</item>
+        <item>god</item>
+        <item>moon</item>
+        <item>sea</item>
+        <item>sky</item>
     </array>
 </resources>

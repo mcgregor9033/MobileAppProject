@@ -47,7 +47,7 @@ public class LevelKanji extends Activity {
 
         if(answer.equals(userEnterAnswer)) {
             messageResId = R.string.correct_toast;
-            Intent intent = new Intent(levelKanji, LevelHiraganaQuiz.class);
+            Intent intent = new Intent(levelKanji, LevelHiraganaMultipleGuess.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             startActivity (intent);
         }
@@ -81,7 +81,7 @@ public class LevelKanji extends Activity {
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                hint.setText(myKanjiSet[myCurrentIndex].getMyImgName());
+                hint.setText(myKanjiSet[myCurrentIndex].getMyAnswer());
                 hint.setVisibility(View.VISIBLE);
             }
         });

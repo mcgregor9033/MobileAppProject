@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +18,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 
-public class LevelHiraganaQuiz extends Activity {
+public class LevelKatakanaMultipleGuess extends Activity {
 
     TextView question;
     ImageButton box00, box01, box10, box11;
@@ -33,7 +32,7 @@ public class LevelHiraganaQuiz extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level_hiragana_quiz);
+        setContentView(R.layout.activity_level_katakana_multiple_guess);
 
         question = (TextView) findViewById(R.id.word);
         box00 = (ImageButton) findViewById(R.id.button00);
@@ -44,40 +43,40 @@ public class LevelHiraganaQuiz extends Activity {
         next = (Button) findViewById(R.id.feedback);
 
         Resources res = getResources();
-        TypedArray pictures = res.obtainTypedArray(R.array.hiragana);
+        TypedArray pictures = res.obtainTypedArray(R.array.katakana);
         TypedArray names = res.obtainTypedArray(R.array.names);
 
         rand = new Random();
 
-            num1 = num2 = num3 = num4 = rand.nextInt((max - min) + 1) + min;
-            while (num2 == num1)
-                num2 = rand.nextInt((max - min) + 1) + min;
-            while (num3 == num1 || num3 == num2)
-                num3 = rand.nextInt((max - min) + 1) + min;
-            while (num4 == num3 || num4 == num2 || num4 == num1)
-                num4 = rand.nextInt((max - min) + 1) + min;
+        num1 = num2 = num3 = num4 = rand.nextInt((max - min) + 1) + min;
+        while (num2 == num1)
+            num2 = rand.nextInt((max - min) + 1) + min;
+        while (num3 == num1 || num3 == num2)
+            num3 = rand.nextInt((max - min) + 1) + min;
+        while (num4 == num3 || num4 == num2 || num4 == num1)
+            num4 = rand.nextInt((max - min) + 1) + min;
 
         ans1 = names.getString(num1);
         ans2 = names.getString(num2);
         ans3 = names.getString(num3);
         ans4 = names.getString(num4);
 
-            reference = rand.nextInt((3 - min) + 1) + min;
+        reference = rand.nextInt((3 - min) + 1) + min;
 
-            switch (reference) {
-                case 0:
-                    answerWord = names.getString(num1);
-                    break;
-                case 1:
-                    answerWord = names.getString(num2);
-                    break;
-                case 2:
-                    answerWord = names.getString(num3);
-                    break;
-                case 3:
-                    answerWord = names.getString(num4);
-                    break;
-            }
+        switch (reference) {
+            case 0:
+                answerWord = names.getString(num1);
+                break;
+            case 1:
+                answerWord = names.getString(num2);
+                break;
+            case 2:
+                answerWord = names.getString(num3);
+                break;
+            case 3:
+                answerWord = names.getString(num4);
+                break;
+        }
 
         names.recycle();
 
@@ -91,7 +90,7 @@ public class LevelHiraganaQuiz extends Activity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LevelHiraganaQuiz.this, LevelHiragana.class);
+                Intent intent = new Intent(LevelKatakanaMultipleGuess.this, LevelKatakana.class);
                 intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
                 startActivity(intent);
             }
@@ -105,7 +104,7 @@ public class LevelHiraganaQuiz extends Activity {
                     next.setVisibility(View.VISIBLE);
                     next.setClickable(true);
                 } else
-                    Toast.makeText(LevelHiraganaQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LevelKatakanaMultipleGuess.this, "Incorrect!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -118,7 +117,7 @@ public class LevelHiraganaQuiz extends Activity {
                     next.setClickable(true);
                 }
                 else
-                    Toast.makeText(LevelHiraganaQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LevelKatakanaMultipleGuess.this, "Incorrect!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -131,7 +130,7 @@ public class LevelHiraganaQuiz extends Activity {
                     next.setClickable(true);
                 }
                 else
-                    Toast.makeText(LevelHiraganaQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LevelKatakanaMultipleGuess.this, "Incorrect!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -144,7 +143,7 @@ public class LevelHiraganaQuiz extends Activity {
                     next.setClickable(true);
                 }
                 else
-                    Toast.makeText(LevelHiraganaQuiz.this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LevelKatakanaMultipleGuess.this, "Incorrect!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -159,7 +158,7 @@ public class LevelHiraganaQuiz extends Activity {
                     //get wrong answer
                     int temp = reference;
                     while (temp == reference ) {
-                        temp = rand.nextInt((max - min) + 1) + min;
+                        temp = rand.nextInt((3 - min) + 1) + min;
 
                         //validate
                         if (temp == 0 && num1 == -1)
@@ -205,7 +204,7 @@ public class LevelHiraganaQuiz extends Activity {
                     help.setChecked(false);
                 }
                 else {
-                    Toast.makeText(LevelHiraganaQuiz.this, "no help!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LevelKatakanaMultipleGuess.this, "no help!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -227,13 +226,14 @@ public class LevelHiraganaQuiz extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(LevelHiraganaQuiz.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Toast.makeText(LevelKatakanaMultipleGuess.this, R.string.guess_count, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.themes:
-                Toast.makeText(LevelHiraganaQuiz.this, R.string.theme, Toast.LENGTH_LONG).show();
+                Toast.makeText(LevelKatakanaMultipleGuess.this, R.string.theme, Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 }
+
