@@ -47,6 +47,8 @@
             android:label="@string/title_activity_transition_kanji" >
         </activity>
         <activity
+            android:name=".VocabActivity"
+            android:label="@string/title_activity_vocab" >
             android:name=".LevelKatakanaMultipleGuess"
             android:label="@string/title_activity_level_katakana_multiple_guess" >
         </activity>

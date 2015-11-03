@@ -10,7 +10,7 @@
     <string name="hiragana_button">Hiragana</string>
     <string name="katakana_button">Katakana</string>
     <string name="kanji_button">Kanji</string>
-
+    <string name="vocab_button">Vocabulary\u0020List</string>
     <string name="game_button">Game</string>
     <string name="settings">Settings</string>
     <string name="fonts">Fonts</string>
@@ -24,6 +24,55 @@
     <string name="title_activity_transition_katakana">TransitionKatakana</string>
     <string name="question_for_quiz">Are you confident to challenge the Quiz?</string>
     <string name="title_activity_transition_kanji">TransitionKanji</string>
+
+    <string name="title_activity_vocab">VocabActivity</string>
+    <string-array name="Vocab">
+        <item>dog</item>
+        <item>cat</item>
+        <item>bird</item>
+        <item>fish</item>
+        <item>monkey</item>
+        <item>horse</item>
+        <item>gold fish</item>
+        <item>giraffe</item>
+        <item>Insect</item>
+
+
+
+        <item>bee</item>
+        <item>otter</item>
+        <item>lizard</item>
+        <item>gecko</item>
+        <item>shark</item>
+        <item>dolphin</item>
+        <item>shrimp</item>
+        <item>crab</item>
+        <item>eel</item>
+    </string-array>
+    <string-array name="Definitions">
+        <item>いぬ</item>
+        <item>ねこ</item>
+        <item>とり</item>
+        <item>さかな</item>
+        <item>さる</item>
+        <item>うま</item>
+        <item>きんぎょ</item>
+        <item>キリン</item>
+        <item>むし</item>
+        <item>ハチ</item>
+        <item>かわうそ</item>
+        <item>トカゲ</item>
+        <item>ヤモリ</item>
+        <item>サメ</item>
+        <item>イルカ</item>
+        <item>えび</item>
+        <item>かに</item>
+        <item>うなぎ</item>
+    </string-array>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="title_activity_level_katakana_multiple_guess">LevelKatakanaMultipleGuess</string>
     <string name="title_activity_level_kanji_multiple_guess">LevelKanjiMultipleGuess</string>
+
 </resources>
