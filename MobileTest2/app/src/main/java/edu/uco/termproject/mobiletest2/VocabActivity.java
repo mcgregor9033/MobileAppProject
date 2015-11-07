@@ -13,7 +13,9 @@ public class VocabActivity extends Activity implements
         VocabFragment.ListSelectionListener {
 
     public static String[] mVocabArray;
-    public static String[] mDefinitionsArray;
+    public static String[] mKanaDefinitionsArray;
+    public static String[] mRomajiDefinitionsArray;
+    public static String[] mKanjiDefinitionsArray;
 
     private final DefinitionFragment mDefinitionFragment = new DefinitionFragment();
     private FragmentManager mFragmentManager;
@@ -27,8 +29,9 @@ public class VocabActivity extends Activity implements
         super.onCreate(savedInstanceState);
 
         mVocabArray = getResources().getStringArray(R.array.Vocab);
-        mDefinitionsArray = getResources().getStringArray(R.array.Definitions);
-
+        mKanaDefinitionsArray = getResources().getStringArray(R.array.KanaDefinitions);
+        mRomajiDefinitionsArray = getResources().getStringArray(R.array.RomajiDefinitions);
+        mKanjiDefinitionsArray= getResources().getStringArray(R.array.KanjiDefinitions);
         setContentView(R.layout.activity_vocab);
 
         mVocabFrameLayout = (FrameLayout) findViewById(R.id.vocab_fragment_container);

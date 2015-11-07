@@ -35,10 +35,7 @@
         <item>horse</item>
         <item>gold fish</item>
         <item>giraffe</item>
-        <item>Insect</item>
-
-
-
+        <item>insect</item>
         <item>bee</item>
         <item>otter</item>
         <item>lizard</item>
@@ -49,7 +46,7 @@
         <item>crab</item>
         <item>eel</item>
     </string-array>
-    <string-array name="Definitions">
+    <string-array name="KanaDefinitions">
         <item>いぬ</item>
         <item>ねこ</item>
         <item>とり</item>
@@ -68,6 +65,46 @@
         <item>えび</item>
         <item>かに</item>
         <item>うなぎ</item>
+    </string-array>
+    <string-array name="RomajiDefinitions">
+        <item>inu</item>
+        <item>neko</item>
+        <item>tori</item>
+        <item>sakana</item>
+        <item>saru</item>
+        <item>uma</item>
+        <item>kingyo</item>
+        <item>kirin</item>
+        <item>mushi</item>
+        <item>hachi</item>
+        <item>kawauso</item>
+        <item>tokage</item>
+        <item>yamori</item>
+        <item>same</item>
+        <item>iruka</item>
+        <item>ebi</item>
+        <item>kani</item>
+        <item>unagi</item>
+    </string-array>
+    <string-array name="KanjiDefinitions">
+        <item>犬</item>
+        <item>猫</item>
+        <item>鳥</item>
+        <item>魚</item>
+        <item>猿</item>
+        <item>馬</item>
+        <item>金魚</item>
+        <item>麒麟</item>
+        <item>虫</item>
+        <item>蜂</item>
+        <item>川獺</item>
+        <item>蜥蜴</item>
+        <item>守宮</item>
+        <item>鮫</item>
+        <item>蝦</item>
+        <item>海豚</item>
+        <item>蟹</item>
+        <item>鰻</item>
     </string-array>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
