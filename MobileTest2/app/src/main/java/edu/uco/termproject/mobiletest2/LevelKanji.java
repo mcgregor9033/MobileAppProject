@@ -1,7 +1,11 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,6 +29,9 @@ public class LevelKanji extends Activity {
     private ImageView img;
     private EditText enterText;
     private TextView hint;
+
+    final Context context = this;
+    private Button button;
 
     private Kanji [] myKanjiSet = new Kanji[] {
             new Kanji("sea","うみ"), new Kanji("god","かみ"), new Kanji("moon","つき"),
@@ -70,11 +77,48 @@ public class LevelKanji extends Activity {
         img = (ImageView) findViewById(R.id.imageView3);
         enterText = (EditText) findViewById(R.id.editText3);
         hint = (TextView) findViewById(R.id.pic_hint3);
+        button = (Button) findViewById(R.id.buttonAlert);
 
         audio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(LevelKanji.this,"Audio Button Clicked!", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        // add button listener
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                        context);
+
+                // set title
+                alertDialogBuilder.setTitle("Confused?? Here's what to do");
+
+                // set dialog message
+                alertDialogBuilder.setMessage("Using the keyboard, select the proper english letters for the Kanji Character displayed.").setCancelable(false)
+                        .setNegativeButton("Let's Go!!!", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // if this button is clicked, just close
+                                // the dialog box and do nothing
+                                dialog.cancel();
+                            }
+                        });
+
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
+
+                TextView textView = (TextView) alertDialog.findViewById(android.R.id.message);
+                textView.setTextSize(32);
+                Button btn1 = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+                btn1.setTextSize(40);
+                btn1.setTextColor(Color.YELLOW);
             }
         });
 
