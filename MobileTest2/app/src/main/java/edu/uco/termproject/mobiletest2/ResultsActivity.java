@@ -42,7 +42,7 @@ public class ResultsActivity extends Activity {
         bd = bd.round(new MathContext(2));
         double answer = bd.doubleValue() * 1000;
 
-        if (scoreCount > .7)
+        if (answer > 700)
             letter.setText("PASS");
         else
             letter.setText("FAIL");

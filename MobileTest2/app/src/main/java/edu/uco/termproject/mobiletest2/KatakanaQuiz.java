@@ -319,7 +319,7 @@ public class KatakanaQuiz extends Activity {
     public void setPass() {
         answers.add("correct");
         answersReference.add(Integer.toString(ansNum));
-        if (answers.size() < 10) {
+        if (answers.size() < 20) {
             Intent intent = new Intent(KatakanaQuiz.this, KatakanaQuiz.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
@@ -338,7 +338,7 @@ public class KatakanaQuiz extends Activity {
     public void setFail() {
         answers.add("incorrect");
         answersReference.add(Integer.toString(ansNum));
-        if (answers.size() < 10) {
+        if (answers.size() < 20) {
             Intent intent = new Intent(KatakanaQuiz.this, KatakanaQuiz.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
