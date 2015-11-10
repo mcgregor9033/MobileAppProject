@@ -3,6 +3,7 @@ package edu.uco.termproject.mobiletest2;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Random;
 
 public class LevelKatakana extends Activity {
 
@@ -25,6 +28,7 @@ public class LevelKatakana extends Activity {
     private ImageView img;
     private EditText enterText;
     private TextView hint;
+    private MediaPlayer mp;
 
     private Katakana [] myKatakanaSet = new Katakana[] {
             new Katakana("a1","a"), new Katakana("i1","i"), new Katakana("u1","u"), new Katakana("e1","e"), new Katakana("o1","o"),
@@ -43,10 +47,15 @@ public class LevelKatakana extends Activity {
 
     private void updateCharacter(){
         String character = myKatakanaSet[myCurrentIndex].getMyImgName();
+
         String uri = "@drawable/" + character;
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
         img.setImageDrawable(res);
+
+        String uri2 = "@raw/" + character;
+        int mpResource = getResources().getIdentifier(uri2, null, getPackageName());
+        mp = MediaPlayer.create(this, mpResource);
     }
 
     private void checkAnswer (LevelKatakana levelKatakana, String userEnterAnswer){
@@ -83,7 +92,13 @@ public class LevelKatakana extends Activity {
         audio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LevelKatakana.this,"Audio Button Clicked!", Toast.LENGTH_LONG).show();
+                try {
+                    if (mp.isPlaying()) {
+                        mp.stop();
+                        mp.release();
+                        updateCharacter();
+                    } mp.start();
+                } catch(Exception e) { e.printStackTrace(); }
             }
         });
 
@@ -98,7 +113,8 @@ public class LevelKatakana extends Activity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myCurrentIndex = (myCurrentIndex + 1) % myKatakanaSet.length;
+                Random rand = new Random();
+                myCurrentIndex = rand.nextInt(myKatakanaSet.length);
                 hint.setVisibility(View.INVISIBLE);
                 updateCharacter();
             }

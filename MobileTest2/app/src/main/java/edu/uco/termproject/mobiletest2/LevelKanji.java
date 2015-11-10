@@ -3,6 +3,7 @@ package edu.uco.termproject.mobiletest2;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Random;
 
 public class LevelKanji extends Activity {
 
@@ -25,20 +28,32 @@ public class LevelKanji extends Activity {
     private ImageView img;
     private EditText enterText;
     private TextView hint;
+    private MediaPlayer mp;
 
     private Kanji [] myKanjiSet = new Kanji[] {
-            new Kanji("sea","うみ"), new Kanji("god","かみ"), new Kanji("moon","つき"),
-            new Kanji("dream","ゆめ"), new Kanji("sky","そら")
+            new Kanji("one","いち"), new Kanji("two","に"), new Kanji("three","さん"),
+            new Kanji("four","し"), new Kanji("five","ご"),
+            new Kanji("six","ろく"), new Kanji("seven","しち"), new Kanji("eight","はち"),
+            new Kanji("nine","きゅう"), new Kanji("ten","じゅう")/*,
+            new Kanji("",""), new Kanji("",""), new Kanji("",""),
+            new Kanji("",""), new Kanji("",""),
+            new Kanji("",""), new Kanji("",""), new Kanji("",""),
+            new Kanji("",""), new Kanji("","")*/
     };
 
     private int myCurrentIndex = 0;
 
     private void updateCharacter(){
         String character = myKanjiSet[myCurrentIndex].getMyImgName();
+
         String uri = "@drawable/" + character;
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
         img.setImageDrawable(res);
+
+        String uri2 = "@raw/" + character;
+        int mpResource = getResources().getIdentifier(uri2, null, getPackageName());
+        mp = MediaPlayer.create(this, mpResource);
     }
 
     private void checkAnswer (LevelKanji levelKanji, String userEnterAnswer){
@@ -74,7 +89,13 @@ public class LevelKanji extends Activity {
         audio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LevelKanji.this,"Audio Button Clicked!", Toast.LENGTH_LONG).show();
+                try {
+                    if (mp.isPlaying()) {
+                        mp.stop();
+                        mp.release();
+                        updateCharacter();
+                    } mp.start();
+                } catch(Exception e) { e.printStackTrace(); }
             }
         });
 
@@ -89,7 +110,8 @@ public class LevelKanji extends Activity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myCurrentIndex = (myCurrentIndex + 1) % myKanjiSet.length;
+                Random rand = new Random();
+                myCurrentIndex = rand.nextInt(myKanjiSet.length);
                 hint.setVisibility(View.INVISIBLE);
                 updateCharacter();
             }
