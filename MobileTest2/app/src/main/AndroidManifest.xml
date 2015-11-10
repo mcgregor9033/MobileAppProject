@@ -49,8 +49,7 @@
         <activity
             android:name=".VocabActivity"
             android:label="@string/title_activity_vocab" >
-
-            </activity>
+        </activity>
         <activity
             android:name=".LevelKatakanaMultipleGuess"
             android:label="@string/title_activity_level_katakana_multiple_guess" >
@@ -62,6 +61,10 @@
         <activity
             android:name=".LevelKatakanaMultipleGuess"
             android:label="@string/title_activity_level_katakana_multiple_guess" >
+        </activity>
+        <activity
+            android:name=".VocabListSelectionActivity"
+            android:label="@string/title_activity_vocab_list_selection" >
         </activity>
     </application>
 

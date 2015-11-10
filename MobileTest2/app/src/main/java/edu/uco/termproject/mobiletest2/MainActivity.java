@@ -86,7 +86,7 @@ public class MainActivity extends Activity {
         vocabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, VocabActivity.class);
+                Intent intent = new Intent(MainActivity.this, VocabListSelectionActivity.class);
                 startActivity(intent);
             }
         });
