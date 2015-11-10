@@ -352,12 +352,12 @@
         <item>きょうじゅ</item>
     </string-array>
     <string-array name="OccupationsRomajiDefinitions">
-        <item>inu</item>
-        <item>neko</item>
-        <item>tori</item>
-        <item>sakana</item>
-        <item>saru</item>
-        <item>uma</item>
+        <item>isha</item>
+        <item>baabaa</item>
+        <item>jimuin</item>
+        <item>bengoshi</item>
+        <item>kyoushi</item>
+        <item>kyoujyu</item>
     </string-array>
     <string-array name="OccupationsKanjiDefinitions">
         <item>医者</item>
