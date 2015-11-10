@@ -26,4 +26,11 @@
     <string name="title_activity_transition_kanji">TransitionKanji</string>
     <string name="title_activity_level_katakana_multiple_guess">LevelKatakanaMultipleGuess</string>
     <string name="title_activity_level_kanji_multiple_guess">LevelKanjiMultipleGuess</string>
+    <string name="title_activity_level_kanji2">LevelKanji2</string>
+
+    <string name="choice1">choice1</string>
+    <string name="choice2">choice2</string>
+    <string name="choice3">choice3</string>
+    <string name="choice4">choice4</string>
+
 </resources>

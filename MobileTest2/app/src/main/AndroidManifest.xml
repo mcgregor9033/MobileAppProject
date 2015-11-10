@@ -54,6 +54,10 @@
             android:name=".LevelKanjiMultipleGuess"
             android:label="@string/title_activity_level_kanji_multiple_guess" >
         </activity>
+        <activity
+            android:name=".LevelKanji2"
+            android:label="@string/title_activity_level_kanji2" >
+        </activity>
     </application>
 
 </manifest>
