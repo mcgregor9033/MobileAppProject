@@ -67,6 +67,10 @@
             android:label="@string/title_activity_katakana_quiz" >
         </activity>
         <activity
+            android:name=".VocabActivity"
+            android:label="@string/title_activity_vocab" >
+        </activity>
+        <activity
             android:name=".VocabListSelectionActivity"
             android:label="@string/title_activity_vocab_list_selection" >
         </activity>

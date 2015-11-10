@@ -41,9 +41,13 @@ public class LevelKanji extends Activity {
             new Kanji("one","いち"), new Kanji("two","に"), new Kanji("three","さん"),
             new Kanji("four","し"), new Kanji("five","ご"),
             new Kanji("six","ろく"), new Kanji("seven","しち"), new Kanji("eight","はち"),
-            new Kanji("nine","きゅう"), new Kanji("ten","じゅう")/*,
-            new Kanji("",""), new Kanji("",""), new Kanji("",""),
-            new Kanji("",""), new Kanji("",""),
+            new Kanji("nine","きゅう"), new Kanji("ten","じゅう"),
+            new Kanji("yen","えん"), new Kanji("hundred","ひゃく"), new Kanji("thousand","せん"),
+            new Kanji("tenthousand","まん"), new Kanji("what","なに"),
+            new Kanji("sun","ひ"), new Kanji("moon","つき"), new Kanji("light","あか"),
+            new Kanji("temple","てら"), new Kanji("time","じ"),
+            new Kanji("fire","ひ"), new Kanji("water","みず"), new Kanji("tree","き"),
+            new Kanji("money","かね"), new Kanji("soil","つち")/*,
             new Kanji("",""), new Kanji("",""), new Kanji("",""),
             new Kanji("",""), new Kanji("","")*/
     };
@@ -63,13 +67,14 @@ public class LevelKanji extends Activity {
         mp = MediaPlayer.create(this, mpResource);
     }
 
-    private void checkAnswer (LevelKanji levelKanji, String userEnterAnswer){
+    private void checkAnswer (LevelKanji levelKanji, String userEnterAnswer, int myCurrentIndex){
         String answer = myKanjiSet[myCurrentIndex].getMyAnswer();
         int messageResId = 0;
 
         if(answer.equals(userEnterAnswer)) {
             messageResId = R.string.correct_toast;
             Intent intent = new Intent(levelKanji, LevelKanji2.class);
+            intent.putExtra("myCurrentIndex", myCurrentIndex);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             startActivity (intent);
         }
@@ -164,7 +169,7 @@ public class LevelKanji extends Activity {
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkAnswer(LevelKanji.this, enterText.getText().toString());
+                checkAnswer(LevelKanji.this, enterText.getText().toString(), myCurrentIndex);
             }
         });
 
