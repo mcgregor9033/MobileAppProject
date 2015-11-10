@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class LevelHiragana extends Activity {
     private static final String KEY_INDEX = "index";
 
@@ -28,6 +31,7 @@ public class LevelHiragana extends Activity {
     private ImageView img;
     private EditText enterText;
     private TextView hint;
+    private MediaPlayer mp;
 
     final Context context = this;
     private Button button;
@@ -49,10 +53,15 @@ public class LevelHiragana extends Activity {
 
     private void updateCharacter(){
         String character = myHiraganaSet[myCurrentIndex].getMyImgName();
+
         String uri = "@drawable/" + character;
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
         img.setImageDrawable(res);
+
+        String uri2 = "@raw/" + character;
+        int mpResource = getResources().getIdentifier(uri2, null, getPackageName());
+        mp = MediaPlayer.create(this, mpResource);
     }
 
     private void checkAnswer(LevelHiragana levelHiragana, String userEnterAnswer){
@@ -87,11 +96,18 @@ public class LevelHiragana extends Activity {
         img = (ImageView) findViewById(R.id.imageView);
         enterText = (EditText) findViewById(R.id.editText);
         hint = (TextView) findViewById(R.id.pic_hint);
+        mp = MediaPlayer.create(this, R.raw.a);
 
         audio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LevelHiragana.this,"Audio Button Clicked!", Toast.LENGTH_LONG).show();
+                try {
+                    if (mp.isPlaying()) {
+                        mp.stop();
+                        mp.release();
+                        updateCharacter();
+                    } mp.start();
+                } catch(Exception e) { e.printStackTrace(); }
             }
         });
 
@@ -142,7 +158,8 @@ public class LevelHiragana extends Activity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myCurrentIndex = (myCurrentIndex + 1) % myHiraganaSet.length;
+                Random rand = new Random();
+                myCurrentIndex = rand.nextInt(myHiraganaSet.length);
                 hint.setVisibility(View.INVISIBLE);
                 updateCharacter();
             }
