@@ -32,11 +32,18 @@ public class LevelKanji2 extends Activity {
         img.setImageDrawable(res);
 
         Random rand = new Random();
-        choice1.setText(myKanjiSet[]);
+        int tmp = rand.nextInt(myKanjiSet.length);
+        choice1.setText(myKanjiSet[tmp].getMyImgName());
+        tmp = rand.nextInt(myKanjiSet.length);
+        choice2.setText(myKanjiSet[tmp].getMyImgName());
+        tmp = rand.nextInt(myKanjiSet.length);
+        choice3.setText(character);
+        tmp = rand.nextInt(myKanjiSet.length);
+        choice4.setText(myKanjiSet[tmp].getMyImgName());
     }
 
     private void checkAnswer (LevelKanji2 levelKanji2, String userEnterAnswer){
-        String answer = myKanjiSet[myCurrentIndex].getMyAnswer();
+        String answer = myKanjiSet[myCurrentIndex].getMyImgName();
         int messageResId = 0;
 
         if(answer.equals(userEnterAnswer)) {
