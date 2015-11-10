@@ -52,6 +52,15 @@
         android:layout_centerHorizontal="true" />
 
     <Button
+        android:id="@+id/buttonAlert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Instructions"
+        android:gravity="top"
+        android:layout_marginBottom="20sp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
         android:id="@+id/btnCheck2"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
