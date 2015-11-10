@@ -18,8 +18,14 @@ public class LevelKanji2 extends Activity {
     private ImageView img;
 
     private Kanji [] myKanjiSet = new Kanji[] {
-            new Kanji("sea","うみ"), new Kanji("god","かみ"), new Kanji("moon","つき"),
-            new Kanji("dream","ゆめ"), new Kanji("sky","そら")
+            new Kanji("one","いち"), new Kanji("two","に"), new Kanji("three","さん"),
+            new Kanji("four","し"), new Kanji("five","ご"),
+            new Kanji("six","ろく"), new Kanji("seven","しち"), new Kanji("eight","はち"),
+            new Kanji("nine","きゅう"), new Kanji("ten","じゅう")/*,
+            new Kanji("",""), new Kanji("",""), new Kanji("",""),
+            new Kanji("",""), new Kanji("",""),
+            new Kanji("",""), new Kanji("",""), new Kanji("",""),
+            new Kanji("",""), new Kanji("","")*/
     };
 
     private int myCurrentIndex = 0;
