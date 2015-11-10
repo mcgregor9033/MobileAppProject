@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">MobileTest2</string>
-
     <string name="hello_world">ここわれヴぇるわんです</string>
     <string name="action_settings">Settings</string>
     <string name="correct_toast">Correct!</string>
@@ -24,9 +23,94 @@
     <string name="title_activity_transition_katakana">TransitionKatakana</string>
     <string name="question_for_quiz">Are you confident to challenge the Quiz?</string>
     <string name="title_activity_transition_kanji">TransitionKanji</string>
+    <string name="vocab_list_selection">Select\u0020Vocab\u0020Lists\u0020To\u0020Be\u0020Diplayed</string>
+    <string name="vocab_animals">Animals</string>
+    <string name="vocab_greetings">Greetings</string>
+
+    <string name="vocab_occupations">Occupations</string>
+    <string name="vocab_countries">Countries</string>
+    <string name="vocab_languages">Languages</string>
+    <string name="vocab_adjectives">Adjectives</string>
+    <string name="vocab_verbs">Verbs</string>
+    <string name="vocab_adverbs">Adverbs</string>
+    <string name="vocab_pronouns">Pronouns</string>
+    <string name="vocab_places">Places</string>
+    <string name="vocab_list">Vocab\u0020Lists</string>
+    <string name="generate_vocab_list_button">Get\u0020Vocab\u0020List</string>
+
 
     <string name="title_activity_vocab">VocabActivity</string>
-    <string-array name="Vocab">
+
+
+    <string-array name="AdjectivesVocab">
+        <item>short</item>
+        <item>tall</item>
+        <item>expensive</item>
+        <item>cheap</item>
+        <item>happy</item>
+        <item>long</item>
+    </string-array>
+    <string-array name="AdjectivesKanaDefinitions">
+        <item>みじかい</item>
+        <item>たかい</item>
+        <item>たかい</item>
+        <item>やすい</item>
+        <item>うれしい</item>
+        <item>ながい</item>
+    </string-array>
+    <string-array name="AdjectivesRomajiDefinitions">
+        <item>mijikai</item>
+        <item>takai</item>
+        <item>takai</item>
+        <item>yasui</item>
+        <item>ureshii</item>
+        <item>nagai</item>
+    </string-array>
+    <string-array name="AdjectivesKanjiDefinitions">
+        <item>短い</item>
+        <item>高い</item>
+        <item>高い</item>
+        <item>安い</item>
+        <item>嬉しい</item>
+        <item>長い</item>
+    </string-array>
+    <string-array name="AdverbsVocab">
+        <item>quickly</item>
+        <item>always</item>
+        <item>never</item>
+        <item>after</item>
+        <item>before</item>
+        <item>then</item>
+    </string-array>
+    <string-array name="AdverbsKanaDefinitions">
+        <item>すばやく</item>
+        <item>いつも</item>
+        <item>ぜったいに</item>
+        <item>あとで</item>
+        <item>まいに</item>
+        <item>そして</item>
+    </string-array>
+    <string-array name="AdverbsRomajiDefinitions">
+        <item>subayaku</item>
+        <item>itsumo</item>
+        <item>zettaini</item>
+        <item>atode</item>
+        <item>maeni</item>
+        <item>soshite</item>
+    </string-array>
+    <string-array name="AdverbsKanjiDefinitions">
+        <item>素早く</item>
+        <item>いつも</item>
+        <item>絶対に</item>
+        <item>後で</item>
+        <item>前に</item>
+        <item>そして</item>
+    </string-array>
+
+
+
+
+    <string-array name="AnimalsVocab">
         <item>dog</item>
         <item>cat</item>
         <item>bird</item>
@@ -35,10 +119,7 @@
         <item>horse</item>
         <item>gold fish</item>
         <item>giraffe</item>
-        <item>Insect</item>
-
-
-
+        <item>insect</item>
         <item>bee</item>
         <item>otter</item>
         <item>lizard</item>
@@ -49,7 +130,7 @@
         <item>crab</item>
         <item>eel</item>
     </string-array>
-    <string-array name="Definitions">
+    <string-array name="AnimalsKanaDefinitions">
         <item>いぬ</item>
         <item>ねこ</item>
         <item>とり</item>
@@ -69,10 +150,571 @@
         <item>かに</item>
         <item>うなぎ</item>
     </string-array>
-<!-- TODO: Remove or change this placeholder text -->
+    <string-array name="AnimalsRomajiDefinitions">
+        <item>inu</item>
+        <item>neko</item>
+        <item>tori</item>
+        <item>sakana</item>
+        <item>saru</item>
+        <item>uma</item>
+        <item>kingyo</item>
+        <item>kirin</item>
+        <item>mushi</item>
+        <item>hachi</item>
+        <item>kawauso</item>
+        <item>tokage</item>
+        <item>yamori</item>
+        <item>same</item>
+        <item>iruka</item>
+        <item>ebi</item>
+        <item>kani</item>
+        <item>unagi</item>
+    </string-array>
+    <string-array name="AnimalsKanjiDefinitions">
+        <item>犬</item>
+        <item>猫</item>
+        <item>鳥</item>
+        <item>魚</item>
+        <item>猿</item>
+        <item>馬</item>
+        <item>金魚</item>
+        <item>麒麟</item>
+        <item>虫</item>
+        <item>蜂</item>
+        <item>川獺</item>
+        <item>蜥蜴</item>
+        <item>守宮</item>
+        <item>鮫</item>
+        <item>蝦</item>
+        <item>海豚</item>
+        <item>蟹</item>
+        <item>鰻</item>
+    </string-array>
+
+
+    <string-array name="GreetingsVocab">
+        <item>Good Morning</item>
+        <item>Good Morning(Polite)</item>
+        <item>Good Afternoon</item>
+        <item>Good Evening</item>
+        <item>Goodnight</item>
+        <item>Goodbye</item>
+        <item>Thanks.</item>
+        <item>Thank you. (Polite)</item>
+        <item>Excuse me.\ I\'m sorry.</item>
+        <item>No. Not at all.</item>
+        <item>I\'ll go and return.</item>
+        <item>Please go and return.</item>
+        <item>I am home.</item>
+        <item>Welcome home.</item>
+        <item>Thank you for the meal.(before eating)</item>
+        <item>THank you for the meal. (after eating)</item>
+        <item>Nice to meet you.</item>
+    </string-array>
+    <string-array name="GreetingsKanaDefinitions">
+        <item>おはよう</item>
+        <item>おはようございます</item>
+        <item>こんにちは</item>
+        <item>こんばんは</item>
+        <item>おやすみなさい</item>
+        <item>さようなら</item>
+        <item>どうも</item>
+        <item>ありがとうございます</item>
+        <item>すみません</item>
+        <item>いいえ</item>
+        <item>いってきます</item>
+        <item>いってらしゃい</item>
+        <item>ただいま</item>
+        <item>おかえりなさい</item>
+        <item>いただきます</item>
+        <item>ごちそうさま</item>
+        <item>はじめまして</item>
+    </string-array>
+    <string-array name="GreetingsRomajiDefinitions">
+        <item>ohayou</item>
+        <item>ohayougozaimasu</item>
+        <item>konnichiwa</item>
+        <item>konbanwa</item>
+        <item>oyasuminasai</item>
+        <item>sayounara</item>
+        <item>doumo</item>
+        <item>arigatougozaimasu</item>
+        <item>sumimasen</item>
+        <item>iie</item>
+        <item>ittekimasu</item>
+        <item>itterashai</item>
+        <item>tadaima</item>
+        <item>okaerinasai</item>
+        <item>itadakimasu</item>
+        <item>gochisousama</item>
+        <item>hajimemashite</item>
+    </string-array>
+    <string-array name="GreetingsKanjiDefinitions">
+        <item>お早う</item>
+        <item>お早うございます</item>
+        <item>こんにちは</item>
+        <item>今晩は</item>
+        <item>お休みなさい</item>
+        <item>さようなら</item>
+        <item>どうも</item>
+        <item>ありがとうございます</item>
+        <item>すみません</item>
+        <item>いいえ</item>
+        <item>行ってきます</item>
+        <item>いってらしゃい</item>
+        <item>ただいま</item>
+        <item>お帰りなさい</item>
+        <item>いただきます</item>
+        <item>ご馳走様</item>
+        <item>初めまして</item>
+    </string-array>
+
+
+    <string-array name="CountriesVocab">
+        <item>Japan</item>
+        <item>China</item>
+        <item>Korea</item>
+        <item>America</item>
+        <item>England</item>
+        <item>Germany</item>
+    </string-array>
+    <string-array name="CountriesKanaDefinitions">
+        <item>にほん</item>
+        <item>ちゅごく</item>
+        <item>かんこく</item>
+        <item>アメリカ</item>
+        <item>イングランド</item>
+        <item>ドイツ</item>
+    </string-array>
+    <string-array name="CountriesRomajiDefinitions">
+        <item>nihon</item>
+        <item>chugoku</item>
+        <item>kankoku</item>
+        <item>amerika</item>
+        <item>ingurando</item>
+        <item>doitsu</item>
+    </string-array>
+    <string-array name="CountriesKanjiDefinitions">
+        <item>日本</item>
+        <item>中国</item>
+        <item>韓国</item>
+        <item>米国</item>
+        <item>英国</item>
+        <item>独国</item>
+    </string-array>
+    <string-array name="LanguagesVocab">
+        <item>Japanese</item>
+        <item>Korean</item>
+        <item>German</item>
+        <item>English</item>
+        <item>French</item>
+        <item>Italian</item>
+    </string-array>
+    <string-array name="LanguagesKanaDefinitions">
+        <item>にほんご</item>
+        <item>かんこくご</item>
+        <item>ドイツご</item>
+        <item>えいご</item>
+        <item>フランスご</item>
+        <item>イタリアご</item>
+    </string-array>
+    <string-array name="LanguagesRomajiDefinitions">
+        <item>nihongo</item>
+        <item>kangokugo</item>
+        <item>doitsugo</item>
+        <item>eigo</item>
+        <item>furansugo</item>
+        <item>itariago</item>
+    </string-array>
+    <string-array name="LanguagesKanjiDefinitions">
+        <item>日本語</item>
+        <item>韓国語</item>
+        <item>ドイツ語</item>
+        <item>英語</item>
+        <item>フランス語</item>
+        <item>イタリア語</item>
+    </string-array>
+
+    <string-array name="OccupationsVocab">
+        <item>Doctor</item>
+        <item>Barber</item>
+        <item>Office Worker</item>
+        <item>Lawyer</item>
+        <item>Teacher</item>
+        <item>Professor</item>
+    </string-array>
+    <string-array name="OccupationsKanaDefinitions">
+        <item>いしゃ</item>
+        <item>バーバー</item>
+        <item>じむいん</item>
+        <item>べんごし</item>
+        <item>きょうし</item>
+        <item>きょうじゅ</item>
+    </string-array>
+    <string-array name="OccupationsRomajiDefinitions">
+        <item>inu</item>
+        <item>neko</item>
+        <item>tori</item>
+        <item>sakana</item>
+        <item>saru</item>
+        <item>uma</item>
+    </string-array>
+    <string-array name="OccupationsKanjiDefinitions">
+        <item>医者</item>
+        <item>バーバー</item>
+        <item>事務員</item>
+        <item>弁護士</item>
+        <item>教師</item>
+        <item>教授</item>
+    </string-array>
+
+
+
+    <string-array name="PlacesVocab">
+        <item>building</item>
+        <item>building</item>
+        <item>Condominium / Apartment / Mansion</item>
+        <item>Place / Location</item>
+        <item>Airport</item>
+        <item>Airport</item>
+        <item>Harbour / Port</item>
+        <item>Post Office</item>
+        <item>Bank</item>
+        <item>Municipal Office / City Hall / Town Hall</item>
+        <item>Station (Train)</item>
+        <item>Hospital</item>
+        <item>Beauty Salon / Hair Salon</item>
+        <item>School</item>
+        <item>Primary School / Elementary School</item>
+        <item>Secondary School / Junior High School</item>
+        <item>Senior High School</item>
+        <item>University</item>
+        <item>Graduate School</item>
+        <item>Hostel / Dormitory</item>
+        <item>Dormitory / Boading House</item>
+        <item>Library</item>
+        <item>Aquarium</item>
+        <item>Movie Theater / Cinema</item>
+        <item>Museum</item>
+        <item>Art Museum</item>
+        <item>Gynasium</item>
+        <item>Memorial Hall</item>
+        <item>Embassy</item>
+        <item>Japanese Hotel / Inn</item>
+        <item>Hotel</item>
+        <item>Factory</item>
+        <item>Market Place / Bazaar</item>
+        <item>Meeting Place / Assembly Hall</item>
+        <item>Banquet Hall</item>
+        <item>Park / Garden (Public)</item>
+        <item>Garden / Yard (within the house)</item>
+        <item>Police Box</item>
+        <item>Shrine</item>
+        <item>Temple</item>
+        <item>Church</item>
+        <item>Nursery School</item>
+        <item>Kindergarten</item>
+        <item>Botanical Garden</item>
+        <item>Zoo</item>
+        <item>Neighborhood</item>
+        <item>Shop</item>
+        <item>Grocery Store</item>
+        <item>Florist</item>
+        <item>Pharmacy</item>
+        <item>Fish Dealer / Fishmonger</item>
+        <item>Butcher</item>
+        <item>Greengrocery / Fruit and Vegetable Store</item>
+        <item>Barbershop / Barber</item>
+        <item>Bakery</item>
+        <item>Bookstore / Bookshop</item>
+        <item>Stationery Shop</item>
+        <item>Pawnshop</item>
+        <item>Bar / Pub (Japanese-style)</item>
+        <item>Public Bath</item>
+        <item>Hot Spring</item>
+        <item>Open Air Bath</item>
+        <item>Apartment</item>
+        <item>Department Store</item>
+        <item>Restaurant</item>
+        <item>Disneyland</item>
+    </string-array>
+    <string-array name="PlacesKanaDefinitions">
+        <item>たてもの</item>
+        <item>ビル</item>
+        <item>マンション</item>
+        <item>ばしょ</item>
+        <item>くうこう</item>
+        <item>ひこうじょう</item>
+        <item>みなと</item>
+        <item>ゆうびんきょく</item>
+        <item>ぎんこう</item>
+        <item>しやくしょ</item>
+        <item>えき</item>
+        <item>びょういん</item>
+        <item>びよういん</item>
+        <item>がっこう</item>
+        <item>しょうがっこう</item>
+        <item>ちゅうがっこう</item>
+        <item>こうこう</item>
+        <item>だいがく</item>
+        <item>だいがくいん</item>
+        <item>りょう</item>
+        <item>きしゅくしゃ</item>
+        <item>きしゅくしゃ</item>
+        <item>すいぞくかん</item>
+        <item>えいがかん</item>
+        <item>はくぶつかん</item>
+        <item>びじゅつかん</item>
+        <item>たいいくかん</item>
+        <item>きねんかん</item>
+        <item>たいしかん</item>
+        <item>Jりょかん</item>
+        <item>ホテル</item>
+        <item>こうじょう</item>
+        <item>いちば</item>
+        <item>かいじょう</item>
+        <item>えんかいじょう</item>
+        <item>こうえん</item>
+        <item>にわ</item>
+        <item>こうばん</item>
+        <item>じんじゃ</item>
+        <item>てら</item>
+        <item>きょうかい</item>
+        <item>ほいくえん</item>
+        <item>ようちえん</item>
+        <item>ほいくえん</item>
+        <item>しょくぶつえん</item>
+        <item>どうぶつえん</item>
+        <item>きんじょ</item>
+        <item>みせ</item>
+        <item>しょくりょうひんてん</item>
+        <item>はなや</item>
+        <item>くすりや</item>
+        <item>さかなや</item>
+        <item>にくや</item>
+        <item>やおや</item>
+        <item>とこや</item>
+        <item>パンや</item>
+        <item>ほんや</item>
+        <item>ぶんぽうぐや</item>
+        <item>しちや</item>
+        <item>いざかや</item>
+        <item>ふろや</item>
+        <item>おんせん</item>
+        <item>ろてんぶろ</item>
+        <item>アパート</item>
+        <item>デパート</item>
+        <item>レストラン</item>
+        <item>ディズニーランド</item>
+    </string-array>
+    <string-array name="PlacesRomajiDefinitions">
+        <item>tatemono</item>
+        <item>biru</item>
+        <item>manshon</item>
+        <item>basho</item>
+        <item>kuukou</item>
+        <item>hikoujou</item>
+        <item>minato</item>
+        <item>yuubinkyoku</item>
+        <item>ginkou</item>
+        <item>shiyakusho</item>
+        <item>eki</item>
+        <item>byouin</item>
+        <item>biyouin</item>
+        <item>gakkou</item>
+        <item>shougakkou</item>
+        <item>chuugakkou</item>
+        <item>koukou</item>
+        <item>daigaku</item>
+        <item>daigakuin</item>
+        <item>ryou</item>
+        <item>kishukusha</item>
+        <item>suizokukan</item>
+        <item>eigakan</item>
+        <item>hakubutsukan</item>
+        <item>bijyutsukan</item>
+        <item>taiikukan</item>
+        <item>kinenkan</item>
+        <item>taishikan</item>
+        <item>ryokan</item>
+        <item>hoteru</item>
+        <item>goujyou</item>
+        <item>ichiba</item>
+        <item>kaijyou</item>
+        <item>enkaijyou</item>
+        <item>kouen</item>
+        <item>niwa</item>
+        <item>kouban</item>
+        <item>jinjya</item>
+        <item>tera</item>
+        <item>kyoukai</item>
+        <item>hoikuen</item>
+        <item>youchien</item>
+        <item>hoikuen</item>
+        <item>shoku butsu en</item>
+        <item>doubutsu en</item>
+        <item>kinjo</item>
+        <item>mise</item>
+        <item>shoku ryou hinten</item>
+        <item>hanaya</item>
+        <item>kusuriya</item>
+        <item>sakanaya</item>
+        <item>nikuya</item>
+        <item>yaoya</item>
+        <item>tokoya</item>
+        <item>panya</item>
+        <item>honya</item>
+        <item>bunpou gu ya</item>
+        <item>shichiya</item>
+        <item>izaka ya</item>
+        <item>furoya</item>
+        <item>onsen</item>
+        <item>rotenburo</item>
+        <item>apaato</item>
+        <item>depaato</item>
+        <item>resutoran</item>
+        <item>dizunii rando</item>
+    </string-array>
+    <string-array name="PlacesKanjiDefinitions">
+        <item>建物</item>
+        <item>ビル</item>
+        <item>マンション</item>
+        <item>場所</item>
+        <item>空港</item>
+        <item>飛行場</item>
+        <item>港</item>
+        <item>郵便局</item>
+        <item>銀行</item>
+        <item>市役所</item>
+        <item>駅</item>
+        <item>病院</item>
+        <item>美容院</item>
+        <item>学校</item>
+        <item>小学校</item>
+        <item>中学校</item>
+        <item>高校</item>
+        <item>大学	</item>
+        <item>大学院</item>
+        <item>寮</item>
+        <item>寄宿舎</item>
+        <item>図書館</item>
+        <item>水族館</item>
+        <item>映画館</item>
+        <item>博物館</item>
+        <item>美術館</item>
+        <item>体育館</item>
+        <item>記念館</item>
+        <item>大使館</item>
+        <item>旅館</item>
+        <item>ホテル</item>
+        <item>工場</item>
+        <item>市場</item>
+        <item>会場</item>
+        <item>宴会場</item>
+        <item>庭</item>
+        <item>にわ</item>
+        <item>交番</item>
+        <item>神社</item>
+        <item>寺</item>
+        <item>教会</item>
+        <item>保育園</item>
+        <item>幼稚園</item>
+        <item>植物園</item>
+        <item>動物園</item>
+        <item>近所</item>
+        <item>店</item>
+        <item>食料品店</item>
+        <item>花屋</item>
+        <item>薬屋</item>
+        <item>魚屋</item>
+        <item>肉屋</item>
+        <item>八百屋</item>
+        <item>床屋</item>
+        <item>パン屋</item>
+        <item>本屋</item>
+        <item>文法具屋</item>
+        <item>質屋</item>
+        <item>居酒屋</item>
+        <item>風呂屋</item>
+        <item>温泉</item>
+        <item>露天風呂</item>
+        <item>アパート</item>
+        <item>デパート</item>
+        <item>レストラン</item>
+        <item>ディズニーランド</item>
+    </string-array>
+    <string-array name="PronounsVocab">
+        <item>he</item>
+        <item>she</item>
+        <item>them</item>
+        <item>we</item>
+        <item>those</item>
+        <item>this</item>
+    </string-array>
+    <string-array name="PronounsKanaDefinitions">
+        <item>かれ</item>
+        <item>かのじょ</item>
+        <item>それら</item>
+        <item>わたしたち</item>
+        <item>これらの</item>
+        <item>この</item>
+    </string-array>
+    <string-array name="PronounsRomajiDefinitions">
+        <item>kare</item>
+        <item>kanojyo</item>
+        <item>sorera</item>
+        <item>watashitachi</item>
+        <item>korerano</item>
+        <item>kono</item>
+    </string-array>
+    <string-array name="PronounsKanjiDefinitions">
+        <item>かれ</item>
+        <item>かのじょ</item>
+        <item>それら</item>
+        <item>わたしたち</item>
+        <item>これらの</item>
+        <item>この</item>
+    </string-array>
+
+    <string-array name="VerbsVocab">
+        <item>to look/search for</item>
+        <item>to eat</item>
+        <item>to drink</item>
+        <item>to find</item>
+        <item>to walk</item>
+        <item>to go</item>
+    </string-array>
+    <string-array name="VerbsKanaDefinitions">
+        <item>さがす</item>
+        <item>たべる</item>
+        <item>のむ</item>
+        <item>みつける</item>
+        <item>あるく</item>
+        <item>いく</item>
+    </string-array>
+    <string-array name="VerbsRomajiDefinitions">
+        <item>sagasu</item>
+        <item>taberu</item>
+        <item>nomu</item>
+        <item>mitsukeru</item>
+        <item>aruku</item>
+        <item>iku</item>
+    </string-array>
+    <string-array name="VerbsKanjiDefinitions">
+        <item>探す</item>
+        <item>食べる</item>
+        <item>飲む</item>
+        <item>見つける</item>
+        <item>歩く</item>
+        <item>行く</item>
+    </string-array>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="title_activity_level_katakana_multiple_guess">LevelKatakanaMultipleGuess</string>
     <string name="title_activity_level_kanji_multiple_guess">LevelKanjiMultipleGuess</string>
+    <string name="title_activity_vocab_list_selection">VocabListSelectionActivity</string>
 
 </resources>
