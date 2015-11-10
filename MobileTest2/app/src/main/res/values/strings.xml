@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">MobileTest2</string>
-
     <string name="hello_world">ここわれヴぇるわんです</string>
     <string name="action_settings">Settings</string>
     <string name="correct_toast">Correct!</string>
@@ -22,11 +21,23 @@
     <string name="title_activity_level_katakana">LevelKatakana</string>
     <string name="title_activity_transition_hiragana">TransitionHiragana</string>
     <string name="title_activity_transition_katakana">TransitionKatakana</string>
+    <string name="title_activity_level_kanji2">Multiple choice</string>
     <string name="question_for_quiz">Are you confident to challenge the Quiz?</string>
     <string name="title_activity_transition_kanji">TransitionKanji</string>
-    <string name="title_activity_level_katakana_multiple_guess">LevelKatakanaMultipleGuess</string>
-    <string name="title_activity_level_kanji_multiple_guess">LevelKanjiMultipleGuess</string>
-    <string name="title_activity_level_kanji2">LevelKanji2</string>
+    <string name="vocab_list_selection">Select\u0020Vocab\u0020Lists\u0020To\u0020Be\u0020Diplayed</string>
+    <string name="vocab_animals">Animals</string>
+    <string name="vocab_greetings">Greetings</string>
+
+    <string name="vocab_occupations">Occupations</string>
+    <string name="vocab_countries">Countries</string>
+    <string name="vocab_languages">Languages</string>
+    <string name="vocab_adjectives">Adjectives</string>
+    <string name="vocab_verbs">Verbs</string>
+    <string name="vocab_adverbs">Adverbs</string>
+    <string name="vocab_pronouns">Pronouns</string>
+    <string name="vocab_places">Places</string>
+    <string name="vocab_list">Vocab\u0020Lists</string>
+    <string name="generate_vocab_list_button">Get\u0020Vocab\u0020List</string>
 
     <string name="choice1">choice1</string>
     <string name="choice2">choice2</string>
@@ -346,12 +357,12 @@
         <item>きょうじゅ</item>
     </string-array>
     <string-array name="OccupationsRomajiDefinitions">
-        <item>inu</item>
-        <item>neko</item>
-        <item>tori</item>
-        <item>sakana</item>
-        <item>saru</item>
-        <item>uma</item>
+        <item>isha</item>
+        <item>baabaa</item>
+        <item>jimuin</item>
+        <item>bengoshi</item>
+        <item>kyoushi</item>
+        <item>kyoujyu</item>
     </string-array>
     <string-array name="OccupationsKanjiDefinitions">
         <item>医者</item>
@@ -706,6 +717,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_activity_level_katakana_multiple_guess">LevelKatakanaMultipleGuess</string>
+    <string name="title_activity_level_kanji_multiple_guess">LevelKanjiMultipleGuess</string>
     <string name="title_activity_vocab_list_selection">VocabListSelectionActivity</string>
 
 </resources>
