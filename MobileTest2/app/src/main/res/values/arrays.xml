@@ -97,11 +97,32 @@
         <item>@drawable/yu1</item>
     </array>
     <array name="kanji">
-        <item>@drawable/dream</item>
-        <item>@drawable/god</item>
+        <item>@drawable/one</item>
+        <item>@drawable/two</item>
+        <item>@drawable/three</item>
+        <item>@drawable/four</item>
+        <item>@drawable/five</item>
+        <item>@drawable/six</item>
+        <item>@drawable/seven</item>
+        <item>@drawable/eight</item>
+        <item>@drawable/nine</item>
+        <item>@drawable/ten</item>
+        <item>@drawable/yen</item>
+        <item>@drawable/hundred</item>
+        <item>@drawable/thousand</item>
+        <item>@drawable/tenthousand</item>
+        <item>@drawable/what</item>
+        <item>@drawable/sun</item>
         <item>@drawable/moon</item>
-        <item>@drawable/sea</item>
-        <item>@drawable/sky</item>
+        <item>@drawable/light</item>
+        <item>@drawable/temple</item>
+        <item>@drawable/time</item>
+        <item>@drawable/fire</item>
+        <item>@drawable/water</item>
+        <item>@drawable/tree</item>
+        <item>@drawable/money</item>
+        <item>@drawable/soil</item>
+
     </array>
     <array name="names">
         <item>a</item>

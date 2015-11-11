@@ -55,8 +55,32 @@
             android:label="@string/title_activity_level_kanji_multiple_guess" >
         </activity>
         <activity
+            android:name=".HiraganaQuiz"
+            android:label="@string/title_activity_hiragana_quiz" >
+        </activity>
+        <activity
+            android:name=".ResultsActivity"
+            android:label="@string/title_activity_results" >
+        </activity>
+        <activity
+            android:name=".KatakanaQuiz"
+            android:label="@string/title_activity_katakana_quiz" >
+        </activity>
+        <activity
+            android:name=".VocabActivity"
+            android:label="@string/title_activity_vocab" >
+        </activity>
+        <activity
+            android:name=".VocabListSelectionActivity"
+            android:label="@string/title_activity_vocab_list_selection" >
+        </activity>
+        <activity
             android:name=".LevelKanji2"
             android:label="@string/title_activity_level_kanji2" >
+        </activity>
+        <activity
+            android:name=".VocabActivity"
+            android:label="@string/title_activity_vocab" >
         </activity>
     </application>
 
