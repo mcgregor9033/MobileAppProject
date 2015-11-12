@@ -21,6 +21,7 @@
     <string name="title_activity_level_katakana">LevelKatakana</string>
     <string name="title_activity_transition_hiragana">TransitionHiragana</string>
     <string name="title_activity_transition_katakana">TransitionKatakana</string>
+    <string name="title_activity_level_kanji2">Multiple choice</string>
     <string name="question_for_quiz">Are you confident to challenge the Quiz?</string>
     <string name="title_activity_transition_kanji">TransitionKanji</string>
     <string name="vocab_list_selection">Select\u0020Vocab\u0020Lists\u0020To\u0020Be\u0020Diplayed</string>
@@ -38,6 +39,10 @@
     <string name="vocab_list">Vocab\u0020Lists</string>
     <string name="generate_vocab_list_button">Get\u0020Vocab\u0020List</string>
 
+    <string name="choice1">choice1</string>
+    <string name="choice2">choice2</string>
+    <string name="choice3">choice3</string>
+    <string name="choice4">choice4</string>
 
     <string name="title_activity_vocab">VocabActivity</string>
 
@@ -721,5 +726,5 @@
     <string name="title_activity_katakana_quiz">KatakanaQuiz</string>
     <string name="title_activity_vocab_list_selection">VocabListSelectionActivity</string>
 
-
 </resources>
+
