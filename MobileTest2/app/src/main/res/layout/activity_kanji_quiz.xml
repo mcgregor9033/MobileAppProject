@@ -1,0 +1,138 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#2E2E2E"
+    tools:context="edu.uco.termproject.mobiletest2.LevelOne">
+
+
+    <TextView
+        android:text="@string/hello_world"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/problem_number"
+        android:layout_marginBottom="10sp" />
+
+    <Button
+        android:id="@+id/buttonAlert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Instructions"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/problem_number"
+        android:layout_marginBottom="20sp"
+        android:layout_marginLeft="40sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/word"
+        android:text="null"
+        android:textSize="150sp"
+        android:layout_below="@+id/buttonAlert"
+        android:gravity="center"
+        android:layout_marginBottom="40sp" />
+
+    <GridLayout
+        tools:context=".LevelOneQuiz"
+        android:id="@+id/options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:rowCount="3"
+        android:layout_below="@+id/word"
+        android:layout_centerHorizontal="true">
+
+        <ImageButton
+            android:id="@+id/buttonUR"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:layout_marginRight="30sp"
+            android:layout_marginBottom="30sp"
+            android:soundEffectsEnabled="true"
+            android:scaleType="centerInside" />
+
+        <ImageButton
+            android:id="@+id/buttonUC"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:soundEffectsEnabled="true"
+            android:scaleType="centerInside" />
+
+        <ImageButton
+            android:id="@+id/buttonUL"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:soundEffectsEnabled="true"
+            android:scaleType="centerInside" />
+
+        <ImageButton
+            android:id="@+id/buttonCL"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:soundEffectsEnabled="true"
+            android:scaleType="centerInside" />
+
+        <ImageButton
+            android:id="@+id/buttonCC"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:layout_marginRight="30sp"
+            android:layout_marginBottom="30sp"
+            android:soundEffectsEnabled="true"
+            android:scaleType="centerInside" />
+
+        <ImageButton
+            android:id="@+id/buttonCR"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:layout_marginRight="30sp"
+            android:layout_marginBottom="30sp"
+            android:soundEffectsEnabled="true"
+            android:scaleType="centerInside" />
+
+        <ImageButton
+            android:id="@+id/buttonBL"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:layout_marginRight="30sp"
+            android:layout_marginBottom="30sp"
+            android:soundEffectsEnabled="true"
+            android:scaleType="centerInside" />
+
+        <ImageButton
+            android:id="@+id/buttonBC"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:layout_marginRight="30sp"
+            android:layout_marginBottom="30sp"
+            android:soundEffectsEnabled="true"
+            android:scaleType="centerInside" />
+
+        <ImageButton
+            android:id="@+id/buttonBR"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:layout_marginRight="30sp"
+            android:layout_marginBottom="30sp"
+            android:soundEffectsEnabled="true"
+            android:scaleType="centerInside" />
+    </GridLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/feedback"
+        android:text="Correct!! Click to next"
+        android:visibility="invisible"
+        android:layout_below="@id/options"
+        android:clickable="false"
+        android:layout_marginTop="40sp"
+        android:textSize="40sp"/>
+
+</RelativeLayout>
+

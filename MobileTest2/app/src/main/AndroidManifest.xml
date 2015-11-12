@@ -79,8 +79,8 @@
             android:label="@string/title_activity_level_kanji2" >
         </activity>
         <activity
-            android:name=".VocabActivity"
-            android:label="@string/title_activity_vocab" >
+            android:name=".KanjiQuiz"
+            android:label="@string/title_activity_kanji_quiz" >
         </activity>
     </application>
 
