@@ -1,8 +1,12 @@
 package edu.uco.termproject.mobiletest2;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -27,6 +31,8 @@ public class LevelKanjiMultipleGuess extends Activity {
     Switch help;
     Button next;
 
+    final Context context = this;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,7 @@ public class LevelKanjiMultipleGuess extends Activity {
         box11 = (ImageButton) findViewById(R.id.button11);
         help = (Switch) findViewById(R.id.help);
         next = (Button) findViewById(R.id.feedback);
+        button = (Button) findViewById(R.id.buttonAlert);
 
         Resources res = getResources();
         TypedArray pictures = res.obtainTypedArray(R.array.kanji);
@@ -151,12 +158,12 @@ public class LevelKanjiMultipleGuess extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 //switch true
-                if(isChecked) {
+                if (isChecked) {
                     rand = new Random();
 
                     //get wrong answer
                     int temp = reference;
-                    while (temp == reference ) {
+                    while (temp == reference) {
                         temp = rand.nextInt((3 - min) + 1) + min;
 
                         //validate
@@ -201,10 +208,45 @@ public class LevelKanjiMultipleGuess extends Activity {
 
                     // reset switch
                     help.setChecked(false);
-                }
-                else {
+                } else {
                     Toast.makeText(LevelKanjiMultipleGuess.this, "no help!", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        // add button listener
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                        context);
+
+                // set title
+                alertDialogBuilder.setTitle("Confused?? Here's what to do");
+
+                // set dialog message
+                alertDialogBuilder.setMessage("Click the button below that matches the correct Kanji symbol.").setCancelable(false)
+                        .setNegativeButton("Let's Go!!!", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // if this button is clicked, just close
+                                // the dialog box and do nothing
+                                dialog.cancel();
+                            }
+                        });
+
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
+
+                TextView textView = (TextView) alertDialog.findViewById(android.R.id.message);
+                textView.setTextSize(32);
+                Button btn1 = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+                btn1.setTextSize(40);
+                btn1.setTextColor(Color.YELLOW);
             }
         });
     }
@@ -212,7 +254,7 @@ public class LevelKanjiMultipleGuess extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_level_hiragana_quiz, menu);
+        getMenuInflater().inflate(R.menu.menu_level_kanji_quiz, menu);
         return true;
     }
 

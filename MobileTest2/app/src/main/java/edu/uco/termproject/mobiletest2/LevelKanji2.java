@@ -21,14 +21,18 @@ public class LevelKanji2 extends Activity {
             new Kanji("one","いち"), new Kanji("two","に"), new Kanji("three","さん"),
             new Kanji("four","し"), new Kanji("five","ご"),
             new Kanji("six","ろく"), new Kanji("seven","しち"), new Kanji("eight","はち"),
-            new Kanji("nine","きゅう"), new Kanji("ten","じゅう")/*,
-            new Kanji("",""), new Kanji("",""), new Kanji("",""),
-            new Kanji("",""), new Kanji("",""),
+            new Kanji("nine","きゅう"), new Kanji("ten","じゅう"),
+            new Kanji("yen","えん"), new Kanji("hundred","ひゃく"), new Kanji("thousand","せん"),
+            new Kanji("tenthousand","まん"), new Kanji("what","なに"),
+            new Kanji("sun","ひ"), new Kanji("moon","つき"), new Kanji("light","あか"),
+            new Kanji("temple","てら"), new Kanji("time","じ"),
+            new Kanji("fire","ひ"), new Kanji("water","みず"), new Kanji("tree","き"),
+            new Kanji("money","かね"), new Kanji("soil","つち")/*,
             new Kanji("",""), new Kanji("",""), new Kanji("",""),
             new Kanji("",""), new Kanji("","")*/
     };
 
-    private int myCurrentIndex = 0;
+    private int myCurrentIndex;
 
     private void updateCharacter(){
         String character = myKanjiSet[myCurrentIndex].getMyImgName();
@@ -73,6 +77,9 @@ public class LevelKanji2 extends Activity {
         choice3 = (Button) findViewById(R.id.btnChoice3);
         choice4 = (Button) findViewById(R.id.btnChoice4);
         img = (ImageView) findViewById(R.id.imageView4);
+
+        Intent intent = getIntent();
+        myCurrentIndex = intent.getIntExtra("myCurrentIndex", 0);
 
         choice1.setOnClickListener(new View.OnClickListener() {
             @Override
