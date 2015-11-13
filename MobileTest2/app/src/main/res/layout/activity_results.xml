@@ -111,4 +111,12 @@
         android:textSize="60sp"
         android:gravity="top"
         android:id="@+id/num_score"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/okay"
+        android:layout_alignParentBottom="true"
+        android:text="Okay"
+        android:textSize="40sp"/>
 </RelativeLayout>
