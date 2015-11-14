@@ -30,10 +30,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/word"
         android:text="null"
-        android:textSize="150sp"
+        android:textSize="@dimen/quiz_word"
         android:layout_below="@+id/buttonAlert"
         android:gravity="center"
-        android:layout_marginBottom="40sp" />
+        android:layout_marginTop="@dimen/quiz_word_top_margin"
+        android:layout_marginBottom="@dimen/word_margin" />
 
     <GridLayout
         tools:context=".LevelOneQuiz"
@@ -47,31 +48,31 @@
 
         <ImageButton
             android:id="@+id/button00"
-            android:layout_width="100sp"
-            android:layout_height="100sp"
-            android:layout_marginRight="30sp"
-            android:layout_marginBottom="30sp"
+            android:layout_width="@dimen/quiz_button"
+            android:layout_height="@dimen/quiz_button"
+            android:layout_marginRight="@dimen/button_margin"
+            android:layout_marginBottom="@dimen/button_margin"
             android:soundEffectsEnabled="true"
             android:scaleType="centerInside" />
 
         <ImageButton
             android:id="@+id/button01"
-            android:layout_width="100sp"
-            android:layout_height="100sp"
+            android:layout_width="@dimen/quiz_button"
+            android:layout_height="@dimen/quiz_button"
             android:soundEffectsEnabled="true"
             android:scaleType="centerInside" />
 
         <ImageButton
             android:id="@+id/button10"
-            android:layout_width="100sp"
-            android:layout_height="100sp"
+            android:layout_width="@dimen/quiz_button"
+            android:layout_height="@dimen/quiz_button"
             android:soundEffectsEnabled="true"
             android:scaleType="centerInside" />
 
         <ImageButton
             android:id="@+id/button11"
-            android:layout_width="100sp"
-            android:layout_height="100sp"
+            android:layout_width="@dimen/quiz_button"
+            android:layout_height="@dimen/quiz_button"
             android:soundEffectsEnabled="true"
             android:scaleType="centerInside" />
     </GridLayout>
@@ -84,7 +85,6 @@
         android:visibility="invisible"
         android:layout_below="@id/options"
         android:clickable="false"
-        android:layout_marginTop="40sp"
-        android:textSize="40sp"/>
-
+        android:layout_marginTop="@dimen/next_button_margin"
+        android:textSize="@dimen/next_font_size"/>
 </RelativeLayout>
