@@ -78,10 +78,6 @@
             android:name=".LevelKanji2"
             android:label="@string/title_activity_level_kanji2" >
         </activity>
-        <activity
-            android:name=".VocabActivity"
-            android:label="@string/title_activity_vocab" >
-        </activity>
     </application>
 
 </manifest>
