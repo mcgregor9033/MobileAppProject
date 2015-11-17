@@ -10,81 +10,99 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/vocab_list_selection"
         android:id="@+id/vocab_list_selection"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/list_item_font"
+        android:layout_margin="@dimen/word_margin"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/holo_orange_light"
+        android:layout_below="@id/results"
+        android:id="@+id/line"/>
 
     <RadioGroup
         android:id="@+id/vocab_lists_radio_button_group"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:textColor="#3a39ff">
+        android:textColor="#3a39ff"
+        android:layout_marginTop="@dimen/word_margin">
 
         <RadioButton
             android:id="@+id/adjectives_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vocab_adjectives"
-            android:textColor="#f0ff08"/>
+            android:textColor="#f0ff08"
+            android:textSize="@dimen/list_item_font"
+            />
 
         <RadioButton
             android:id="@+id/adverb_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vocab_adverbs"
-            android:textColor="#f0ff08"/>
+            android:textColor="#f0ff08"
+            android:textSize="@dimen/list_item_font"/>
         <RadioButton
             android:id="@+id/animals_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vocab_animals"
-            android:textColor="#f0ff08"/>
+            android:textColor="#f0ff08"
+            android:textSize="@dimen/list_item_font"/>
 
         <RadioButton
             android:id="@+id/countries_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vocab_countries"
-            android:textColor="#f0ff08"/>
+            android:textColor="#f0ff08"
+            android:textSize="@dimen/list_item_font"/>
 
         <RadioButton
             android:id="@+id/greetings_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vocab_greetings"
-            android:textColor="#f0ff08"/>
+            android:textColor="#f0ff08"
+            android:textSize="@dimen/list_item_font"/>
         <RadioButton
             android:id="@+id/languages_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vocab_languages"
-            android:textColor="#f0ff08"/>
-
-
+            android:textColor="#f0ff08"
+            android:textSize="@dimen/list_item_font"/>
         <RadioButton
             android:id="@+id/occupations_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vocab_occupations"
-            android:textColor="#f0ff08"/>
+            android:textColor="#f0ff08"
+            android:textSize="@dimen/list_item_font"/>
         <RadioButton
             android:id="@+id/places_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vocab_places"
-            android:textColor="#f0ff08"/>
+            android:textColor="#f0ff08"
+            android:textSize="@dimen/list_item_font"/>
         <RadioButton
             android:id="@+id/pronouns_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vocab_pronouns"
-            android:textColor="#f0ff08"/>
+            android:textColor="#f0ff08"
+            android:textSize="@dimen/list_item_font"/>
         <RadioButton
             android:id="@+id/verbs_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vocab_verbs"
-            android:textColor="#f0ff08"/>
+            android:textColor="#f0ff08"
+            android:textSize="@dimen/list_item_font"/>
 
     </RadioGroup>
 
@@ -93,7 +111,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/generate_vocab_list_button"
-        android:id="@+id/getListButton" />
+        android:id="@+id/getListButton"
+        android:layout_marginTop="@dimen/word_margin"
+        android:textSize="@dimen/restults_title_text_font"
+        android:layout_gravity="center_horizontal"/>
 
 
 </LinearLayout>

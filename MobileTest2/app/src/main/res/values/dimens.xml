@@ -19,4 +19,5 @@
     <dimen name="results_data_text_size">60sp</dimen>
     <dimen name="restults_title_text_font">40sp</dimen>
     <dimen name="results_data_underline_margin">30sp</dimen>
+    <dimen name="list_item_font">24sp</dimen>
 </resources>
