@@ -44,6 +44,8 @@
     <string name="choice3">choice3</string>
     <string name="choice4">choice4</string>
 
+    <string name="quit_button">Want\u0020to\u0020Quit?</string>
+    <string name="play_again_button">Play\u0020Again?</string>
     <string name="title_activity_vocab">VocabActivity</string>
     <string name="check_guess">Check\u0020Guess</string>
 

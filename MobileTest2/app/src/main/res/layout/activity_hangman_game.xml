@@ -34,16 +34,18 @@
             android:id="@+id/word_to_be_guessed_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:gravity="left" />
 
 
         <EditText
             android:id="@+id/player_input_edit_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="text"
+
             android:maxLength="1"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:inputType="textNoSuggestions" />
 
         <Button
             android:id="@+id/check_guess_button"
@@ -51,6 +53,35 @@
             android:layout_height="wrap_content"
             android:text="@string/check_guess"
             android:layout_gravity="center_horizontal"/>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/play_again_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/play_again_button"
+                android:visibility="invisible"
+                android:layout_gravity="center_horizontal"
+                android:gravity="bottom" />
+            <Button
+                android:id="@+id/quit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/quit_button"
+                android:visibility="invisible"
+                android:layout_gravity="center_horizontal"
+                android:gravity="right" />
+
+
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
 
