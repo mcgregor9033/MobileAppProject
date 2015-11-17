@@ -43,6 +43,7 @@ public class HangmanGame extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_hangman_game);
         this.choiceChecked = false;
         wTBGTextView = (TextView) findViewById(R.id.word_to_be_guessed_text_view);
