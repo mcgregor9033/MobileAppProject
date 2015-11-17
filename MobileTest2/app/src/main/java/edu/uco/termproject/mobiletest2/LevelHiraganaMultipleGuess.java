@@ -38,6 +38,7 @@ public class LevelHiraganaMultipleGuess extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_level_hiragana_quiz);
 
         question = (TextView) findViewById(R.id.word);
@@ -271,7 +272,15 @@ public class LevelHiraganaMultipleGuess extends Activity {
                 Toast.makeText(LevelHiraganaMultipleGuess.this, R.string.guess_count, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.themes:
-                Toast.makeText(LevelHiraganaMultipleGuess.this, R.string.theme, Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.origin:
+                ThemeUtils.changeToTheme(this, ThemeUtils.ORIGIN);
+                return true;
+            case R.id.blue:
+                ThemeUtils.changeToTheme(this, ThemeUtils.BLUE);
+                return true;
+            case R.id.yellow:
+                ThemeUtils.changeToTheme(this, ThemeUtils.YELLOW);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

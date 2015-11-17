@@ -37,6 +37,7 @@ public class LevelKanjiMultipleGuess extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_level_kanji_multiple_guess);
 
         question = (TextView) findViewById(R.id.word);
@@ -270,7 +271,15 @@ public class LevelKanjiMultipleGuess extends Activity {
                 Toast.makeText(LevelKanjiMultipleGuess.this, R.string.guess_count, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.themes:
-                Toast.makeText(LevelKanjiMultipleGuess.this, R.string.theme, Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.origin:
+                ThemeUtils.changeToTheme(this, ThemeUtils.ORIGIN);
+                return true;
+            case R.id.blue:
+                ThemeUtils.changeToTheme(this, ThemeUtils.BLUE);
+                return true;
+            case R.id.yellow:
+                ThemeUtils.changeToTheme(this, ThemeUtils.YELLOW);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -36,7 +36,7 @@ public class LevelHiragana extends Activity {
     final Context context = this;
     private Button button;
 
-    private Hiragana [] myHiraganaSet = new Hiragana[] {
+    private Hiragana[] myHiraganaSet = new Hiragana[]{
             new Hiragana("a"), new Hiragana("i"), new Hiragana("u"), new Hiragana("e"), new Hiragana("o"),
             new Hiragana("ka"), new Hiragana("ki"), new Hiragana("ku"), new Hiragana("ke"), new Hiragana("ko"),
             new Hiragana("sa"), new Hiragana("shi"), new Hiragana("su"), new Hiragana("se"), new Hiragana("so"),
@@ -51,7 +51,7 @@ public class LevelHiragana extends Activity {
 
     private int myCurrentIndex = 0;
 
-    private void updateCharacter(){
+    private void updateCharacter() {
         String character = myHiraganaSet[myCurrentIndex].getMyImgName();
 
         String uri = "@drawable/" + character;
@@ -64,20 +64,17 @@ public class LevelHiragana extends Activity {
         mp = MediaPlayer.create(this, mpResource);
     }
 
-    private void checkAnswer(LevelHiragana levelHiragana, String userEnterAnswer){
+    private void checkAnswer(LevelHiragana levelHiragana, String userEnterAnswer) {
         String answer = myHiraganaSet[myCurrentIndex].getMyAnswer();
 
         int messageResId = 0;
 
-        if(answer.equals(userEnterAnswer)) {
+        if (answer.equals(userEnterAnswer)) {
             messageResId = R.string.correct_toast;
             Intent intent = new Intent(levelHiragana, LevelHiraganaMultipleGuess.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
-            startActivity (intent);
-        }
-
-
-        else
+            startActivity(intent);
+        } else
             messageResId = R.string.incorrect_toast;
 
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
@@ -86,6 +83,7 @@ public class LevelHiragana extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_level_hiragana);
 
         audio = (ImageButton) findViewById(R.id.btnAudio);
@@ -106,8 +104,11 @@ public class LevelHiragana extends Activity {
                         mp.stop();
                         mp.release();
                         updateCharacter();
-                    } mp.start();
-                } catch(Exception e) { e.printStackTrace(); }
+                    }
+                    mp.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -198,7 +199,15 @@ public class LevelHiragana extends Activity {
                 Toast.makeText(LevelHiragana.this, R.string.guess_count, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.themes:
-                Toast.makeText(LevelHiragana.this, R.string.theme, Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.origin:
+                ThemeUtils.changeToTheme(this, ThemeUtils.ORIGIN);
+                return true;
+            case R.id.blue:
+                ThemeUtils.changeToTheme(this, ThemeUtils.BLUE);
+                return true;
+            case R.id.yellow:
+                ThemeUtils.changeToTheme(this, ThemeUtils.YELLOW);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -17,7 +17,9 @@ public class HangmanGame extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        ThemeUtils.onActivityCreateSetTheme(this);
         getMenuInflater().inflate(R.menu.menu_hangman_game, menu);
+
         return true;
     }
 
@@ -33,7 +35,15 @@ public class HangmanGame extends Activity {
                 Toast.makeText(HangmanGame.this, R.string.guess_count, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.themes:
-                Toast.makeText(HangmanGame.this, R.string.theme, Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.origin:
+                ThemeUtils.changeToTheme(this, ThemeUtils.ORIGIN);
+                return true;
+            case R.id.blue:
+                ThemeUtils.changeToTheme(this, ThemeUtils.BLUE);
+                return true;
+            case R.id.yellow:
+                ThemeUtils.changeToTheme(this, ThemeUtils.YELLOW);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

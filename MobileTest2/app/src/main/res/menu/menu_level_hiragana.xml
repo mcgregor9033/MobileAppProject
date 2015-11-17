@@ -6,8 +6,24 @@
         <menu>
             <item android:id="@+id/guess_count"
                 android:title="@string/guess_count" />
-            <item android:id="@+id/themes"
-                android:title="@string/theme" />
+            <item
+                android:id="@+id/themes"
+                android:title="@string/theme">
+                <!--"theme" submenu-->
+                <menu>
+                    <item
+                        android:id="@+id/origin"
+                        android:title="@string/origin" />
+
+                    <item
+                        android:id="@+id/blue"
+                        android:title="@string/blue" />
+
+                    <item
+                        android:id="@+id/yellow"
+                        android:title="@string/yellow" />
+                </menu>
+            </item>
         </menu>
     </item>
 </menu>

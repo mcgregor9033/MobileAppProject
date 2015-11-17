@@ -1,8 +1,54 @@
 <resources>
+    <style name="AppTheme" parent="@android:style/Theme.Holo" />
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="@android:style/Theme.Holo">
-        <!-- Customize your theme here. -->
+    <!-- =============================================================== -->
+    <!-- Black styles -->
+    <!-- =============================================================== -->
+
+    <style name="BlackTheme" parent="@android:style/Theme.Holo">
+        <item name="android:windowBackground">@drawable/bg_black</item>
+        <item name="android:tileMode">disabled</item>
+        <item name="android:textColor">#E6E6E6</item>
+        <item name="android:button">@style/button_black</item>
+    </style>
+
+    <style name="button_black">
+        <item name="android:background">#2E2E2E</item>
+        <item name="android:textColor">#E6E6E6</item>
+        <item name="android:typeface">sans</item>
+    </style>
+
+    <!-- =============================================================== -->
+    <!-- Blue styles -->
+    <!-- =============================================================== -->
+
+    <style name="BlueTheme" parent="@android:style/Theme.Holo">
+        <item name="android:windowBackground">@drawable/bg_blue</item>
+        <item name="android:tileMode">disabled</item>
+        <item name="android:textColor">#58ACFA</item>
+        <item name="android:button">@style/button_blue</item>
+    </style>
+
+    <style name="button_blue">
+        <item name="android:background">#151515</item>
+        <item name="android:textColor">#58ACFA</item>
+        <item name="android:typeface">serif</item>
+    </style>
+
+    <!-- =============================================================== -->
+    <!-- Yellow styles -->
+    <!-- =============================================================== -->
+
+    <style name="YellowTheme" parent="@android:style/Theme.Holo">
+        <item name="android:windowBackground">@drawable/bg_yellow</item>
+        <item name="android:tileMode">disabled</item>
+        <item name="android:textColor">#F7D358</item>
+        <item name="android:button">@style/button_yellow</item>
+    </style>
+    <style name="button_yellow">
+        <item name="android:background">#8A4B08</item>
+        <item name="android:textColor">#F7D358</item>
+        <item name="android:typeface">monospace</item>
     </style>
 
 </resources>
