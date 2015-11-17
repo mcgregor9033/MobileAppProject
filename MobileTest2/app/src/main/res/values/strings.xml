@@ -40,7 +40,7 @@
 
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect!</string>
-    <string name="quiz_count_default">1 of 20</string>
+    <string name="quiz_count_default">1 of 5</string>
 
     <string name="choice1">choice1</string>
     <string name="choice2">choice2</string>
@@ -62,5 +62,8 @@
     <string name="vocab_list">Vocab\u0020Lists</string>
     <string name="generate_vocab_list_button">Get\u0020Vocab\u0020List</string>
 
+    <string name="quit_button">Want\u0020to\u0020Quit?</string>
+    <string name="play_again_button">Play\u0020Again?</string>
+    <string name="check_guess">Check\u0020Guess</string>
 </resources>
 

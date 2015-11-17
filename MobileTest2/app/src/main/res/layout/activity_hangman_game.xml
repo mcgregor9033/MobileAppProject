@@ -1,13 +1,88 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="edu.uco.termproject.mobiletest2.HangmanGame">
 
-    <TextView android:text="@string/title_activity_level_hangman_game"
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/title_activity_level_hangman_game"
+        tools:context=".MainActivity" />
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/title_screen"
+            android:layout_width="380dp"
+            android:layout_height="366dp"
+            android:layout_centerInParent="true"
+            android:cropToPadding="false"
+            android:scaleType="fitCenter"
+            android:src="@drawable/hang" />
+
+        <TextView
+            android:id="@+id/word_to_be_guessed_text_view_debugging"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/word_to_be_guessed_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="left" />
+
+        <EditText
+            android:id="@+id/player_input_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_horizontal"
+            android:inputType="textNoSuggestions"
+            android:maxLength="1" />
+
+        <Button
+            android:id="@+id/check_guess_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/check_guess" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/play_again_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="bottom"
+                android:text="@string/play_again_button"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/quit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="right"
+                android:text="@string/quit_button"
+                android:visibility="invisible" />
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

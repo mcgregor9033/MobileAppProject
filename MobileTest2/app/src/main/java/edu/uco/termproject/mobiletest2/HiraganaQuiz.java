@@ -5,9 +5,11 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -75,7 +77,7 @@ public class HiraganaQuiz extends Activity {
             number.setText(R.string.quiz_count_default);
         } else {
             number.setTextSize(40);
-            number.setText((answers.size() + 1) + " of 20");
+            number.setText((answers.size() + 1) + " of 5");
         }
 
         rand = new Random();
@@ -294,16 +296,36 @@ public class HiraganaQuiz extends Activity {
         });
     }
 
+    public static void setDefaults(String key, boolean value, Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(key, value);
+        editor.commit();
+    }
+
     public void setPass() {
         answers.add("correct");
         answersReference.add(Integer.toString(ansNum));
-        if (answers.size() < 20) {
+        if (answers.size() < 5) {
             Intent intent = new Intent(HiraganaQuiz.this, HiraganaQuiz.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
             startActivity(intent);
-        } else {
+        }
+        else {
+
+            int count = 0;
+            for (int i = 0; i < answers.size(); i++) {
+                if (answers.get(i).toString().equals("correct"))
+                    count++;
+            }
+
+            SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+            if (count > 3) {
+                setDefaults("hiraUnlock", true, getApplicationContext());
+            }
+
             Intent intent = new Intent(HiraganaQuiz.this, ResultsActivity.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
@@ -315,13 +337,24 @@ public class HiraganaQuiz extends Activity {
     public void setFail() {
         answers.add("incorrect");
         answersReference.add(Integer.toString(ansNum));
-        if (answers.size() < 20) {
+        if (answers.size() < 5) {
             Intent intent = new Intent(HiraganaQuiz.this, HiraganaQuiz.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
             startActivity(intent);
         } else {
+            int count = 0;
+            for (int i = 0; i < answers.size(); i++) {
+                if (answers.get(i).toString().equals("correct"))
+                    count++;
+            }
+
+            SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+            if (count > 3) {
+                setDefaults("hiraUnlock", true, getApplicationContext());
+            }
+
             Intent intent = new Intent(HiraganaQuiz.this, ResultsActivity.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);

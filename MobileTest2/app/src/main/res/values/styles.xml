@@ -53,6 +53,12 @@
         <item name="android:buttonBarStyle">@style/buttonbar_black</item>
     </style>
 
+    <style name="radio_black" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:background">@color/black_dark</item>
+        <item name="android:textSize">15pt</item>
+    </style>
+
     <!-- =============================================================== -->
     <!-- Blue styles -->
     <!-- =============================================================== -->
@@ -90,6 +96,12 @@
         <item name="android:buttonBarStyle">@style/buttonbar_blue</item>
     </style>
 
+    <style name="radio_blue" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/blue_light</item>
+        <item name="android:background">@color/blue_dark</item>
+        <item name="android:textSize">15pt</item>
+    </style>
+
     <!-- =============================================================== -->
     <!-- Yellow styles -->
     <!-- =============================================================== -->
@@ -125,6 +137,12 @@
         <item name="android:textColor">@color/yellow_light</item>
         <item name="android:borderlessButtonStyle">@style/button_yellow</item>
         <item name="android:buttonBarStyle">@style/buttonbar_yellow</item>
+    </style>
+
+    <style name="radio_yellow" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/yellow_light</item>
+        <item name="android:background">@color/yellow_dark</item>
+        <item name="android:textSize">15pt</item>
     </style>
 
 </resources>

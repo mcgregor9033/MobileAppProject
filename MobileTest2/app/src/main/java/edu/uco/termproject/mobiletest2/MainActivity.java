@@ -5,7 +5,9 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,7 +20,10 @@ public class MainActivity extends Activity {
 
     private Button gameButton, katakanaButton, hiraganaButton, kanjiButton, vocabButton;
     private ImageButton titleScreen;
+
     final Context context = this;
+
+    boolean kata, hira, kanji;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,22 @@ public class MainActivity extends Activity {
         katakanaButton.setVisibility(View.INVISIBLE);
         kanjiButton.setVisibility(View.INVISIBLE);
 
+        kanjiButton.setEnabled(false);
+        gameButton.setEnabled(false);
+
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        //kata = preferences.getBoolean("kataUnlock", false);
+        kata = getDefaults("kataUnlock", getApplicationContext());
+        //hana = preferences.getBoolean("hanaUnlock", false);
+        hira = getDefaults("hiraUnlock", getApplicationContext());
+        //kanji = preferences.getBoolean("kanjiUnlock", false);
+        kanji = getDefaults("kanjiUnlock", getApplicationContext());
+        if (kata && hira) {
+            kanjiButton.setEnabled(true);
+        }
+        if (kanji) {
+            gameButton.setEnabled(true);
+        }
 
         titleScreen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,7 +164,6 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, HangmanGame.class);
-                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
                 startActivity(intent);
 
             }
@@ -157,6 +177,10 @@ public class MainActivity extends Activity {
         });
     }
 
+    public static boolean getDefaults(String key, Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean(key, false);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
