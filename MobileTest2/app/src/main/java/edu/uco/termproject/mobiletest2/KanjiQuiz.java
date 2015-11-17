@@ -1,6 +1,5 @@
 package edu.uco.termproject.mobiletest2;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,13 +9,12 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.app.Activity;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,11 +23,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class HiraganaQuiz extends Activity {
+public class KanjiQuiz extends Activity {
 
     TextView number, question;
     ImageButton boxUpperLeft, boxUpperCenter, boxUpperRight, boxCenterLeft, boxCenterCenter, boxCenterRight, boxBottomLeft, boxBottomCenter, boxBottomRight;
-    private int reference, max = 45, min = 0, num1, num2, num3, num4, num5, num6, num7, num8, num9, ansNum;
+    private int reference, max = 28, min = 0, num1, num2, num3, num4, num5, num6, num7, num8, num9, ansNum;
     private List que = new ArrayList();
     private Random rand;
     String answerWord, ans1, ans2, ans3, ans4, ans5, ans6, ans7, ans8, ans9;
@@ -43,7 +41,7 @@ public class HiraganaQuiz extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hiragana_quiz);
+        setContentView(R.layout.activity_kanji_quiz);
 
         number = (TextView) findViewById(R.id.problem_number);
         question = (TextView) findViewById(R.id.word);
@@ -60,8 +58,8 @@ public class HiraganaQuiz extends Activity {
         button = (Button) findViewById(R.id.buttonAlert);
 
         Resources res = getResources();
-        TypedArray pictures = res.obtainTypedArray(R.array.hiragana);
-        TypedArray names = res.obtainTypedArray(R.array.names);
+        TypedArray pictures = res.obtainTypedArray(R.array.kanji);
+        TypedArray names = res.obtainTypedArray(R.array.words);
 
         Intent intent = getIntent();
         if (intent.hasExtra("info")) {
@@ -281,7 +279,7 @@ public class HiraganaQuiz extends Activity {
         });
 
         // add button listener
-        button.setOnClickListener(new OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
@@ -293,7 +291,7 @@ public class HiraganaQuiz extends Activity {
                 alertDialogBuilder.setTitle("Confused?? Here's what to do");
 
                 // set dialog message
-                alertDialogBuilder.setMessage("Click the button below that matches the correct Hiragana symbol.").setCancelable(false)
+                alertDialogBuilder.setMessage("Click the button below that matches the correct Kanji symbol.").setCancelable(false)
                         .setNegativeButton("Let's Go!!!", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 // if this button is clicked, just close
@@ -328,7 +326,7 @@ public class HiraganaQuiz extends Activity {
         answers.add("correct");
         answersReference.add(Integer.toString(ansNum));
         if (answers.size() < 5) {
-            Intent intent = new Intent(HiraganaQuiz.this, HiraganaQuiz.class);
+            Intent intent = new Intent(KanjiQuiz.this, KanjiQuiz.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
@@ -344,10 +342,10 @@ public class HiraganaQuiz extends Activity {
 
             SharedPreferences preferences = getPreferences(MODE_PRIVATE);
             if (count > 3) {
-                setDefaults("hiraUnlock", true, getApplicationContext());
+                setDefaults("kanjiUnlock", true, getApplicationContext());
             }
 
-            Intent intent = new Intent(HiraganaQuiz.this, ResultsActivity.class);
+            Intent intent = new Intent(KanjiQuiz.this, ResultsActivity.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
@@ -359,7 +357,7 @@ public class HiraganaQuiz extends Activity {
         answers.add("incorrect");
         answersReference.add(Integer.toString(ansNum));
         if (answers.size() < 5) {
-            Intent intent = new Intent(HiraganaQuiz.this, HiraganaQuiz.class);
+            Intent intent = new Intent(KanjiQuiz.this, KanjiQuiz.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
@@ -375,10 +373,10 @@ public class HiraganaQuiz extends Activity {
 
             SharedPreferences preferences = getPreferences(MODE_PRIVATE);
             if (count > 3) {
-                setDefaults("hiraUnlock", true, getApplicationContext());
+                setDefaults("kanjiUnlock", true, getApplicationContext());
             }
 
-            Intent intent = new Intent(HiraganaQuiz.this, ResultsActivity.class);
+            Intent intent = new Intent(KanjiQuiz.this, ResultsActivity.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
@@ -389,7 +387,7 @@ public class HiraganaQuiz extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_level_hiragana_quiz, menu);
+        getMenuInflater().inflate(R.menu.menu_level_kanji_quiz, menu);
         return true;
     }
 
@@ -402,10 +400,10 @@ public class HiraganaQuiz extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(HiraganaQuiz.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Toast.makeText(KanjiQuiz.this, R.string.guess_count, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.themes:
-                Toast.makeText(HiraganaQuiz.this, R.string.theme, Toast.LENGTH_LONG).show();
+                Toast.makeText(KanjiQuiz.this, R.string.theme, Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

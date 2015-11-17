@@ -16,8 +16,8 @@ public class TransitionHiragana extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transition_hiragana);
 
-        quiz = (Button) findViewById(R.id.btnQuiz1);
-        learn = (Button) findViewById(R.id.btnLearn1);
+        quiz = (Button) findViewById(R.id.btnQuiz2);
+        learn = (Button) findViewById(R.id.btnLearn2);
 
         quiz.setOnClickListener(new View.OnClickListener() {
             @Override

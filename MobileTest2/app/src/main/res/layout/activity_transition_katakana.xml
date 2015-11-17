@@ -14,8 +14,9 @@
         android:id="@+id/btnQuiz2"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="191dp"
-        android:layout_gravity="center" />
+        android:layout_marginTop="@dimen/trans_button_margin"
+        android:layout_gravity="center"
+        android:textSize="@dimen/next_font_size"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -24,16 +25,18 @@
         android:id="@+id/btnLearn2"
         android:layout_below="@+id/btnQuiz2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="51dp"
-        android:layout_gravity="center" />
+        android:layout_marginTop="@dimen/next_button_margin"
+        android:layout_gravity="center"
+        android:textSize="@dimen/next_font_size"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/question_for_quiz"
+        android:textSize="@dimen/transition_text"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="@dimen/quiz_word_top_margin" />
 
 </RelativeLayout>

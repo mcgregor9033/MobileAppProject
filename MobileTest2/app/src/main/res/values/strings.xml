@@ -723,10 +723,11 @@
     <string name="title_activity_level_katakana_multiple_guess">LevelKatakanaMultipleGuess</string>
     <string name="title_activity_level_kanji_multiple_guess">LevelKanjiMultipleGuess</string>
     <string name="title_activity_hiragana_quiz">HiraganaQuiz</string>
-    <string name="quiz_count_default">1 of 20</string>
+    <string name="quiz_count_default">1 of 5</string>
     <string name="title_activity_results">ResultsActivity</string>
     <string name="title_activity_katakana_quiz">KatakanaQuiz</string>
     <string name="title_activity_vocab_list_selection">VocabListSelectionActivity</string>
+    <string name="title_activity_kanji_quiz">KanjiQuiz</string>
 
 </resources>
 

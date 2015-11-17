@@ -97,6 +97,11 @@
         <item>@drawable/yu1</item>
     </array>
     <array name="kanji">
+        <item>@drawable/dream</item>
+        <item>@drawable/god</item>
+        <item>@drawable/moon</item>
+        <item>@drawable/sea</item>
+        <item>@drawable/sky</item>
         <item>@drawable/one</item>
         <item>@drawable/two</item>
         <item>@drawable/three</item>
@@ -113,7 +118,6 @@
         <item>@drawable/tenthousand</item>
         <item>@drawable/what</item>
         <item>@drawable/sun</item>
-        <item>@drawable/moon</item>
         <item>@drawable/light</item>
         <item>@drawable/temple</item>
         <item>@drawable/time</item>
@@ -178,5 +182,29 @@
         <item>moon</item>
         <item>sea</item>
         <item>sky</item>
+        <item>one</item>
+        <item>two</item>
+        <item>three</item>
+        <item>four</item>
+        <item>five</item>
+        <item>six</item>
+        <item>seven</item>
+        <item>eight</item>
+        <item>nine</item>
+        <item>ten</item>
+        <item>yen</item>
+        <item>hundred</item>
+        <item>thousand</item>
+        <item>ten thousand</item>
+        <item>what</item>
+        <item>sun</item>
+        <item>light</item>
+        <item>temple</item>
+        <item>time</item>
+        <item>fire</item>
+        <item>water</item>
+        <item>tree</item>
+        <item>money</item>
+        <item>soil</item>
     </array>
 </resources>

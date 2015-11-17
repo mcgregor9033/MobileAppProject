@@ -17,13 +17,13 @@ public class TransitionKanji extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transition_kanji);
 
-        quiz = (Button) findViewById(R.id.btnQuiz3);
-        learn = (Button) findViewById(R.id.btnLearn3);
+        quiz = (Button) findViewById(R.id.btnQuiz2);
+        learn = (Button) findViewById(R.id.btnLearn2);
 
         quiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TransitionKanji.this, LevelKanjiMultipleGuess.class);
+                Intent intent = new Intent(TransitionKanji.this, KanjiQuiz.class);
                 intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
                 startActivity(intent);
                 //Toast.makeText(TransitionKanji.this, "Go to Kanji Quiz", Toast.LENGTH_LONG).show();
