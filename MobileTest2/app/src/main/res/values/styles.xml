@@ -1,8 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="@android:style/Theme.Holo">
-        <!-- Customize your theme here. -->
+    <!--local copy of android:theme:Holo-->
+    <style name="Theme_Holo_Dialog_Alert" parent="@android:style/Theme.Holo.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowTitleStyle">@style/DialogWindowTitle_Holo</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+    </style>
+
+    <style name="DialogWindowTitle_Holo">
+        <item name="android:maxLines">2</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Holo.DialogWindowTitle</item>
+    </style>
+
+    <!-- =============================================================== -->
+    <!-- Black styles -->
+    <!-- =============================================================== -->
+
+    <style name="title_black" parent="@style/DialogWindowTitle_Holo">
+        <item name="android:textAppearance">@style/title_font_black</item>
+    </style>
+
+    <style name="actionbar_black" parent="@android:style/Widget.Holo.ActionBar.Solid">
+        <item name="android:background">@color/black_dark</item>
+        <item name="android:textColor">@color/black_light</item>
+    </style>
+
+    <style name="title_font_black" parent="@android:style/TextAppearance.Holo.DialogWindowTitle">
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="button_black" parent="@android:style/Widget.Holo.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:textSize">15pt</item>
+        <item name="android:background">@color/black_dark</item>
+    </style>
+
+    <style name="buttonbar_black" parent="@android:style/Holo.ButtonBar.AlertDialog">
+        <item name="android:background">@color/black_dark</item>
+    </style>
+
+    <style name="dialog_black" parent="@style/Theme_Holo_Dialog_Alert">
+        <item name="android:windowTitleStyle">@style/title_black</item>
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:borderlessButtonStyle">@style/button_black</item>
+        <item name="android:buttonBarStyle">@style/buttonbar_black</item>
+    </style>
+
+    <!-- =============================================================== -->
+    <!-- Blue styles -->
+    <!-- =============================================================== -->
+
+    <style name="title_blue" parent="@style/DialogWindowTitle_Holo">
+        <item name="android:textAppearance">@style/title_font_blue</item>
+    </style>
+
+    <style name="actionbar_blue" parent="@android:style/Widget.Holo.ActionBar.Solid">
+        <item name="android:background">@color/blue_dark</item>
+        <item name="android:textColor">@color/blue_light</item>
+    </style>
+
+    <style name="title_font_blue" parent="@android:style/TextAppearance.Holo.DialogWindowTitle">
+        <item name="android:textColor">@color/blue_light</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="button_blue" parent="@android:style/Widget.Holo.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/blue_light</item>
+        <item name="android:textSize">15pt</item>
+        <item name="android:background">@color/blue_dark</item>
+    </style>
+
+    <style name="buttonbar_blue" parent="@android:style/Holo.ButtonBar.AlertDialog">
+        <item name="android:background">@color/blue_dark</item>
+    </style>
+
+    <style name="dialog_blue" parent="@style/Theme_Holo_Dialog_Alert">
+        <item name="android:windowTitleStyle">@style/title_blue</item>
+        <item name="android:textColor">@color/blue_light</item>
+        <item name="android:borderlessButtonStyle">@style/button_blue</item>
+        <item name="android:buttonBarStyle">@style/buttonbar_blue</item>
+    </style>
+
+    <!-- =============================================================== -->
+    <!-- Yellow styles -->
+    <!-- =============================================================== -->
+
+    <style name="title_yellow" parent="@style/DialogWindowTitle_Holo">
+        <item name="android:textAppearance">@style/title_font_yellow</item>
+    </style>
+
+    <style name="actionbar_yellow" parent="@android:style/Widget.Holo.ActionBar.Solid">
+        <item name="android:background">@color/yellow_dark</item>
+        <item name="android:textColor">@color/yellow_light</item>
+    </style>
+
+    <style name="title_font_yellow" parent="@android:style/TextAppearance.Holo.DialogWindowTitle">
+        <item name="android:textColor">@color/yellow_light</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="button_yellow" parent="@android:style/Widget.Holo.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/yellow_light</item>
+        <item name="android:textSize">15pt</item>
+        <item name="android:background">@color/yellow_dark</item>
+    </style>
+
+    <style name="buttonbar_yellow" parent="@android:style/Holo.ButtonBar.AlertDialog">
+        <item name="android:background">@color/yellow_dark</item>
+    </style>
+
+    <style name="dialog_yellow" parent="@style/Theme_Holo_Dialog_Alert">
+        <item name="android:windowTitleStyle">@style/title_yellow</item>
+        <item name="android:textColor">@color/yellow_light</item>
+        <item name="android:borderlessButtonStyle">@style/button_yellow</item>
+        <item name="android:buttonBarStyle">@style/buttonbar_yellow</item>
     </style>
 
 </resources>

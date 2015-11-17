@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="@android:style/Theme.Holo" />
+
+    <!-- =============================================================== -->
+    <!-- Black styles -->
+    <!-- =============================================================== -->
+
+    <style name="BlackTheme" parent="@android:style/Theme.Holo">
+        <item name="android:windowBackground">@drawable/bg_black</item>
+        <item name="android:tileMode">disabled</item>
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:buttonStyle">@style/button_black</item>
+        <item name="android:actionBarStyle">@style/actionbar_black</item>
+        <item name="android:alertDialogTheme">@style/dialog_black</item>
+    </style>
+
+    <!-- =============================================================== -->
+    <!-- Blue styles -->
+    <!-- =============================================================== -->
+
+    <style name="BlueTheme" parent="@android:style/Theme.Holo">
+        <item name="android:windowBackground">@drawable/bg_blue</item>
+        <item name="android:tileMode">clamp</item>
+        <item name="android:actionBarStyle">@style/actionbar_blue</item>
+        <item name="android:textColor">@color/blue_light</item>
+        <item name="android:buttonStyle">@style/button_blue</item>
+        <item name="android:alertDialogTheme">@style/dialog_blue</item>
+    </style>
+
+    <!-- =============================================================== -->
+    <!-- Yellow styles -->
+    <!-- =============================================================== -->
+
+    <style name="YellowTheme" parent="@android:style/Theme.Holo">
+        <item name="android:windowBackground">@drawable/bg_yellow</item>
+        <item name="android:tileMode">disabled</item>
+        <item name="android:actionBarStyle">@style/actionbar_yellow</item>
+        <item name="android:textColor">@color/yellow_light</item>
+        <item name="android:buttonStyle">@style/button_yellow</item>
+        <item name="android:alertDialogTheme">@style/dialog_yellow</item>
+    </style>
+</resources>

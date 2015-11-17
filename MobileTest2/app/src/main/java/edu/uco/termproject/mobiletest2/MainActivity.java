@@ -1,6 +1,9 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,16 +12,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-    private Button gameButton, katakanaButton, hiraganaButton, kanjiButton,vocabButton;
+    private Button gameButton, katakanaButton, hiraganaButton, kanjiButton, vocabButton;
     private ImageButton titleScreen;
+    final Context context = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_main);
 
         titleScreen = (ImageButton) findViewById(R.id.title_screen);
@@ -32,7 +37,6 @@ public class MainActivity extends Activity {
         hiraganaButton.setVisibility(View.INVISIBLE);
         katakanaButton.setVisibility(View.INVISIBLE);
         kanjiButton.setVisibility(View.INVISIBLE);
-
 
 
         titleScreen.setOnClickListener(new View.OnClickListener() {
@@ -50,27 +54,88 @@ public class MainActivity extends Activity {
         hiraganaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TransitionHiragana.class);
-                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
-                startActivity(intent);
-
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Challenge yourself")
+                        .setIcon(R.drawable.question)
+                        .setMessage(R.string.question_for_quiz)
+                        .setCancelable(true)
+                        .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new Intent(context, HiraganaQuiz.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .setNeutralButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new Intent(context, LevelHiragana.class);
+                                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                                startActivity(intent);
+                            }
+                        })
+                        .setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        }).show();
             }
         });
         katakanaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TransitionKatakana.class);
-                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
-                startActivity(intent);
-
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Challenge yourself")
+                        .setIcon(R.drawable.question)
+                        .setMessage(R.string.question_for_quiz)
+                        .setCancelable(true)
+                        .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new Intent(context, KatakanaQuiz.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .setNeutralButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new Intent(context, LevelKatakana.class);
+                                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                                startActivity(intent);
+                            }
+                        })
+                        .setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        }).show();
             }
         });
         kanjiButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TransitionKanji.class);
-                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
-                startActivity(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Challenge yourself")
+                        .setIcon(R.drawable.question)
+                        .setMessage(R.string.question_for_quiz).setCancelable(true)
+                        .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //implement harder kanji quiz later
+
+                                Intent intent = new Intent(context, LevelKanjiMultipleGuess.class);
+                                startActivity(intent);
+
+                                Toast.makeText(MainActivity.this, "Kanji Quiz", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .setNeutralButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new Intent(context, LevelKanji.class);
+                                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                                startActivity(intent);
+                            }
+                        })
+                        .setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        }).show();
 
             }
         });
@@ -93,10 +158,6 @@ public class MainActivity extends Activity {
     }
 
 
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -117,7 +178,15 @@ public class MainActivity extends Activity {
                 Toast.makeText(MainActivity.this, R.string.guess_count, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.themes:
-                Toast.makeText(MainActivity.this,R.string.theme, Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.origin:
+                ThemeUtils.changeToTheme(this, ThemeUtils.ORIGIN);
+                return true;
+            case R.id.blue:
+                ThemeUtils.changeToTheme(this, ThemeUtils.BLUE);
+                return true;
+            case R.id.yellow:
+                ThemeUtils.changeToTheme(this, ThemeUtils.YELLOW);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

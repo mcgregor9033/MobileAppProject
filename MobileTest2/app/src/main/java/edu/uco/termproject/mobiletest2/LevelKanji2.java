@@ -55,6 +55,7 @@ public class LevelKanji2 extends Activity {
     private void checkAnswer (LevelKanji2 levelKanji2, String userEnterAnswer){
         String answer = myKanjiSet[myCurrentIndex].getMyImgName();
         int messageResId = 0;
+        ThemeUtils.onActivityCreateSetTheme(this);
 
         if(answer.equals(userEnterAnswer)) {
             messageResId = R.string.correct_toast;
@@ -70,6 +71,7 @@ public class LevelKanji2 extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_level_kanji2);
 
         choice1 = (Button) findViewById(R.id.btnChoice1);
@@ -124,13 +126,25 @@ public class LevelKanji2 extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.settings:
+                return true;
+            case R.id.guess_count:
+                Toast.makeText(LevelKanji2.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.themes:
+                return true;
+            case R.id.origin:
+                ThemeUtils.changeToTheme(this, ThemeUtils.ORIGIN);
+                return true;
+            case R.id.blue:
+                ThemeUtils.changeToTheme(this, ThemeUtils.BLUE);
+                return true;
+            case R.id.yellow:
+                ThemeUtils.changeToTheme(this, ThemeUtils.YELLOW);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }
