@@ -105,7 +105,7 @@ public class HangmanGame extends Activity {
             Toast.makeText(getApplicationContext(), tempGuess + " is NOT within the word.", Toast.LENGTH_SHORT).show();
         }
         playerGuessEditText.setText("");
-        if (this.wrongGuesses == MAX_GUESSES+this.wordToBeGuessed.length() || checkIfSolved())
+        if (this.wrongGuesses == MAX_GUESSES || checkIfSolved())
         {
             return true;
         }
