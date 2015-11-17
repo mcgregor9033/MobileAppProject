@@ -50,8 +50,7 @@ public class MainActivity extends Activity {
         if (kata && hira) {
             kanjiButton.setEnabled(true);
         }
-        else if (kanji) {
-            kanjiButton.setEnabled(true);
+        if (kanji) {
             gameButton.setEnabled(true);
         }
 
