@@ -15,38 +15,44 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:id="@+id/linearLayout">
+
+        <ImageButton
+            android:layout_width="380dp"
+            android:layout_height="366dp"
+            android:id="@+id/title_screen"
+            android:scaleType="fitCenter"
+            android:layout_centerInParent="true"
+            android:src="@drawable/hang"
+            android:cropToPadding="false" />
+        <TextView
+            android:id="@+id/word_to_be_guessed_text_view_debugging"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/word_to_be_guessed_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+
+        <EditText
+            android:id="@+id/player_input_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLength="1"
+            android:layout_gravity="center_horizontal"/>
+
         <Button
-            android:id="@+id/hiragana_button"
-            android:text="@string/hiragana_button"
-            android:layout_width="200px"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/katakana_button"
-            android:text="@string/katakana_button"
-            android:layout_width="200px"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/kanji_button"
-            android:text="@string/kanji_button"
-            android:layout_width="200px"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/game_button"
-            android:text="@string/game_button"
-            android:layout_width="200px"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/vocab_button"
-            android:text="@string/vocab_button"
-            android:layout_width="200px"
-            android:layout_height="wrap_content" />
+            android:id="@+id/check_guess_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/check_guess"
+            android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/hangmanImage"
-        android:layout_below="@+id/linearLayout"
-        android:layout_centerHorizontal="true" />>
+
 
 </RelativeLayout>
