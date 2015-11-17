@@ -1,14 +1,13 @@
 package edu.uco.termproject.mobiletest2;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -220,34 +219,16 @@ public class LevelKanjiMultipleGuess extends Activity {
 
             @Override
             public void onClick(View arg0) {
-
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                        context);
-
-                // set title
-                alertDialogBuilder.setTitle("Confused?? Here's what to do");
-
-                // set dialog message
-                alertDialogBuilder.setMessage("Click the button below that matches the correct Kanji symbol.").setCancelable(false)
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                alertDialogBuilder.setTitle("Confused? Here's what to do!")
+                        .setIcon(R.drawable.question)
+                        .setCancelable(false)
+                        .setMessage("Click the button below that matches the correct Kanji symbol.")
                         .setNegativeButton("Let's Go!!!", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                // if this button is clicked, just close
-                                // the dialog box and do nothing
                                 dialog.cancel();
                             }
-                        });
-
-                // create alert dialog
-                AlertDialog alertDialog = alertDialogBuilder.create();
-
-                // show it
-                alertDialog.show();
-
-                TextView textView = (TextView) alertDialog.findViewById(android.R.id.message);
-                textView.setTextSize(32);
-                Button btn1 = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                btn1.setTextSize(40);
-                btn1.setTextColor(Color.YELLOW);
+                        }).show();
             }
         });
     }

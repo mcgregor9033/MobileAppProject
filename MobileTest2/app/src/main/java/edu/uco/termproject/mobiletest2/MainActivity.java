@@ -1,6 +1,9 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,8 +16,10 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-    private Button gameButton, katakanaButton, hiraganaButton, kanjiButton,vocabButton;
+    private Button gameButton, katakanaButton, hiraganaButton, kanjiButton, vocabButton;
     private ImageButton titleScreen;
+    final Context context = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +39,6 @@ public class MainActivity extends Activity {
         kanjiButton.setVisibility(View.INVISIBLE);
 
 
-
         titleScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,27 +54,88 @@ public class MainActivity extends Activity {
         hiraganaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TransitionHiragana.class);
-                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
-                startActivity(intent);
-
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Challenge yourself")
+                        .setIcon(R.drawable.question)
+                        .setMessage(R.string.question_for_quiz)
+                        .setCancelable(true)
+                        .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new Intent(context, HiraganaQuiz.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .setNeutralButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new Intent(context, LevelHiragana.class);
+                                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                                startActivity(intent);
+                            }
+                        })
+                        .setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        }).show();
             }
         });
         katakanaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TransitionKatakana.class);
-                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
-                startActivity(intent);
-
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Challenge yourself")
+                        .setIcon(R.drawable.question)
+                        .setMessage(R.string.question_for_quiz)
+                        .setCancelable(true)
+                        .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new Intent(context, KatakanaQuiz.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .setNeutralButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new Intent(context, LevelKatakana.class);
+                                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                                startActivity(intent);
+                            }
+                        })
+                        .setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        }).show();
             }
         });
         kanjiButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TransitionKanji.class);
-                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
-                startActivity(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Challenge yourself")
+                        .setIcon(R.drawable.question)
+                        .setMessage(R.string.question_for_quiz).setCancelable(true)
+                        .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //implement harder kanji quiz later
+
+                                Intent intent = new Intent(context, LevelKanjiMultipleGuess.class);
+                                startActivity(intent);
+
+                                Toast.makeText(MainActivity.this, "Kanji Quiz", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .setNeutralButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new Intent(context, LevelKanji.class);
+                                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                                startActivity(intent);
+                            }
+                        })
+                        .setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        }).show();
 
             }
         });
@@ -91,10 +156,6 @@ public class MainActivity extends Activity {
             }
         });
     }
-
-
-
-
 
 
     @Override

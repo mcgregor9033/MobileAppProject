@@ -6,7 +6,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="edu.uco.termproject.mobiletest2.HangmanGame">
 
-    <TextView android:text="@string/title_activity_hangman_game"
+    <TextView android:text="@string/title_activity_level_hangman_game"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

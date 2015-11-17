@@ -11,7 +11,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="300px"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -19,31 +19,39 @@
 
         <Button
             android:id="@+id/hiragana_button"
-            android:layout_width="200px"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="300px"
             android:layout_height="wrap_content"
             android:text="@string/hiragana_button" />
 
         <Button
             android:id="@+id/katakana_button"
-            android:layout_width="200px"
+            android:layout_width="300px"
             android:layout_height="wrap_content"
             android:text="@string/katakana_button" />
 
         <Button
             android:id="@+id/kanji_button"
-            android:layout_width="200px"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="300px"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:text="@string/kanji_button" />
 
         <Button
             android:id="@+id/game_button"
-            android:layout_width="200px"
+            android:layout_width="300px"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:text="@string/game_button" />
 
         <Button
             android:id="@+id/vocab_button"
-            android:layout_width="200px"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="300px"
             android:layout_height="wrap_content"
             android:text="@string/vocab_button" />
     </LinearLayout>
