@@ -83,6 +83,7 @@ public class MainActivity extends Activity {
                         .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Intent intent = new Intent(context, HiraganaQuiz.class);
+                                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                                 startActivity(intent);
                             }
                         })
@@ -111,6 +112,7 @@ public class MainActivity extends Activity {
                         .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Intent intent = new Intent(context, KatakanaQuiz.class);
+                                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                                 startActivity(intent);
                             }
                         })
@@ -139,7 +141,8 @@ public class MainActivity extends Activity {
                             public void onClick(DialogInterface dialog, int id) {
                                 //implement harder kanji quiz later
 
-                                Intent intent = new Intent(context, LevelKanjiMultipleGuess.class);
+                                Intent intent = new Intent(context, KanjiQuiz.class);
+                                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                                 startActivity(intent);
 
                                 Toast.makeText(MainActivity.this, "Kanji Quiz", Toast.LENGTH_LONG).show();
