@@ -4,10 +4,10 @@ package edu.uco.termproject.mobiletest2;
  * Created by Will on 11/13/2015.
  */
 public class Word {
-    private static String englishWordString;
-    private static String romajiString;
-    private static String kanaString;
-    private static String kanjiString;
+    private String englishWordString;
+    private String romajiString;
+    private String kanaString;
+    private String kanjiString;
 
     Word(){
         this.englishWordString = "";

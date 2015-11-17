@@ -94,7 +94,7 @@ public class HangmanGame extends Activity {
         {
             if(guess.equals(this.currentWordRomaji.charAt(i)))
             {
-                
+
             }
         }
 
@@ -118,7 +118,7 @@ public class HangmanGame extends Activity {
     {
         getWordBankSize();
         getCurrentWord();
-        setCurrentWordLength();
+        //setCurrentWordLength();
         setUpDisplayedWordToBeGuessed();
     }
     private void setUpWordBank()
@@ -157,7 +157,8 @@ public class HangmanGame extends Activity {
         int randomNum = rand.nextInt(wordBankSize);
         this.currentWord = wordBank.get(randomNum);
         this.currentWordRomaji = this.currentWord.getRomaji();
-        Toast.makeText(getApplicationContext(), currentWord.getKana()+" "+randomNum,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), currentWord.getRomaji()+" "+randomNum,Toast.LENGTH_SHORT).show();
+        //return  this.currentWord.getRomaji();
     }
 }
 
