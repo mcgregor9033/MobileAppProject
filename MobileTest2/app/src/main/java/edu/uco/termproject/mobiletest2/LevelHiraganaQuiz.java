@@ -21,10 +21,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Random;
 
-public class KatakanaQuiz extends Activity {
+public class LevelHiraganaQuiz extends Activity {
 
     TextView number, question;
     ImageButton boxUpperLeft, boxUpperCenter, boxUpperRight, boxCenterLeft, boxCenterCenter, boxCenterRight, boxBottomLeft, boxBottomCenter, boxBottomRight;
@@ -43,7 +42,7 @@ public class KatakanaQuiz extends Activity {
 
         super.onCreate(savedInstanceState);
         ThemeUtils.onActivityCreateSetTheme(this);
-        setContentView(R.layout.activity_katakana_quiz);
+        setContentView(R.layout.activity_hiragana_quiz);
 
         number = (TextView) findViewById(R.id.problem_number);
         question = (TextView) findViewById(R.id.word);
@@ -60,7 +59,7 @@ public class KatakanaQuiz extends Activity {
         button = (Button) findViewById(R.id.buttonAlert);
 
         Resources res = getResources();
-        TypedArray pictures = res.obtainTypedArray(R.array.katakana);
+        TypedArray pictures = res.obtainTypedArray(R.array.hiragana);
         TypedArray names = res.obtainTypedArray(R.array.names);
 
         Intent intent = getIntent();
@@ -282,11 +281,12 @@ public class KatakanaQuiz extends Activity {
 
             @Override
             public void onClick(View arg0) {
+
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
                 alertDialogBuilder.setTitle("Confused? Here's what to do!")
                         .setIcon(R.drawable.question)
                         .setCancelable(false)
-                        .setMessage("Click the button below that matches the correct Katakana symbol.")
+                        .setMessage("Click the button below that matches the correct Hiragana symbol.")
                         .setNegativeButton("Let's Go!!!", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
@@ -307,12 +307,14 @@ public class KatakanaQuiz extends Activity {
         answers.add("correct");
         answersReference.add(Integer.toString(ansNum));
         if (answers.size() < 5) {
-            Intent intent = new Intent(KatakanaQuiz.this, KatakanaQuiz.class);
+            Intent intent = new Intent(LevelHiraganaQuiz.this, LevelHiraganaQuiz.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
             startActivity(intent);
-        } else {
+        }
+        else {
+
             int count = 0;
             for (int i = 0; i < answers.size(); i++) {
                 if (answers.get(i).toString().equals("correct"))
@@ -321,10 +323,10 @@ public class KatakanaQuiz extends Activity {
 
             SharedPreferences preferences = getPreferences(MODE_PRIVATE);
             if (count > 3) {
-                setDefaults("kataUnlock", true, getApplicationContext());
+                setDefaults("hiraUnlock", true, getApplicationContext());
             }
 
-            Intent intent = new Intent(KatakanaQuiz.this, ResultsActivity.class);
+            Intent intent = new Intent(LevelHiraganaQuiz.this, ResultsActivity.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
@@ -336,7 +338,7 @@ public class KatakanaQuiz extends Activity {
         answers.add("incorrect");
         answersReference.add(Integer.toString(ansNum));
         if (answers.size() < 5) {
-            Intent intent = new Intent(KatakanaQuiz.this, KatakanaQuiz.class);
+            Intent intent = new Intent(LevelHiraganaQuiz.this, LevelHiraganaQuiz.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
@@ -350,10 +352,10 @@ public class KatakanaQuiz extends Activity {
 
             SharedPreferences preferences = getPreferences(MODE_PRIVATE);
             if (count > 3) {
-                setDefaults("kataUnlock", true, getApplicationContext());
+                setDefaults("hiraUnlock", true, getApplicationContext());
             }
 
-            Intent intent = new Intent(KatakanaQuiz.this, ResultsActivity.class);
+            Intent intent = new Intent(LevelHiraganaQuiz.this, ResultsActivity.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
@@ -377,7 +379,7 @@ public class KatakanaQuiz extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(KatakanaQuiz.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Toast.makeText(LevelHiraganaQuiz.this, R.string.guess_count, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.themes:
                 return true;

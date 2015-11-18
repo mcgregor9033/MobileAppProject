@@ -82,7 +82,7 @@ public class MainActivity extends Activity {
                         .setCancelable(true)
                         .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Intent intent = new Intent(context, HiraganaQuiz.class);
+                                Intent intent = new Intent(context, LevelHiraganaQuiz.class);
                                 intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                                 startActivity(intent);
                             }
@@ -111,7 +111,7 @@ public class MainActivity extends Activity {
                         .setCancelable(true)
                         .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Intent intent = new Intent(context, KatakanaQuiz.class);
+                                Intent intent = new Intent(context, LevelKatakanaQuiz.class);
                                 intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                                 startActivity(intent);
                             }
@@ -139,13 +139,9 @@ public class MainActivity extends Activity {
                         .setMessage(R.string.question_for_quiz).setCancelable(true)
                         .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                //implement harder kanji quiz later
-
-                                Intent intent = new Intent(context, KanjiQuiz.class);
+                                Intent intent = new Intent(context, LevelKanjiQuiz.class);
                                 intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                                 startActivity(intent);
-
-                                Toast.makeText(MainActivity.this, "Kanji Quiz", Toast.LENGTH_LONG).show();
                             }
                         })
                         .setNeutralButton("No", new DialogInterface.OnClickListener() {

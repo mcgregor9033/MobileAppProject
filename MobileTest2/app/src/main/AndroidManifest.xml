@@ -43,7 +43,7 @@
             android:label="@string/title_activity_level_kanji_multiple_guess" >
         </activity>
         <activity
-            android:name=".HiraganaQuiz"
+            android:name=".LevelHiraganaQuiz"
             android:label="@string/title_activity_level_hiragana_multiple_guess" >
         </activity>
         <activity
@@ -51,7 +51,7 @@
             android:label="@string/title_activity_results" >
         </activity>
         <activity
-            android:name=".KatakanaQuiz"
+            android:name=".LevelKatakanaQuiz"
             android:label="@string/title_activity_level_katakana_quiz" >
         </activity>
         <activity
@@ -67,7 +67,7 @@
             android:label="@string/title_activity_level_kanji2" >
         </activity>
         <activity
-            android:name=".KanjiQuiz"
+            android:name=".LevelKanjiQuiz"
             android:label="@string/title_activity_level_kanji_multiple_guess" >
         </activity>
 

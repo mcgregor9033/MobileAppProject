@@ -59,7 +59,7 @@ public class LevelKanji2 extends Activity {
 
         if(answer.equals(userEnterAnswer)) {
             messageResId = R.string.correct_toast;
-            Intent intent = new Intent(levelKanji2, LevelKanji.class);
+            Intent intent = new Intent(levelKanji2, LevelKanjiMultipleGuess.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
             startActivity (intent);
         }else
