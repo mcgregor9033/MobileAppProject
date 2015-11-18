@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="300px"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -17,39 +17,44 @@
             android:id="@+id/hiragana_button"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_width="300px"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hiragana_button" />
+            android:text="@string/hiragana_button"
+            android:textSize="@dimen/quiz_word_top_margin"/>
 
         <Button
             android:id="@+id/katakana_button"
-            android:layout_width="300px"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/katakana_button" />
+            android:text="@string/katakana_button"
+            android:textSize="@dimen/quiz_word_top_margin"/>
 
         <Button
             android:id="@+id/kanji_button"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_width="300px"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="@string/kanji_button" />
+            android:text="@string/kanji_button"
+            android:textSize="@dimen/quiz_word_top_margin"/>
 
         <Button
             android:id="@+id/game_button"
-            android:layout_width="300px"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="@string/game_button" />
+            android:text="@string/game_button"
+            android:textSize="@dimen/quiz_word_top_margin"/>
 
         <Button
             android:id="@+id/vocab_button"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_width="300px"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/vocab_button" />
+            android:text="@string/vocab_button"
+            android:textSize="@dimen/quiz_word_top_margin"/>
     </LinearLayout>
 
     <ImageButton
