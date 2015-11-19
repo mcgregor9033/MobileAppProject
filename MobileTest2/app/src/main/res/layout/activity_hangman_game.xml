@@ -22,7 +22,7 @@
             android:id="@+id/title_screen"
             android:scaleType="fitCenter"
             android:layout_centerInParent="true"
-            android:src="@drawable/hang"
+            android:src="@drawable/hireshang7"
             android:cropToPadding="false" />
         <TextView
             android:id="@+id/word_to_be_guessed_text_view_debugging"
