@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -36,7 +35,7 @@ public class LevelHiragana extends Activity {
     final Context context = this;
     private Button button;
 
-    private Hiragana [] myHiraganaSet = new Hiragana[] {
+    private Hiragana[] myHiraganaSet = new Hiragana[]{
             new Hiragana("a"), new Hiragana("i"), new Hiragana("u"), new Hiragana("e"), new Hiragana("o"),
             new Hiragana("ka"), new Hiragana("ki"), new Hiragana("ku"), new Hiragana("ke"), new Hiragana("ko"),
             new Hiragana("sa"), new Hiragana("shi"), new Hiragana("su"), new Hiragana("se"), new Hiragana("so"),
@@ -51,7 +50,7 @@ public class LevelHiragana extends Activity {
 
     private int myCurrentIndex = 0;
 
-    private void updateCharacter(){
+    private void updateCharacter() {
         String character = myHiraganaSet[myCurrentIndex].getMyImgName();
 
         String uri = "@drawable/" + character;
@@ -64,20 +63,17 @@ public class LevelHiragana extends Activity {
         mp = MediaPlayer.create(this, mpResource);
     }
 
-    private void checkAnswer(LevelHiragana levelHiragana, String userEnterAnswer){
+    private void checkAnswer(LevelHiragana levelHiragana, String userEnterAnswer) {
         String answer = myHiraganaSet[myCurrentIndex].getMyAnswer();
 
         int messageResId = 0;
 
-        if(answer.equals(userEnterAnswer)) {
+        if (answer.equals(userEnterAnswer)) {
             messageResId = R.string.correct_toast;
             Intent intent = new Intent(levelHiragana, LevelHiraganaMultipleGuess.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
-            startActivity (intent);
-        }
-
-
-        else
+            startActivity(intent);
+        } else
             messageResId = R.string.incorrect_toast;
 
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
@@ -86,6 +82,7 @@ public class LevelHiragana extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_level_hiragana);
 
         audio = (ImageButton) findViewById(R.id.btnAudio);
@@ -106,8 +103,11 @@ public class LevelHiragana extends Activity {
                         mp.stop();
                         mp.release();
                         updateCharacter();
-                    } mp.start();
-                } catch(Exception e) { e.printStackTrace(); }
+                    }
+                    mp.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -116,34 +116,16 @@ public class LevelHiragana extends Activity {
 
             @Override
             public void onClick(View arg0) {
-
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                        context);
-
-                // set title
-                alertDialogBuilder.setTitle("Confused?? Here's what to do");
-
-                // set dialog message
-                alertDialogBuilder.setMessage("Using the keyboard, select the proper english letters for the Hiragana Character displayed.").setCancelable(false)
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                alertDialogBuilder.setTitle("Confused? Here's what to do!")
+                        .setIcon(R.drawable.question)
+                        .setCancelable(false)
+                        .setMessage("Using the keyboard, select the proper english letters for the Hiragana Character displayed.")
                         .setNegativeButton("Let's Go!!!", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                // if this button is clicked, just close
-                                // the dialog box and do nothing
                                 dialog.cancel();
                             }
-                        });
-
-                // create alert dialog
-                AlertDialog alertDialog = alertDialogBuilder.create();
-
-                // show it
-                alertDialog.show();
-
-                TextView textView = (TextView) alertDialog.findViewById(android.R.id.message);
-                textView.setTextSize(32);
-                Button btn1 = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                btn1.setTextSize(40);
-                btn1.setTextColor(Color.YELLOW);
+                        }).show();
             }
         });
 
@@ -198,7 +180,15 @@ public class LevelHiragana extends Activity {
                 Toast.makeText(LevelHiragana.this, R.string.guess_count, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.themes:
-                Toast.makeText(LevelHiragana.this, R.string.theme, Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.origin:
+                ThemeUtils.changeToTheme(this, ThemeUtils.ORIGIN);
+                return true;
+            case R.id.blue:
+                ThemeUtils.changeToTheme(this, ThemeUtils.BLUE);
+                return true;
+            case R.id.yellow:
+                ThemeUtils.changeToTheme(this, ThemeUtils.YELLOW);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

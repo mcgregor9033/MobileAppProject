@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/a"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -18,33 +18,21 @@
         </activity>
         <activity
             android:name=".LevelHiragana"
-            android:label="@string/title_activity_level_one" />
+            android:label="@string/title_activity_level_hiragana" />
         <activity
             android:name=".LevelHiraganaMultipleGuess"
-            android:label="@string/title_activity_level_one_quiz" />
+            android:label="@string/title_activity_level_hiragana_quiz" />
         <activity
             android:name=".HangmanGame"
-            android:label="@string/title_activity_hangman_game" >
+            android:label="@string/title_activity_level_hangman_game" >
         </activity>
         <activity
             android:name=".LevelKanji"
-            android:label="@string/title_activity_kanji" >
+            android:label="@string/title_activity_level_kanji" >
         </activity>
         <activity
             android:name=".LevelKatakana"
             android:label="@string/title_activity_level_katakana" >
-        </activity>
-        <activity
-            android:name=".TransitionHiragana"
-            android:label="@string/title_activity_transition_hiragana" >
-        </activity>
-        <activity
-            android:name=".TransitionKatakana"
-            android:label="@string/title_activity_transition_katakana" >
-        </activity>
-        <activity
-            android:name=".TransitionKanji"
-            android:label="@string/title_activity_transition_kanji" >
         </activity>
         <activity
             android:name=".LevelKatakanaMultipleGuess"
@@ -55,16 +43,16 @@
             android:label="@string/title_activity_level_kanji_multiple_guess" >
         </activity>
         <activity
-            android:name=".HiraganaQuiz"
-            android:label="@string/title_activity_hiragana_quiz" >
+            android:name=".LevelHiraganaQuiz"
+            android:label="@string/title_activity_level_hiragana_multiple_guess" >
         </activity>
         <activity
             android:name=".ResultsActivity"
             android:label="@string/title_activity_results" >
         </activity>
         <activity
-            android:name=".KatakanaQuiz"
-            android:label="@string/title_activity_katakana_quiz" >
+            android:name=".LevelKatakanaQuiz"
+            android:label="@string/title_activity_level_katakana_quiz" >
         </activity>
         <activity
             android:name=".VocabActivity"
@@ -79,8 +67,12 @@
             android:label="@string/title_activity_level_kanji2" >
         </activity>
         <activity
-            android:name=".KanjiQuiz"
-            android:label="@string/title_activity_kanji_quiz" >
+            android:name=".LevelKanjiQuiz"
+            android:label="@string/title_activity_level_kanji_multiple_guess" >
+        </activity>
+        <activity
+            android:name=".StatsActivity"
+            android:label="@string/title_activity_stats" >
         </activity>
     </application>
 

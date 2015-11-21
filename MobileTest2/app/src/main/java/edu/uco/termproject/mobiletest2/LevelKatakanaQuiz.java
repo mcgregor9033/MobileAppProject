@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -16,18 +15,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.Random;
 
-public class KatakanaQuiz extends Activity {
+public class LevelKatakanaQuiz extends Activity {
 
     TextView number, question;
     ImageButton boxUpperLeft, boxUpperCenter, boxUpperRight, boxCenterLeft, boxCenterCenter, boxCenterRight, boxBottomLeft, boxBottomCenter, boxBottomRight;
@@ -45,6 +40,7 @@ public class KatakanaQuiz extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_katakana_quiz);
 
         number = (TextView) findViewById(R.id.problem_number);
@@ -76,12 +72,9 @@ public class KatakanaQuiz extends Activity {
         }
 
         if (!intent.hasExtra("info")) {
-            number.setTextColor(Color.YELLOW);
             number.setTextSize(40);
             number.setText(R.string.quiz_count_default);
-        }
-        else {
-            number.setTextColor(Color.YELLOW);
+        } else {
             number.setTextSize(40);
             number.setText((answers.size() + 1) + " of 5");
         }
@@ -287,34 +280,16 @@ public class KatakanaQuiz extends Activity {
 
             @Override
             public void onClick(View arg0) {
-
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                        context);
-
-                // set title
-                alertDialogBuilder.setTitle("Confused?? Here's what to do");
-
-                // set dialog message
-                alertDialogBuilder.setMessage("Click the button below that matches the correct Katagana symbol.").setCancelable(false)
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                alertDialogBuilder.setTitle("Confused? Here's what to do!")
+                        .setIcon(R.drawable.question)
+                        .setCancelable(false)
+                        .setMessage("Click the button below that matches the correct Katakana symbol.")
                         .setNegativeButton("Let's Go!!!", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                // if this button is clicked, just close
-                                // the dialog box and do nothing
                                 dialog.cancel();
                             }
-                        });
-
-                // create alert dialog
-                AlertDialog alertDialog = alertDialogBuilder.create();
-
-                // show it
-                alertDialog.show();
-
-                TextView textView = (TextView) alertDialog.findViewById(android.R.id.message);
-                textView.setTextSize(32);
-                Button btn1 = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                btn1.setTextSize(40);
-                btn1.setTextColor(Color.YELLOW);
+                        }).show();
             }
         });
     }
@@ -330,14 +305,12 @@ public class KatakanaQuiz extends Activity {
         answers.add("correct");
         answersReference.add(Integer.toString(ansNum));
         if (answers.size() < 5) {
-            Intent intent = new Intent(KatakanaQuiz.this, KatakanaQuiz.class);
+            Intent intent = new Intent(LevelKatakanaQuiz.this, LevelKatakanaQuiz.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
             startActivity(intent);
-        }
-        else {
-
+        } else {
             int count = 0;
             for (int i = 0; i < answers.size(); i++) {
                 if (answers.get(i).toString().equals("correct"))
@@ -349,10 +322,11 @@ public class KatakanaQuiz extends Activity {
                 setDefaults("kataUnlock", true, getApplicationContext());
             }
 
-            Intent intent = new Intent(KatakanaQuiz.this, ResultsActivity.class);
+            Intent intent = new Intent(LevelKatakanaQuiz.this, ResultsActivity.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
+            intent.putExtra("quiz", "Kat");
             startActivity(intent);
         }
     }
@@ -361,14 +335,12 @@ public class KatakanaQuiz extends Activity {
         answers.add("incorrect");
         answersReference.add(Integer.toString(ansNum));
         if (answers.size() < 5) {
-            Intent intent = new Intent(KatakanaQuiz.this, KatakanaQuiz.class);
+            Intent intent = new Intent(LevelKatakanaQuiz.this, LevelKatakanaQuiz.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
             startActivity(intent);
-        }
-        else {
-
+        } else {
             int count = 0;
             for (int i = 0; i < answers.size(); i++) {
                 if (answers.get(i).toString().equals("correct"))
@@ -380,10 +352,11 @@ public class KatakanaQuiz extends Activity {
                 setDefaults("kataUnlock", true, getApplicationContext());
             }
 
-            Intent intent = new Intent(KatakanaQuiz.this, ResultsActivity.class);
+            Intent intent = new Intent(LevelKatakanaQuiz.this, ResultsActivity.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
+            intent.putExtra("quiz", "Kat");
             startActivity(intent);
         }
     }
@@ -404,10 +377,18 @@ public class KatakanaQuiz extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(KatakanaQuiz.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Toast.makeText(LevelKatakanaQuiz.this, R.string.guess_count, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.themes:
-                Toast.makeText(KatakanaQuiz.this, R.string.theme, Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.origin:
+                ThemeUtils.changeToTheme(this, ThemeUtils.ORIGIN);
+                return true;
+            case R.id.blue:
+                ThemeUtils.changeToTheme(this, ThemeUtils.BLUE);
+                return true;
+            case R.id.yellow:
+                ThemeUtils.changeToTheme(this, ThemeUtils.YELLOW);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

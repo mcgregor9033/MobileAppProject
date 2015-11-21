@@ -6,7 +6,11 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.widget.Toast;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.ArrayList;
@@ -39,9 +43,11 @@ public class ResultsActivity extends Activity {
         });
 
         ArrayList results = new ArrayList();
+        String type;
 
         Intent intent = getIntent();
         results = intent.getStringArrayListExtra("info");
+        type = intent.getStringExtra("quiz");
 
         for (int i = 0; i < results.size(); i++) {
             if (results.get(i).equals("correct"))
@@ -62,6 +68,44 @@ public class ResultsActivity extends Activity {
         pass.setText(Integer.toString(passCount));
         miss.setText(Integer.toString(missCount));
         score.setText(Integer.toString((int)answer) + "/100");
+
+        try {
+            // try to read the file first
+            String s="";
+            try {
+                FileInputStream fileIn=openFileInput("StatsFile.txt");
+                InputStreamReader InputRead= new InputStreamReader(fileIn);
+
+                char[] inputBuffer= new char[512];
+                int charRead;
+
+                while ((charRead=InputRead.read(inputBuffer))>0) {
+                    // char to string conversion
+                    String readstring=String.copyValueOf(inputBuffer,0,charRead);
+                    s +=readstring;
+                }
+                InputRead.close();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+
+
+            //write to file
+            FileOutputStream fileout = openFileOutput("StatsFile.txt", MODE_PRIVATE);
+            OutputStreamWriter outputWriter = new OutputStreamWriter(fileout);
+            outputWriter.write(s + type + "-" + Integer.toString((int)answer) + "#");
+            outputWriter.close();
+
+            //display file saved message
+            Toast.makeText(getBaseContext(), "File saved successfully!",
+                    Toast.LENGTH_SHORT).show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
