@@ -2,7 +2,7 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="quiz_word">100sp</dimen>
+    <dimen name="quiz_word">75sp</dimen>
     <dimen name="quiz_button">80sp</dimen>
     <dimen name="button_margin">5sp</dimen>
     <dimen name="instruction_margin">8sp</dimen>
@@ -13,11 +13,11 @@
     <dimen name="transition_text">36sp</dimen>
     <dimen name="trans_button_margin">200dp</dimen>
     <dimen name="results_font_size">50sp</dimen>
-    <dimen name="results_title_top_margin">42sp</dimen>
+    <dimen name="results_title_top_margin">37sp</dimen>
     <dimen name="results_data_margin_top">15sp</dimen>
     <dimen name="results_data_margin_left">30sp</dimen>
     <dimen name="results_data_text_size">60sp</dimen>
     <dimen name="restults_title_text_font">40sp</dimen>
-    <dimen name="results_data_underline_margin">30sp</dimen>
+    <dimen name="results_data_underline_margin">25sp</dimen>
     <dimen name="list_item_font">24sp</dimen>
 </resources>

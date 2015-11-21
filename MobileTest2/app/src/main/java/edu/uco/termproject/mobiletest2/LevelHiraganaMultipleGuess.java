@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,6 +37,7 @@ public class LevelHiraganaMultipleGuess extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_level_hiragana_quiz);
 
         question = (TextView) findViewById(R.id.word);
@@ -220,34 +220,16 @@ public class LevelHiraganaMultipleGuess extends Activity {
 
             @Override
             public void onClick(View arg0) {
-
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                        context);
-
-                // set title
-                alertDialogBuilder.setTitle("Confused?? Here's what to do");
-
-                // set dialog message
-                alertDialogBuilder.setMessage("Click the button below that matches the correct Hiragana symbol.").setCancelable(false)
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                alertDialogBuilder.setTitle("Confused? Here's what to do!")
+                        .setIcon(R.drawable.question)
+                        .setCancelable(false)
+                        .setMessage("Click the button below that matches the correct Hiragana symbol.")
                         .setNegativeButton("Let's Go!!!", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                // if this button is clicked, just close
-                                // the dialog box and do nothing
                                 dialog.cancel();
                             }
-                        });
-
-                // create alert dialog
-                AlertDialog alertDialog = alertDialogBuilder.create();
-
-                // show it
-                alertDialog.show();
-
-                TextView textView = (TextView) alertDialog.findViewById(android.R.id.message);
-                textView.setTextSize(32);
-                Button btn1 = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                btn1.setTextSize(40);
-                btn1.setTextColor(Color.YELLOW);
+                        }).show();
             }
         });
     }
@@ -271,7 +253,15 @@ public class LevelHiraganaMultipleGuess extends Activity {
                 Toast.makeText(LevelHiraganaMultipleGuess.this, R.string.guess_count, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.themes:
-                Toast.makeText(LevelHiraganaMultipleGuess.this, R.string.theme, Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.origin:
+                ThemeUtils.changeToTheme(this, ThemeUtils.ORIGIN);
+                return true;
+            case R.id.blue:
+                ThemeUtils.changeToTheme(this, ThemeUtils.BLUE);
+                return true;
+            case R.id.yellow:
+                ThemeUtils.changeToTheme(this, ThemeUtils.YELLOW);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

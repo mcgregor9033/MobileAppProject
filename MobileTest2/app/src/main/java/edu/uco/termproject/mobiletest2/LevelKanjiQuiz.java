@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class KanjiQuiz extends Activity {
+public class LevelKanjiQuiz extends Activity {
 
     TextView number, question;
     ImageButton boxUpperLeft, boxUpperCenter, boxUpperRight, boxCenterLeft, boxCenterCenter, boxCenterRight, boxBottomLeft, boxBottomCenter, boxBottomRight;
@@ -41,6 +41,7 @@ public class KanjiQuiz extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_kanji_quiz);
 
         number = (TextView) findViewById(R.id.problem_number);
@@ -72,12 +73,10 @@ public class KanjiQuiz extends Activity {
         }
 
         if (!intent.hasExtra("info")) {
-            number.setTextColor(Color.YELLOW);
             number.setTextSize(40);
             number.setText(R.string.quiz_count_default);
         }
         else {
-            number.setTextColor(Color.YELLOW);
             number.setTextSize(40);
             number.setText((answers.size() + 1) + " of 5");
         }
@@ -326,7 +325,7 @@ public class KanjiQuiz extends Activity {
         answers.add("correct");
         answersReference.add(Integer.toString(ansNum));
         if (answers.size() < 5) {
-            Intent intent = new Intent(KanjiQuiz.this, KanjiQuiz.class);
+            Intent intent = new Intent(LevelKanjiQuiz.this, LevelKanjiQuiz.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
@@ -345,7 +344,7 @@ public class KanjiQuiz extends Activity {
                 setDefaults("kanjiUnlock", true, getApplicationContext());
             }
 
-            Intent intent = new Intent(KanjiQuiz.this, ResultsActivity.class);
+            Intent intent = new Intent(LevelKanjiQuiz.this, ResultsActivity.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
@@ -357,7 +356,7 @@ public class KanjiQuiz extends Activity {
         answers.add("incorrect");
         answersReference.add(Integer.toString(ansNum));
         if (answers.size() < 5) {
-            Intent intent = new Intent(KanjiQuiz.this, KanjiQuiz.class);
+            Intent intent = new Intent(LevelKanjiQuiz.this, LevelKanjiQuiz.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
@@ -376,7 +375,7 @@ public class KanjiQuiz extends Activity {
                 setDefaults("kanjiUnlock", true, getApplicationContext());
             }
 
-            Intent intent = new Intent(KanjiQuiz.this, ResultsActivity.class);
+            Intent intent = new Intent(LevelKanjiQuiz.this, ResultsActivity.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
@@ -400,10 +399,18 @@ public class KanjiQuiz extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(KanjiQuiz.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Toast.makeText(LevelKanjiQuiz.this, R.string.guess_count, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.themes:
-                Toast.makeText(KanjiQuiz.this, R.string.theme, Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.origin:
+                ThemeUtils.changeToTheme(this, ThemeUtils.ORIGIN);
+                return true;
+            case R.id.blue:
+                ThemeUtils.changeToTheme(this, ThemeUtils.BLUE);
+                return true;
+            case R.id.yellow:
+                ThemeUtils.changeToTheme(this, ThemeUtils.YELLOW);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
