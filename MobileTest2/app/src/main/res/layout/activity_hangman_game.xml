@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/title_screen"
+            android:id="@+id/hangman_pic_temp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"

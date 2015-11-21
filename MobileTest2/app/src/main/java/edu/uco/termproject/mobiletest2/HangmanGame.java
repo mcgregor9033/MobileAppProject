@@ -51,7 +51,7 @@ public class HangmanGame extends Activity {
         ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_hangman_game);
         this.choiceChecked = false;
-        hangmanImage = (ImageButton) findViewById(R.id.hangman_image);
+        hangmanImage = (ImageButton) findViewById(R.id.hangman_pic_temp);
         wTBGTextView = (TextView) findViewById(R.id.word_to_be_guessed_text_view);
         playerGuessEditText = (EditText) findViewById(R.id.player_input_edit_text);
         playerGuessEditTextDebugging = (TextView) findViewById(R.id.word_to_be_guessed_text_view_debugging);
