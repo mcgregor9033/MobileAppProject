@@ -110,6 +110,7 @@ public class HangmanGame extends Activity {
             char tempChar = tempGuess.charAt(0);
             if (this.currentWordRomaji.contains(tempGuess)) {
                 editDisplayedToBeGuessed(tempChar);
+                editLettersGuessed(tempChar);
                 Toast.makeText(getApplicationContext(), tempGuess + " was within the word.", Toast.LENGTH_SHORT).show();
             } else if (!this.currentWordRomaji.contains(tempGuess)) {
                 this.wrongGuesses = this.wrongGuesses + 1;
@@ -130,7 +131,14 @@ public class HangmanGame extends Activity {
         }
         return false;
     }
+    //------------------------------------------------------------------------------------------------------------
+    private void editLettersGuessed(char letterGuessed)
+    {
+        for (int i = 0; i < lettersGuessed.length();i++)
+        {
 
+        }
+    }
     //------------------------------------------------------------------------------------------------------------
     private void setCorrectImage()
     {
