@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class HangmanGame extends Activity {
     private int currentWordLength;
     private int wordBankSize;
     private StringBuffer wordToBeGuessed = new StringBuffer();
+    private StringBuffer lettersGuessed = new StringBuffer();
     private int wrongGuesses;
 
 
@@ -41,12 +43,16 @@ public class HangmanGame extends Activity {
     private EditText playerGuessEditText;
     private TextView playerGuessEditTextDebugging;
     private Button checkGuessButton, quitButton,playAgainButton;
+    private ImageButton hangmanImage;
+    private ImageView[] hangman_image = new ImageView[8];
+
 //---------------------------------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hangman_game);
         this.choiceChecked = false;
+        hangmanImage = (ImageButton) findViewById(R.id.hangman_image);
         wTBGTextView = (TextView) findViewById(R.id.word_to_be_guessed_text_view);
         playerGuessEditText = (EditText) findViewById(R.id.player_input_edit_text);
         playerGuessEditTextDebugging = (TextView) findViewById(R.id.word_to_be_guessed_text_view_debugging);
@@ -96,13 +102,27 @@ public class HangmanGame extends Activity {
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     private boolean checkPlayersGuess() {
         String tempGuess = playerGuessEditText.getText().toString();
-        char tempChar = tempGuess.charAt(0);
-        if (this.currentWordRomaji.contains(tempGuess)) {
-            editDisplayedToBeGuessed(tempChar);
-            Toast.makeText(getApplicationContext(), tempGuess + " was within the word.", Toast.LENGTH_SHORT).show();
-        } else if (!this.currentWordRomaji.contains(tempGuess)) {
+        boolean realGuess;
+
+        if (tempGuess.equals("")) {realGuess = false;} else {realGuess = true;}
+
+        if (realGuess == true)
+        {
+            char tempChar = tempGuess.charAt(0);
+            if (this.currentWordRomaji.contains(tempGuess)) {
+                editDisplayedToBeGuessed(tempChar);
+                Toast.makeText(getApplicationContext(), tempGuess + " was within the word.", Toast.LENGTH_SHORT).show();
+            } else if (!this.currentWordRomaji.contains(tempGuess)) {
+                this.wrongGuesses = this.wrongGuesses + 1;
+               // setCorrectImage();
+                Toast.makeText(getApplicationContext(), tempGuess + " is NOT within the word.", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else
+        {
             this.wrongGuesses = this.wrongGuesses + 1;
-            Toast.makeText(getApplicationContext(), tempGuess + " is NOT within the word.", Toast.LENGTH_SHORT).show();
+            //setCorrectImage();
+            Toast.makeText(getApplicationContext(),"You must enter a letter.", Toast.LENGTH_SHORT).show();
         }
         playerGuessEditText.setText("");
         if (this.wrongGuesses == MAX_GUESSES || checkIfSolved())
@@ -110,6 +130,55 @@ public class HangmanGame extends Activity {
             return true;
         }
         return false;
+    }
+
+    //------------------------------------------------------------------------------------------------------------
+    private void setCorrectImage()
+    {
+        switch (this.wrongGuesses)
+        {
+            case 1:
+            {
+                this.hangmanImage.setImageResource(R.drawable.hireshang1);
+                break;
+            }
+            case 2:
+            {
+                this.hangmanImage.setImageResource(R.drawable.hireshang2);
+                break;
+            }
+            case 3:
+            {
+                this.hangmanImage.setImageResource(R.drawable.hireshang3);
+                break;
+            }
+            case 4:
+            {
+                this.hangmanImage.setImageResource(R.drawable.hireshang4);
+                break;
+            }
+            case 5:
+            {
+                this.hangmanImage.setImageResource(R.drawable.hireshang5);
+                break;
+            }
+            case 6:
+            {
+                this.hangmanImage.setImageResource(R.drawable.hireshang6);
+                break;
+            }
+            case 7:
+            {
+                this.hangmanImage.setImageResource(R.drawable.hireshang7);
+                break;
+            }
+            default:
+            {
+                this.hangmanImage.setImageResource(R.drawable.hireshang0);
+                break;
+            }
+
+        }
     }
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     private boolean checkIfSolved()
@@ -135,6 +204,7 @@ public class HangmanGame extends Activity {
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     private void setUpNewGame()
     {
+        this.hangmanImage.setImageResource(R.drawable.hireshang0);
         this.currentWordRomaji="";
         this.wordToBeGuessed.delete(0, this.wordToBeGuessed.length());
         this.wrongGuesses = 0;

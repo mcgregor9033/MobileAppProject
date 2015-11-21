@@ -19,10 +19,10 @@
         <ImageButton
             android:layout_width="380dp"
             android:layout_height="366dp"
-            android:id="@+id/title_screen"
+            android:id="@+id/hangman_image"
             android:scaleType="fitCenter"
             android:layout_centerInParent="true"
-            android:src="@drawable/hireshang7"
+            android:src="@drawable/hireshang0"
             android:cropToPadding="false" />
         <TextView
             android:id="@+id/word_to_be_guessed_text_view_debugging"
