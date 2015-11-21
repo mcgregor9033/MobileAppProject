@@ -30,10 +30,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/word"
-        android:text="null"
+        android:text="@string/string_placeholder"
         android:textSize="@dimen/quiz_word"
         android:layout_below="@+id/buttonAlert"
         android:gravity="center"
+        android:layout_marginTop="@dimen/quiz_word_top_margin"
         android:layout_marginBottom="@dimen/word_margin" />
 
     <GridLayout

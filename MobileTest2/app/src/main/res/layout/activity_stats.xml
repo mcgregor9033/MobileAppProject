@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Quiz Statistics"
-        android:textSize="40sp"
+        android:textSize="@dimen/quiz_word_top_margin"
         android:id="@+id/stats"
         android:layout_marginBottom="40sp"
         />
@@ -26,7 +26,8 @@
         android:gravity="center"
         android:text="hiragana"
         android:id="@+id/hiragana_stat_button"
-        android:layout_below="@id/stats"/>
+        android:layout_below="@id/stats"
+        android:layout_marginBottom="20dp"/>
 
     <Button
         android:layout_width="match_parent"
@@ -34,7 +35,8 @@
         android:gravity="center"
         android:text="katakana"
         android:id="@+id/katakana_stat_button"
-        android:layout_below="@id/hiragana_stat_button"/>
+        android:layout_below="@id/hiragana_stat_button"
+        android:layout_marginBottom="20dp"/>
 
     <Button
         android:layout_width="match_parent"
