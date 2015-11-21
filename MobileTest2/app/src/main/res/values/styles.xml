@@ -38,7 +38,7 @@
     <style name="button_black" parent="@android:style/Widget.Holo.Button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textColor">@color/black_light</item>
-        <item name="android:textSize">15pt</item>
+        <item name="android:textSize">@dimen/quiz_word_top_margin</item>
         <item name="android:background">@color/black_dark</item>
     </style>
 
@@ -81,7 +81,7 @@
     <style name="button_blue" parent="@android:style/Widget.Holo.Button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textColor">@color/blue_light</item>
-        <item name="android:textSize">15pt</item>
+        <item name="android:textSize">@dimen/quiz_word_top_margin</item>
         <item name="android:background">@color/blue_dark</item>
     </style>
 
@@ -124,7 +124,7 @@
     <style name="button_yellow" parent="@android:style/Widget.Holo.Button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textColor">@color/yellow_light</item>
-        <item name="android:textSize">15pt</item>
+        <item name="android:textSize">@dimen/quiz_word_top_margin</item>
         <item name="android:background">@color/yellow_dark</item>
     </style>
 

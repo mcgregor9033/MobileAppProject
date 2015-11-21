@@ -66,4 +66,18 @@
     <string name="play_again_button">Play\u0020Again?</string>
     <string name="check_guess">Check\u0020Guess</string>
     <string name="title_activity_stats">StatsActivity</string>
+    <string name="stats_button">Stats</string>
+    <string name="help">Help</string>
+    <string name="instructions">Instructions</string>
+    <string name="help_on">Help On</string>
+    <string name="help_off">Help Off</string>
+    <string name="check">Check</string>
+    <string name="string_placeholder">null</string>
+    <string name="correct">Correct!! Click to next</string>
+    <string name="results_title">RESULTS</string>
+    <string name="results_grade">grade</string>
+    <string name="results_right">right</string>
+    <string name="results_wrong">wrong</string>
+    <string name="results_score">score</string>
+    <string name="results_okay">Okay</string>
 </resources>

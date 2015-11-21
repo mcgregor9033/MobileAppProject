@@ -36,7 +36,7 @@ public class GraphView extends View {
         if (title == null)
             title = "";
         else
-            this.title = title;
+            this.title = "";
         if (horlabels == null)
             this.horlabels = new String[0];
         else
@@ -65,15 +65,15 @@ public class GraphView extends View {
         paint.setTextAlign(Align.LEFT);
         int vers = verlabels.length - 1;
         for (int i = 0; i < verlabels.length; i++) {
-            paint.setColor(Color.DKGRAY);
+            paint.setColor(Color.WHITE);
             float y = ((graphheight / vers) * i) + border;
             canvas.drawLine(horstart, y, width, y, paint);
-            paint.setColor(Color.WHITE);
+            paint.setColor(Color.RED);
             canvas.drawText(verlabels[i], 0, y, paint);
         }
         int hors = horlabels.length - 1;
         for (int i = 0; i < horlabels.length; i++) {
-            paint.setColor(Color.DKGRAY);
+            paint.setColor(Color.WHITE);
             float x = ((graphwidth / hors) * i) + horstart;
             canvas.drawLine(x, height - border, x, border, paint);
             paint.setTextAlign(Align.CENTER);
@@ -81,7 +81,7 @@ public class GraphView extends View {
                 paint.setTextAlign(Align.RIGHT);
             if (i==0)
                 paint.setTextAlign(Align.LEFT);
-            paint.setColor(Color.WHITE);
+            paint.setColor(Color.RED);
             canvas.drawText(horlabels[i], x, height - 4, paint);
         }
 
@@ -89,7 +89,7 @@ public class GraphView extends View {
         canvas.drawText(title, (graphwidth / 2) + horstart, border - 4, paint);
 
         if (max != min) {
-            paint.setColor(Color.LTGRAY);
+            paint.setColor(Color.YELLOW);
             if (type == BAR) {
                 float datalength = values.length;
                 float colwidth = (width - (2 * border)) / datalength;

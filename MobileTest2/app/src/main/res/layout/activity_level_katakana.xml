@@ -54,7 +54,7 @@
         android:id="@+id/buttonAlert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Instructions"
+        android:text="@string/instructions"
         android:gravity="top"
         android:layout_marginBottom="20sp"
         android:layout_centerHorizontal="true"/>
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Check" />
+        android:text="@string/check" />
 
     <Button
         android:id="@+id/btnQuiz2"
@@ -75,7 +75,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:text="Help"
-        android:textSize="20sp"/>
+        android:text="@string/help"/>
 
 </RelativeLayout>

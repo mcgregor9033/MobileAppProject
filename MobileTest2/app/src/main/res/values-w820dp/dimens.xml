@@ -3,7 +3,7 @@
          (such as screen margins) for screens with more than 820dp of available width. This
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
     <dimen name="activity_horizontal_margin">64dp</dimen>
-    <dimen name="quiz_word">150sp</dimen>
+    <dimen name="quiz_word">125sp</dimen>
     <dimen name="quiz_button">100sp</dimen>
     <dimen name="button_margin">30sp</dimen>
     <dimen name="instruction_margin">20sp</dimen>
@@ -20,4 +20,5 @@
     <dimen name="results_data_text_size">60sp</dimen>
     <dimen name="restults_title_text_font">40sp</dimen>
     <dimen name="list_item_font">45sp</dimen>
+    <dimen name="guess_exercise_top_margin">100sp</dimen>
 </resources>

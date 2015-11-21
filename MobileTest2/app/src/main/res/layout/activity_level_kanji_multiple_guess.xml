@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:switchMinWidth="100sp"
-        android:textOn="Help On"
-        android:textOff="Help Off"
+        android:textOn="@string/help_on"
+        android:textOff="@string/help_off"
         android:id="@+id/help"
         android:layout_toRightOf="@id/problem_number"
         />
@@ -22,13 +22,13 @@
         android:id="@+id/buttonAlert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Instructions" />
+        android:text="@string/instructions" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/word"
-        android:text="null"
+        android:text="@string/string_placeholder"
         android:textSize="@dimen/quiz_word"
         android:layout_below="@+id/buttonAlert"
         android:gravity="center"
@@ -80,10 +80,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/feedback"
-        android:text="Correct!! Click to next"
+        android:text="@string/correct"
         android:visibility="invisible"
         android:layout_below="@id/options"
         android:clickable="false"
-        android:layout_marginTop="@dimen/next_button_margin"
-        android:textSize="@dimen/next_font_size"/>
+        android:layout_marginTop="@dimen/next_button_margin"/>
 </RelativeLayout>

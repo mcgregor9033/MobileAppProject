@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="RESULTS"
+        android:text="@string/results_title"
         android:textSize="@dimen/results_font_size"
         android:gravity="top|center"
         android:id="@+id/results"/>
@@ -26,7 +26,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="grade"
+        android:text="@string/results_grade"
         android:layout_marginTop="@dimen/results_title_top_margin"
         android:layout_below="@id/line"
         android:textSize="@dimen/restults_title_text_font"
@@ -36,7 +36,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NULL"
+        android:text="@string/string_placeholder"
         android:layout_marginTop="@dimen/results_data_underline_margin"
         android:layout_below="@id/line"
         android:layout_toRightOf="@+id/grade"
@@ -48,7 +48,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="right"
+        android:text="@string/results_right"
         android:layout_marginTop="@dimen/results_title_top_margin"
         android:layout_below="@id/grade"
         android:textSize="@dimen/restults_title_text_font"
@@ -58,7 +58,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NULL"
+        android:text="@string/string_placeholder"
         android:layout_below="@id/letter"
         android:layout_marginTop="@dimen/results_data_margin_top"
         android:layout_toRightOf="@+id/grade"
@@ -70,7 +70,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="wrong"
+        android:text="@string/results_wrong"
         android:layout_marginTop="@dimen/results_title_top_margin"
         android:layout_below="@id/right"
         android:textSize="@dimen/restults_title_text_font"
@@ -80,7 +80,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NULL"
+        android:text="@string/string_placeholder"
         android:layout_marginTop="@dimen/results_data_margin_top"
         android:layout_below="@id/num_right"
         android:layout_toRightOf="@+id/grade"
@@ -92,7 +92,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="score"
+        android:text="@string/results_score"
         android:layout_marginTop="@dimen/results_title_top_margin"
         android:layout_below="@id/wrong"
         android:textSize="@dimen/restults_title_text_font"
@@ -102,7 +102,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NULL"
+        android:text="@string/string_placeholder"
         android:layout_below="@id/num_wrong"
         android:layout_marginTop="@dimen/results_data_margin_top"
         android:layout_toRightOf="@+id/grade"
@@ -116,6 +116,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/okay"
         android:layout_alignParentBottom="true"
-        android:text="Okay"
-        android:textSize="40sp"/>
+        android:text="@string/results_okay"
+        android:layout_marginBottom="20sp"/>
 </RelativeLayout>
