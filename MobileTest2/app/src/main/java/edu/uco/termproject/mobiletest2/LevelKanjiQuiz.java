@@ -18,7 +18,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -348,6 +347,7 @@ public class LevelKanjiQuiz extends Activity {
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
+            intent.putExtra("quiz", "Kan");
             startActivity(intent);
         }
     }
@@ -379,6 +379,7 @@ public class LevelKanjiQuiz extends Activity {
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
             intent.putStringArrayListExtra("info", answers);
             intent.putStringArrayListExtra("reference_info", answersReference);
+            intent.putExtra("quiz", "Kan");
             startActivity(intent);
         }
     }

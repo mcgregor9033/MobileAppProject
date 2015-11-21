@@ -65,5 +65,5 @@
     <string name="quit_button">Want\u0020to\u0020Quit?</string>
     <string name="play_again_button">Play\u0020Again?</string>
     <string name="check_guess">Check\u0020Guess</string>
+    <string name="title_activity_stats">StatsActivity</string>
 </resources>
-
