@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class HangmanGame extends Activity {
@@ -40,6 +41,7 @@ public class HangmanGame extends Activity {
     private TextView wTBGTextView;
     private EditText playerGuessEditText;
     private TextView playerGuessEditTextDebugging;
+    private TextView lettersGuessedTextView;
     private Button checkGuessButton, quitButton,playAgainButton;
     private ImageButton hangmanImage;
 
@@ -54,6 +56,7 @@ public class HangmanGame extends Activity {
         wTBGTextView = (TextView) findViewById(R.id.word_to_be_guessed_text_view);
         playerGuessEditText = (EditText) findViewById(R.id.player_input_edit_text);
         playerGuessEditTextDebugging = (TextView) findViewById(R.id.word_to_be_guessed_text_view_debugging);
+        lettersGuessedTextView = (TextView) findViewById(R.id.letters_guessed_text_view);
         checkGuessButton = (Button) findViewById(R.id.check_guess_button);
         quitButton = (Button) findViewById(R.id.quit_button);
         playAgainButton = (Button) findViewById(R.id.play_again_button);
@@ -106,14 +109,18 @@ public class HangmanGame extends Activity {
 
         if (realGuess == true)
         {
+            lettersGuessedTextView.setText(lettersGuessed);
             char tempChar = tempGuess.charAt(0);
             if (this.currentWordRomaji.contains(tempGuess)) {
                 editDisplayedToBeGuessed(tempChar);
                 editLettersGuessed(tempChar);
+                lettersGuessedTextView.setText("Letters guessed: " + this.lettersGuessed);
                 Toast.makeText(getApplicationContext(), tempGuess + " was within the word.", Toast.LENGTH_SHORT).show();
             } else if (!this.currentWordRomaji.contains(tempGuess)) {
                 this.wrongGuesses = this.wrongGuesses + 1;
                 setCorrectImage();
+                editLettersGuessed(tempChar);
+                lettersGuessedTextView.setText("Letters guessed: " + this.lettersGuessed);
                 Toast.makeText(getApplicationContext(), tempGuess + " is NOT within the word.", Toast.LENGTH_SHORT).show();
             }
         }
@@ -131,12 +138,28 @@ public class HangmanGame extends Activity {
         return false;
     }
     //------------------------------------------------------------------------------------------------------------
-    private void editLettersGuessed(char letterGuessed)
+    private void editLettersGuessed(char guess)
     {
+        String tempString;
+        boolean inTheList = false;
         for (int i = 0; i < lettersGuessed.length();i++)
         {
 
+            if (lettersGuessed.charAt(i) == guess)
+            {
+               inTheList = true;
+            }
         }
+        if (inTheList == false)
+        {
+            lettersGuessed.append(guess);
+        }
+        tempString = lettersGuessed.toString();
+        char[] array = tempString.replaceAll("\\s+", "").toLowerCase().toCharArray();
+        Arrays.sort(array);
+        lettersGuessed.delete(0, lettersGuessed.length());
+        lettersGuessed.append(array);
+
     }
     //------------------------------------------------------------------------------------------------------------
     private void setCorrectImage()
@@ -212,7 +235,9 @@ public class HangmanGame extends Activity {
     {
         this.hangmanImage.setImageResource(R.drawable.lowreshang0);
         this.currentWordRomaji="";
+        this.lettersGuessed.delete(0,lettersGuessed.length());
         this.wordToBeGuessed.delete(0, this.wordToBeGuessed.length());
+        lettersGuessedTextView.setText("Letters guessed: " + this.lettersGuessed);
         this.wrongGuesses = 0;
         getWordBankSize();
         getCurrentWord();
