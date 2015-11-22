@@ -13,14 +13,13 @@
         android:orientation="vertical">
 
         <ImageButton
+            android:src="@drawable/lowreshang0"
             android:id="@+id/hangman_pic_temp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:cropToPadding="false"
-            android:scaleType="fitXY"
             android:adjustViewBounds="true"
-            android:src="@drawable/hang" />
+            android:scaleType="centerInside" />
 
         <TextView
             android:id="@+id/word_to_be_guessed_text_view_debugging"

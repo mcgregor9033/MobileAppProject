@@ -1,6 +1,7 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,13 +37,11 @@ public class HangmanGame extends Activity {
 
 //---------------------------------------------------------------
     /*UI data*/
-    private ImageView currentHangmanImage;
     private TextView wTBGTextView;
     private EditText playerGuessEditText;
     private TextView playerGuessEditTextDebugging;
     private Button checkGuessButton, quitButton,playAgainButton;
     private ImageButton hangmanImage;
-    private ImageView[] hangman_image = new ImageView[8];
 
 //---------------------------------------------------------------
     @Override
@@ -114,14 +113,14 @@ public class HangmanGame extends Activity {
                 Toast.makeText(getApplicationContext(), tempGuess + " was within the word.", Toast.LENGTH_SHORT).show();
             } else if (!this.currentWordRomaji.contains(tempGuess)) {
                 this.wrongGuesses = this.wrongGuesses + 1;
-               // setCorrectImage();
+                setCorrectImage();
                 Toast.makeText(getApplicationContext(), tempGuess + " is NOT within the word.", Toast.LENGTH_SHORT).show();
             }
         }
         else
         {
             this.wrongGuesses = this.wrongGuesses + 1;
-            //setCorrectImage();
+            setCorrectImage();
             Toast.makeText(getApplicationContext(),"You must enter a letter.", Toast.LENGTH_SHORT).show();
         }
         playerGuessEditText.setText("");
@@ -146,42 +145,42 @@ public class HangmanGame extends Activity {
         {
             case 1:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang1);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang1);
                 break;
             }
             case 2:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang2);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang2);
                 break;
             }
             case 3:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang3);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang3);
                 break;
             }
             case 4:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang4);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang4);
                 break;
             }
             case 5:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang5);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang5);
                 break;
             }
             case 6:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang6);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang6);
                 break;
             }
             case 7:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang7);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang7);
                 break;
             }
             default:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang0);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang0);
                 break;
             }
 
@@ -211,7 +210,7 @@ public class HangmanGame extends Activity {
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     private void setUpNewGame()
     {
-        this.hangmanImage.setImageResource(R.drawable.hireshang0);
+        this.hangmanImage.setImageResource(R.drawable.lowreshang0);
         this.currentWordRomaji="";
         this.wordToBeGuessed.delete(0, this.wordToBeGuessed.length());
         this.wrongGuesses = 0;
