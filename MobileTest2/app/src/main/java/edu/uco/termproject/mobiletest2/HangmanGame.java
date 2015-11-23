@@ -28,12 +28,8 @@ public class HangmanGame extends Activity {
     private StringBuffer wordToBeGuessed = new StringBuffer();
     private StringBuffer lettersGuessed = new StringBuffer();
     private int wrongGuesses;
-
-
     private boolean gameOver;
     private boolean guessed;
-
-
     private boolean choiceChecked;
 
 //---------------------------------------------------------------
