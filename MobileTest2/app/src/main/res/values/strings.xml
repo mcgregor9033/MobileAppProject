@@ -80,4 +80,5 @@
     <string name="results_wrong">wrong</string>
     <string name="results_score">score</string>
     <string name="results_okay">Okay</string>
+    <string name="title_activity_notebook">NotebookActivity</string>
 </resources>

@@ -13,14 +13,15 @@
         android:orientation="vertical">
 
         <ImageButton
+            android:src="@drawable/lowreshang0"
             android:id="@+id/hangman_pic_temp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:cropToPadding="false"
-            android:scaleType="fitXY"
             android:adjustViewBounds="true"
-            android:src="@drawable/hang" />
+            android:scaleType="centerInside" />
+
+
 
         <TextView
             android:id="@+id/word_to_be_guessed_text_view_debugging"
@@ -44,6 +45,13 @@
             android:inputType="textNoSuggestions"
             android:maxLength="1" />
 
+        <TextView
+            android:id="@+id/letters_guessed_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="left" />
+
         <Button
             android:id="@+id/check_guess_button"
             android:layout_width="wrap_content"
@@ -51,28 +59,22 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/check_guess" />
 
-        <LinearLayout
+        <Button
+            android:id="@+id/play_again_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_gravity="center_horizontal"
+            android:gravity="left"
+            android:text="@string/play_again_button"
+            android:visibility="invisible" />
 
-            <Button
-                android:id="@+id/play_again_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="bottom"
-                android:text="@string/play_again_button"
-                android:visibility="invisible" />
-
-            <Button
-                android:id="@+id/quit_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="right"
-                android:text="@string/quit_button"
-                android:visibility="invisible" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/quit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="right"
+            android:text="@string/quit_button"
+            android:visibility="invisible" />
     </LinearLayout>
 </RelativeLayout>

@@ -1,6 +1,7 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class HangmanGame extends Activity {
@@ -26,23 +28,18 @@ public class HangmanGame extends Activity {
     private StringBuffer wordToBeGuessed = new StringBuffer();
     private StringBuffer lettersGuessed = new StringBuffer();
     private int wrongGuesses;
-
-
     private boolean gameOver;
     private boolean guessed;
-
-
     private boolean choiceChecked;
 
 //---------------------------------------------------------------
     /*UI data*/
-    private ImageView currentHangmanImage;
     private TextView wTBGTextView;
     private EditText playerGuessEditText;
     private TextView playerGuessEditTextDebugging;
+    private TextView lettersGuessedTextView;
     private Button checkGuessButton, quitButton,playAgainButton;
     private ImageButton hangmanImage;
-    private ImageView[] hangman_image = new ImageView[8];
 
 //---------------------------------------------------------------
     @Override
@@ -55,6 +52,7 @@ public class HangmanGame extends Activity {
         wTBGTextView = (TextView) findViewById(R.id.word_to_be_guessed_text_view);
         playerGuessEditText = (EditText) findViewById(R.id.player_input_edit_text);
         playerGuessEditTextDebugging = (TextView) findViewById(R.id.word_to_be_guessed_text_view_debugging);
+        lettersGuessedTextView = (TextView) findViewById(R.id.letters_guessed_text_view);
         checkGuessButton = (Button) findViewById(R.id.check_guess_button);
         quitButton = (Button) findViewById(R.id.quit_button);
         playAgainButton = (Button) findViewById(R.id.play_again_button);
@@ -107,21 +105,25 @@ public class HangmanGame extends Activity {
 
         if (realGuess == true)
         {
+            lettersGuessedTextView.setText(lettersGuessed);
             char tempChar = tempGuess.charAt(0);
             if (this.currentWordRomaji.contains(tempGuess)) {
                 editDisplayedToBeGuessed(tempChar);
                 editLettersGuessed(tempChar);
+                lettersGuessedTextView.setText("Letters guessed: " + this.lettersGuessed);
                 Toast.makeText(getApplicationContext(), tempGuess + " was within the word.", Toast.LENGTH_SHORT).show();
             } else if (!this.currentWordRomaji.contains(tempGuess)) {
                 this.wrongGuesses = this.wrongGuesses + 1;
-               // setCorrectImage();
+                setCorrectImage();
+                editLettersGuessed(tempChar);
+                lettersGuessedTextView.setText("Letters guessed: " + this.lettersGuessed);
                 Toast.makeText(getApplicationContext(), tempGuess + " is NOT within the word.", Toast.LENGTH_SHORT).show();
             }
         }
         else
         {
             this.wrongGuesses = this.wrongGuesses + 1;
-            //setCorrectImage();
+            setCorrectImage();
             Toast.makeText(getApplicationContext(),"You must enter a letter.", Toast.LENGTH_SHORT).show();
         }
         playerGuessEditText.setText("");
@@ -132,12 +134,28 @@ public class HangmanGame extends Activity {
         return false;
     }
     //------------------------------------------------------------------------------------------------------------
-    private void editLettersGuessed(char letterGuessed)
+    private void editLettersGuessed(char guess)
     {
+        String tempString;
+        boolean inTheList = false;
         for (int i = 0; i < lettersGuessed.length();i++)
         {
 
+            if (lettersGuessed.charAt(i) == guess)
+            {
+               inTheList = true;
+            }
         }
+        if (inTheList == false)
+        {
+            lettersGuessed.append(guess);
+        }
+        tempString = lettersGuessed.toString();
+        char[] array = tempString.replaceAll("\\s+", "").toLowerCase().toCharArray();
+        Arrays.sort(array);
+        lettersGuessed.delete(0, lettersGuessed.length());
+        lettersGuessed.append(array);
+
     }
     //------------------------------------------------------------------------------------------------------------
     private void setCorrectImage()
@@ -146,42 +164,42 @@ public class HangmanGame extends Activity {
         {
             case 1:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang1);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang1);
                 break;
             }
             case 2:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang2);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang2);
                 break;
             }
             case 3:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang3);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang3);
                 break;
             }
             case 4:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang4);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang4);
                 break;
             }
             case 5:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang5);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang5);
                 break;
             }
             case 6:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang6);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang6);
                 break;
             }
             case 7:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang7);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang7);
                 break;
             }
             default:
             {
-                this.hangmanImage.setImageResource(R.drawable.hireshang0);
+                this.hangmanImage.setImageResource(R.drawable.lowreshang0);
                 break;
             }
 
@@ -211,9 +229,11 @@ public class HangmanGame extends Activity {
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     private void setUpNewGame()
     {
-        this.hangmanImage.setImageResource(R.drawable.hireshang0);
+        this.hangmanImage.setImageResource(R.drawable.lowreshang0);
         this.currentWordRomaji="";
+        this.lettersGuessed.delete(0,lettersGuessed.length());
         this.wordToBeGuessed.delete(0, this.wordToBeGuessed.length());
+        lettersGuessedTextView.setText("Letters guessed: " + this.lettersGuessed);
         this.wrongGuesses = 0;
         getWordBankSize();
         getCurrentWord();
@@ -257,7 +277,7 @@ public class HangmanGame extends Activity {
         newWord = new Word("dog","inu","いぬ","犬"); wordBank.add(newWord);
         newWord = new Word("crab","kani","かに","蟹"); wordBank.add(newWord);
         newWord = new Word("Doctor","isha","いしゃ","医者"); wordBank.add(newWord);
-        newWord = new Word("Disneyland","Disneyland","ディズニーランド",""); wordBank.add(newWord);
+        newWord = new Word("Disneyland","disneyland","ディズニーランド",""); wordBank.add(newWord);
         newWord = new Word("to drink","nomu","のむ","飲む"); wordBank.add(newWord);
         newWord = new Word("to eat","taberu","たべる","食べる"); wordBank.add(newWord);
         newWord = new Word("Please go and return.","itterashai","いってらしゃい",""); wordBank.add(newWord);
