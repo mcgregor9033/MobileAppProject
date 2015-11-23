@@ -21,4 +21,6 @@
     <dimen name="results_data_underline_margin">25sp</dimen>
     <dimen name="list_item_font">24sp</dimen>
     <dimen name="guess_exercise_top_margin">60sp</dimen>
+    <dimen name="menu_button">40sp</dimen>
+    <dimen name="setting_font_size">24sp</dimen>
 </resources>

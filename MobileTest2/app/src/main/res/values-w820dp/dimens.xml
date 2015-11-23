@@ -21,4 +21,6 @@
     <dimen name="restults_title_text_font">40sp</dimen>
     <dimen name="list_item_font">45sp</dimen>
     <dimen name="guess_exercise_top_margin">100sp</dimen>
+    <dimen name="menu_button">60sp</dimen>
+    <dimen name="setting_font_size">45sp</dimen>
 </resources>

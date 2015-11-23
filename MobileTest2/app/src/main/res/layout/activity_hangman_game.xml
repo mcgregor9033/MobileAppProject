@@ -17,9 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
             android:cropToPadding="false"
             android:scaleType="fitXY"
-            android:adjustViewBounds="true"
             android:src="@drawable/hang" />
 
         <TextView
@@ -51,28 +51,22 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/check_guess" />
 
-        <LinearLayout
+        <Button
+            android:id="@+id/play_again_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_gravity="center_horizontal"
+            android:gravity="left"
+            android:text="@string/play_again_button"
+            android:visibility="invisible" />
 
-            <Button
-                android:id="@+id/play_again_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="bottom"
-                android:text="@string/play_again_button"
-                android:visibility="invisible" />
-
-            <Button
-                android:id="@+id/quit_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="right"
-                android:text="@string/quit_button"
-                android:visibility="invisible" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/quit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="right"
+            android:text="@string/quit_button"
+            android:visibility="invisible" />
     </LinearLayout>
 </RelativeLayout>
