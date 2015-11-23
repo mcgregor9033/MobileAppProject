@@ -281,7 +281,7 @@ public class HangmanGame extends Activity {
         newWord = new Word("dog","inu","いぬ","犬"); wordBank.add(newWord);
         newWord = new Word("crab","kani","かに","蟹"); wordBank.add(newWord);
         newWord = new Word("Doctor","isha","いしゃ","医者"); wordBank.add(newWord);
-        newWord = new Word("Disneyland","Disneyland","ディズニーランド",""); wordBank.add(newWord);
+        newWord = new Word("Disneyland","disneyland","ディズニーランド",""); wordBank.add(newWord);
         newWord = new Word("to drink","nomu","のむ","飲む"); wordBank.add(newWord);
         newWord = new Word("to eat","taberu","たべる","食べる"); wordBank.add(newWord);
         newWord = new Word("Please go and return.","itterashai","いってらしゃい",""); wordBank.add(newWord);
