@@ -107,8 +107,8 @@ public class ResultsActivity extends Activity {
             outputWriter.close();
 
             //display file saved message
-            Toast.makeText(getBaseContext(), "File saved successfully!",
-                    Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getBaseContext(), "File saved successfully!",
+            //        Toast.LENGTH_SHORT).show();
 
         } catch (Exception e) {
             e.printStackTrace();
