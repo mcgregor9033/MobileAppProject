@@ -36,7 +36,6 @@ public class LevelHiragana extends Activity {
     private Button button;
     final String FILENAME = "Hira";
     private int falseCT = 0;
-    private int noteCT = 0;
 
     final Context context = this;
 
@@ -95,7 +94,6 @@ public class LevelHiragana extends Activity {
             FileOutputStream fOut = openFileOutput(FILENAME, MODE_APPEND);
             OutputStreamWriter osw = new OutputStreamWriter(fOut);
             osw.write(data);
-            osw.write("\n");
             osw.flush();
             osw.close();
         } catch (Exception e) {

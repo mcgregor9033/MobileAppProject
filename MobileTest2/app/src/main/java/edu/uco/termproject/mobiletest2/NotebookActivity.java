@@ -25,24 +25,25 @@ public class NotebookActivity extends Activity {
     final String kataFile = "Kata";
     final String kanjiFile = "Kanji";
 
-    public String readSavedData (String filename ) {
+    public String readSavedData(String filename) {
         StringBuffer datax = new StringBuffer("");
         try {
-            FileInputStream fIn = openFileInput (filename) ;
-            InputStreamReader isr = new InputStreamReader ( fIn ) ;
-            BufferedReader buffreader = new BufferedReader ( isr ) ;
+            FileInputStream fIn = openFileInput(filename);
+            InputStreamReader isr = new InputStreamReader(fIn);
+            BufferedReader buffreader = new BufferedReader(isr);
 
-            String readString = buffreader.readLine ( ) ;
-            while ( readString != null ) {
-                datax.append(readString).append("\n");
-                readString = buffreader.readLine ( ) ;
+            String readString = buffreader.readLine();
+            while (readString != null) {
+                datax.append(readString);
+                datax.append("\n");
+                readString = buffreader.readLine();
             }
 
-            isr.close ( ) ;
-        } catch ( IOException ioe ) {
-            ioe.printStackTrace ( ) ;
+            isr.close();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
         }
-        return datax.toString() ;
+        return datax.toString();
     }
 
     @Override
@@ -66,15 +67,17 @@ public class NotebookActivity extends Activity {
         btnget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (btnhira.isSelected()) {
+                if (btnhira.isChecked()) {
                     txthira.setVisibility(View.VISIBLE);
                     txtkata.setVisibility(View.INVISIBLE);
                     txtkanji.setVisibility(View.INVISIBLE);
-                }else if(btnkata.isSelected()){
+                }
+                if (btnkata.isChecked()) {
                     txthira.setVisibility(View.INVISIBLE);
                     txtkata.setVisibility(View.VISIBLE);
                     txtkanji.setVisibility(View.INVISIBLE);
-                }else{
+                }
+                if(btnkanji.isChecked()) {
                     txthira.setVisibility(View.INVISIBLE);
                     txtkata.setVisibility(View.INVISIBLE);
                     txtkanji.setVisibility(View.VISIBLE);

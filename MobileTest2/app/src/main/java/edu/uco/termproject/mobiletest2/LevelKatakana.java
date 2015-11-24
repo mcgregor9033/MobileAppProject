@@ -94,7 +94,6 @@ public class LevelKatakana extends Activity {
             FileOutputStream fOut = openFileOutput(FILENAME, MODE_APPEND);
             OutputStreamWriter osw = new OutputStreamWriter(fOut);
             osw.write(data);
-            osw.write("\n");
             osw.flush();
             osw.close();
         } catch (Exception e) {
