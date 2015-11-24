@@ -87,7 +87,7 @@ public class StatsActivity extends Activity {
                 //float[] values = new float[] { 2.0f,1.5f, 2.5f, 1.0f , 3.0f };
                 String[] verlabels = new String[]{"great", "ok", "bad"};
                 String[] horlabels = new String[]{"oldest quiz", "recent quiz", "newest quiz"};
-                GraphView graphView = new GraphView(StatsActivity.this, tempList, "GraphViewDemo", horlabels, verlabels, GraphView.LINE, "KanaPool Statistics");
+                GraphView graphView = new GraphView(StatsActivity.this, tempList, "GraphViewDemo", horlabels, verlabels, GraphView.LINE, "Hiragana Statistics");
                 setContentView(graphView);
             }
         });
@@ -108,7 +108,7 @@ public class StatsActivity extends Activity {
                 //float[] values = new float[] { 2.0f,1.5f, 2.5f, 1.0f , 3.0f };
                 String[] verlabels = new String[]{"great", "ok", "bad"};
                 String[] horlabels = new String[]{"oldest quiz", "recent quiz", "newest quiz"};
-                GraphView graphView = new GraphView(StatsActivity.this, tempList, "GraphViewDemo", horlabels, verlabels, GraphView.LINE, "Diction Statistics");
+                GraphView graphView = new GraphView(StatsActivity.this, tempList, "GraphViewDemo", horlabels, verlabels, GraphView.LINE, "Katakana Statistics");
                 setContentView(graphView);
             }
         });
