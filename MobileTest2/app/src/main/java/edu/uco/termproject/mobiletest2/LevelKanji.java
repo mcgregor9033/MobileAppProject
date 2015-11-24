@@ -35,6 +35,7 @@ public class LevelKanji extends Activity {
     private EditText enterText;
     private TextView hint;
     private MediaPlayer mp;
+    Random rand = new Random();
     private int falseCT = 0;
     final String FILENAME = "Kanji";
 
@@ -46,7 +47,7 @@ public class LevelKanji extends Activity {
             new Diction("one", "一", "いち"), new Diction("two", "二", "に"), new Diction("three", "三", "さん"),
             new Diction("four", "四", "し"), new Diction("five", "五", "ご"), new Diction("six", "六", "ろく"),
             new Diction("seven", "七", "しち"), new Diction("eight", "八", "はち"), new Diction("nine", "九", "きゅう"),
-            new Diction("ten", "十", "じゅう"), new Diction("yen", "円", "えん"), new Diction("hundred", "百", "ひゃく"),
+            new Diction("ten", "十", "じゅう"), new Diction("yen", "円", "えん"), new Diction("hundred", "百", "びゃく"),
             new Diction("thousand", "千", "せん"), new Diction("tenthousand", "万", "まん"), new Diction("what", "何", "なに"),
             new Diction("sun", "日", "ひ"), new Diction("moon", "月", "つき"), new Diction("light", "明", "あか"),
             new Diction("temple", "寺", "てら"), new Diction("time", "時", "じ"), new Diction("fire", "火", "ひ"),
@@ -108,6 +109,7 @@ public class LevelKanji extends Activity {
         ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_level_kanji);
 
+        myCurrentIndex = rand.nextInt(myKanjiSet.length);
         audio = (ImageButton) findViewById(R.id.btnAudio3);
         next = (ImageButton) findViewById(R.id.btnNext3);
         check = (Button) findViewById(R.id.btnCheck3);

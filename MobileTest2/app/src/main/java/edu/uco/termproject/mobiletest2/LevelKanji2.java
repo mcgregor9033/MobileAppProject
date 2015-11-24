@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,8 +16,10 @@ import java.util.Random;
 
 public class LevelKanji2 extends Activity {
     private Button choice1, choice2,choice3,choice4;
+    private int num1, num2, num3, num4;
     private TextView img;
     final Context context = this;
+    Random rand = new Random();
 
     private Diction [] myKanjiSet = new Diction[] {
             new Diction("one","一","いち"), new Diction("two","二","に"), new Diction("three","三","さん"),
@@ -39,17 +42,38 @@ public class LevelKanji2 extends Activity {
         Drawable res = getResources().getDrawable(imageResource);
         img.setImageDrawable(res);*/
         img.setText(myKanjiSet[myCurrentIndex].getMyCharacter());
-        img.setTextSize(R.dimen.img_font);
+        img.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getResources().getDimension(R.dimen.img_font));
 
-        Random rand = new Random();
-        int tmp = rand.nextInt(myKanjiSet.length);
-        choice1.setText(myKanjiSet[tmp].getMyImgName());
-        tmp = rand.nextInt(myKanjiSet.length);
-        choice2.setText(myKanjiSet[tmp].getMyImgName());
-        tmp = rand.nextInt(myKanjiSet.length);
-        choice3.setText(character);
-        tmp = rand.nextInt(myKanjiSet.length);
-        choice4.setText(myKanjiSet[tmp].getMyImgName());
+        num1 = num2 = num3 = num4 = rand.nextInt(myKanjiSet.length);
+        while (num2 == num1)
+            num2 = rand.nextInt(myKanjiSet.length);
+        while (num3 == num1 || num3 == num2)
+            num3 = rand.nextInt(myKanjiSet.length);
+        while (num4 == num3 || num4 == num2 || num4 == num1)
+            num4 = rand.nextInt(myKanjiSet.length);
+
+        int reference = rand.nextInt(4);
+
+        switch (reference) {
+            case 0:
+                num1 = myCurrentIndex;
+                break;
+            case 1:
+                num2 = myCurrentIndex;
+                break;
+            case 2:
+                num3 = myCurrentIndex;
+                break;
+            case 3:
+                num4 = myCurrentIndex;
+                break;
+        }
+
+        choice1.setText(myKanjiSet[num1].getMyImgName());
+        choice2.setText(myKanjiSet[num2].getMyImgName());
+        choice3.setText(myKanjiSet[num3].getMyImgName());
+        choice4.setText(myKanjiSet[num4].getMyImgName());
     }
 
     private void checkAnswer (LevelKanji2 levelKanji2, String userEnterAnswer){

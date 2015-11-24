@@ -24,7 +24,7 @@ public class LevelKanjiMultipleGuess extends Activity {
 
     TextView question;
     ImageButton box00, box01, box10, box11;
-    private int reference, max = 4, min = 0, count = 0, num1, num2, num3, num4;
+    private int reference, max = 28, min = 0, count = 0, num1, num2, num3, num4;
     private Random rand;
     String answerWord, ans1, ans2, ans3, ans4;
     Switch help;
