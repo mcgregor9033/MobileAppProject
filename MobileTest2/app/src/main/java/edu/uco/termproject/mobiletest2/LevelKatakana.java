@@ -166,6 +166,10 @@ public class LevelKatakana extends Activity {
                 Random rand = new Random();
                 myCurrentIndex = rand.nextInt(myDictionSet.length);
                 hint.setVisibility(View.INVISIBLE);
+
+                falseCT = 0;
+                addNote.setVisibility(View.INVISIBLE);
+
                 updateCharacter();
             }
         });

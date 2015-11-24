@@ -168,6 +168,10 @@ public class LevelKanji extends Activity {
                 Random rand = new Random();
                 myCurrentIndex = rand.nextInt(myKanjiSet.length);
                 hint.setVisibility(View.INVISIBLE);
+
+                falseCT = 0;
+                addNote.setVisibility(View.INVISIBLE);
+
                 updateCharacter();
             }
         });
