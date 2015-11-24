@@ -17,7 +17,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -284,7 +284,7 @@ public class LevelKatakanaQuiz extends Activity {
                 alertDialogBuilder.setTitle("Confused? Here's what to do!")
                         .setIcon(R.drawable.question)
                         .setCancelable(false)
-                        .setMessage("Click the button below that matches the correct Katakana symbol.")
+                        .setMessage("Click the button below that matches the correct Diction symbol.")
                         .setNegativeButton("Let's Go!!!", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
@@ -377,7 +377,8 @@ public class LevelKatakanaQuiz extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(LevelKatakanaQuiz.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, NotebookActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.themes:
                 return true;

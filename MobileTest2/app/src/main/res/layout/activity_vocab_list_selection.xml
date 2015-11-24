@@ -15,7 +15,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/holo_orange_light"
         android:layout_below="@id/results"
         android:id="@+id/line"/>
 
@@ -24,7 +23,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:textColor="#3a39ff"
         android:layout_marginTop="@dimen/word_margin">
 
         <RadioButton

@@ -1,15 +1,18 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
-import android.media.Image;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
+
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,24 +26,28 @@ public class HangmanGame extends Activity {
     private ArrayList<Word> wordBank = new ArrayList<Word>();
     private Word currentWord;
     private String currentWordRomaji;
+    private String currentWordJapanese;
     private int currentWordLength;
     private int wordBankSize;
     private StringBuffer wordToBeGuessed = new StringBuffer();
     private StringBuffer lettersGuessed = new StringBuffer();
     private int wrongGuesses;
+    final Context context =this;
+
     private boolean gameOver;
     private boolean guessed;
     private boolean choiceChecked;
 
 //---------------------------------------------------------------
     /*UI data*/
+    private TextView wordToBeGuessedJapanese;
     private TextView wTBGTextView;
     private EditText playerGuessEditText;
     private TextView playerGuessEditTextDebugging;
     private TextView lettersGuessedTextView;
     private Button checkGuessButton, quitButton,playAgainButton;
     private ImageButton hangmanImage;
-
+    private Switch help;
 //---------------------------------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +55,7 @@ public class HangmanGame extends Activity {
         ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_hangman_game);
         this.choiceChecked = false;
+        wordToBeGuessedJapanese = (TextView) findViewById(R.id.word_to_be_guessed_japanese);
         hangmanImage = (ImageButton) findViewById(R.id.hangman_pic_temp);
         wTBGTextView = (TextView) findViewById(R.id.word_to_be_guessed_text_view);
         playerGuessEditText = (EditText) findViewById(R.id.player_input_edit_text);
@@ -56,10 +64,13 @@ public class HangmanGame extends Activity {
         checkGuessButton = (Button) findViewById(R.id.check_guess_button);
         quitButton = (Button) findViewById(R.id.quit_button);
         playAgainButton = (Button) findViewById(R.id.play_again_button);
+        help=(Switch)findViewById(R.id.help);
 
-        if (wordBank.size()==0)
-        {setUpWordBank();}
+        if (wordBank.size() == 0) {
+            setUpWordBank();
+        }
         setUpNewGame();
+
 
         checkGuessButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,8 +81,10 @@ public class HangmanGame extends Activity {
                     playAgainButton.setVisibility(View.VISIBLE);
                     quitButton.setVisibility(View.VISIBLE);
                     if (checkIfSolved()) {
+                        hangmanImage.setImageResource(R.drawable.lowresgameoverscreen);
                         Toast.makeText(getApplicationContext(), "You saved them.  You Win!", Toast.LENGTH_LONG).show();
                     } else {
+                        hangmanImage.setImageResource(R.drawable.lowresgameoverscreen);
                         Toast.makeText(getApplicationContext(), "You let them die.  You Lose!", Toast.LENGTH_LONG).show();
                     }
                 }
@@ -94,6 +107,23 @@ public class HangmanGame extends Activity {
                 finish();
             }
         });
+
+        help.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                //switch true
+                if (isChecked) {
+                    playerGuessEditTextDebugging.setVisibility(View.VISIBLE);
+
+
+                } else {
+                    playerGuessEditTextDebugging.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+
     }
 
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -250,6 +280,7 @@ public class HangmanGame extends Activity {
         }
         playerGuessEditTextDebugging.setText(this.currentWordRomaji);
         wTBGTextView.setText(this.wordToBeGuessed);
+        wordToBeGuessedJapanese.setText(this.currentWordJapanese);
     }
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     private void getWordBankSize()
@@ -268,9 +299,26 @@ public class HangmanGame extends Activity {
         int randomNum = rand.nextInt(wordBankSize);
         this.currentWord = wordBank.get(randomNum);
         this.currentWordRomaji = this.currentWord.getRomaji();
+        this.currentWordJapanese = getCorrectJapaneseString();
        // Toast.makeText(getApplicationContext(), currentWord.getRomaji()+" "+randomNum,Toast.LENGTH_SHORT).show();
     }
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    private String getCorrectJapaneseString()
+    {
+       if(!this.currentWord.getKanji().equals(""))
+       {
+           return this.currentWord.getKanji();
+       }
+        else if(!this.currentWord.getKana().equals(""))
+       {
+           return this.currentWord.getKana();
+       }
+       else
+       {
+           return this.currentWord.getRomaji();
+       }
+    }
+   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     private void setUpWordBank()
     {
         Word newWord = new Word("Japan","nihon","にほん","日本"); wordBank.add(newWord);
@@ -302,7 +350,8 @@ public class HangmanGame extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(HangmanGame.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, NotebookActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.themes:
                 return true;
