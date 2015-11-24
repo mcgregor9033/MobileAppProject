@@ -69,6 +69,7 @@ public class GraphView extends View {
             float y = ((graphheight / vers) * i) + border;
             canvas.drawLine(horstart, y, width, y, paint);
             paint.setColor(Color.RED);
+            paint.setTextSize(10F);
             canvas.drawText(verlabels[i], 0, y, paint);
         }
         int hors = horlabels.length - 1;
@@ -82,10 +83,12 @@ public class GraphView extends View {
             if (i==0)
                 paint.setTextAlign(Align.LEFT);
             paint.setColor(Color.RED);
+            paint.setTextSize(10F);
             canvas.drawText(horlabels[i], x, height - 4, paint);
         }
 
         paint.setTextAlign(Align.CENTER);
+        paint.setTextSize(10F);
         canvas.drawText(title, (graphwidth / 2) + horstart, border - 4, paint);
 
         if (max != min) {
