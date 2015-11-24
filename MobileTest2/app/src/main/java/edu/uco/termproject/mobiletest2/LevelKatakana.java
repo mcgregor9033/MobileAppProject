@@ -5,19 +5,20 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.util.Random;
 
 public class LevelKatakana extends Activity {
@@ -28,57 +29,77 @@ public class LevelKatakana extends Activity {
     private ImageButton next;
     private Button help;
     private Button check;
-    private ImageView img;
+    private Button button;
+    private Button addNote;
+    private TextView img;
     private EditText enterText;
     private TextView hint;
     private MediaPlayer mp;
+    private int falseCT = 0;
+    final String FILENAME = "Kata";
 
     final Context context = this;
-    private Button button;
 
-    private Katakana [] myKatakanaSet = new Katakana[] {
-            new Katakana("a1","a"), new Katakana("i1","i"), new Katakana("u1","u"), new Katakana("e1","e"), new Katakana("o1","o"),
-            new Katakana("ka1","ka"), new Katakana("ki1","ki"), new Katakana("ku1","ku"), new Katakana("ke1","ke"), new Katakana("ko1","ko"),
-            new Katakana("sa1","sa"), new Katakana("shi1","shi"), new Katakana("su1","u"), new Katakana("se1","se"), new Katakana("so1","so"),
-            new Katakana("ta1","ta"), new Katakana("chi1","chi"), new Katakana("tsu1","tsu"), new Katakana("te1","te"), new Katakana("to1","to"),
-            new Katakana("na1","na"), new Katakana("ni1","ni"), new Katakana("nu1","nu"), new Katakana("ne1","ne"), new Katakana("no1","no"),
-            new Katakana("ha1","ha"), new Katakana("hi1","hi"), new Katakana("fu1","fu"), new Katakana("he1","he"), new Katakana("ho1","ho"),
-            new Katakana("ma1","ma"), new Katakana("mi1","mi"), new Katakana("mu1","mu"), new Katakana("me1","me"), new Katakana("mo1","mo"),
-            new Katakana("ya1","ya"), new Katakana("yu1","yu"), new Katakana("yo1","yo"),
-            new Katakana("ra1","ra"), new Katakana("ri1","ri"), new Katakana("ru1","ru"), new Katakana("re1","re"), new Katakana("ro1","ro"),
-            new Katakana("wa1","wa"), new Katakana("wo1","o"), new Katakana("n1","n")
+    private Diction[] myDictionSet = new Diction[]{
+            new Diction("a1", "ア", "a"), new Diction("i1", "イ", "i"), new Diction("u1", "ウ", "u"), new Diction("e1", "エ", "e"), new Diction("o1", "オ", "o"),
+            new Diction("ka1", "カ", "ka"), new Diction("ki1", "キ", "ki"), new Diction("ku1", "ク", "ku"), new Diction("ke1", "ケ", "ke"), new Diction("ko1", "コ", "ko"),
+            new Diction("sa1", "サ", "sa"), new Diction("shi1", "シ", "shi"), new Diction("su1", "ス", "u"), new Diction("se1", "セ", "se"), new Diction("so1", "ソ", "so"),
+            new Diction("ta1", "タ", "ta"), new Diction("chi1", "チ", "chi"), new Diction("tsu1", "ツ", "tsu"), new Diction("te1", "テ", "te"), new Diction("to1", "ト", "to"),
+            new Diction("na1", "ナ", "na"), new Diction("ni1", "ニ", "ni"), new Diction("nu1", "ヌ", "nu"), new Diction("ne1", "ネ", "ne"), new Diction("no1", "ノ", "no"),
+            new Diction("ha1", "ハ", "ha"), new Diction("hi1", "ヒ", "hi"), new Diction("fu1", "フ", "fu"), new Diction("he1", "ヘ", "he"), new Diction("ho1", "ホ", "ho"),
+            new Diction("ma1", "マ", "ma"), new Diction("mi1", "ミ", "mi"), new Diction("mu1", "ム", "mu"), new Diction("me1", "メ", "me"), new Diction("mo1", "モ", "mo"),
+            new Diction("ya1", "ヤ", "ya"), new Diction("yu1", "ユ", "yu"), new Diction("yo1", "ヨ", "yo"),
+            new Diction("ra1", "ラ", "ra"), new Diction("ri1", "リ", "ri"), new Diction("ru1", "ル", "ru"), new Diction("re1", "レ", "re"), new Diction("ro1", "ロ", "ro"),
+            new Diction("wa1", "ワ", "wa"), new Diction("wo1", "ヲ", "o"), new Diction("n1", "ン", "n")
     };
 
     private int myCurrentIndex = 0;
 
-    private void updateCharacter(){
-        String character = myKatakanaSet[myCurrentIndex].getMyImgName();
+    private void updateCharacter() {
+        String character = myDictionSet[myCurrentIndex].getMyImgName();
 
-        String uri = "@drawable/" + character;
+        /*String uri = "@drawable/" + character;
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
-        img.setImageDrawable(res);
+        img.setImageDrawable(res);*/
+        img.setText(myDictionSet[myCurrentIndex].getMyCharacter());
+        img.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getResources().getDimension(R.dimen.img_font));
 
         String uri2 = "@raw/" + character;
         int mpResource = getResources().getIdentifier(uri2, null, getPackageName());
         mp = MediaPlayer.create(this, mpResource);
     }
 
-    private void checkAnswer (LevelKatakana levelKatakana, String userEnterAnswer){
-        String answer = myKatakanaSet[myCurrentIndex].getMyAnswer();
+    private void checkAnswer(LevelKatakana levelKatakana, String userEnterAnswer) {
+        String answer = myDictionSet[myCurrentIndex].getMyAnswer();
         int messageResId = 0;
 
-        if(answer.equals(userEnterAnswer)) {
+        if (answer.equals(userEnterAnswer)) {
             messageResId = R.string.correct_toast;
             Intent intent = new Intent(levelKatakana, LevelKatakanaMultipleGuess.class);
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
-            startActivity (intent);
+            startActivity(intent);
+        } else {
+            falseCT++;
+            if (falseCT >= 3) addNote.setVisibility(View.VISIBLE);
+            messageResId = R.string.incorrect_toast;
         }
 
-        else
-            messageResId = R.string.incorrect_toast;
-
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
+    }
+
+    public void writeData(String data) {
+        try {
+            FileOutputStream fOut = openFileOutput(FILENAME, MODE_APPEND);
+            OutputStreamWriter osw = new OutputStreamWriter(fOut);
+            osw.write(data);
+            osw.write("\n");
+            osw.flush();
+            osw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -91,10 +112,11 @@ public class LevelKatakana extends Activity {
         next = (ImageButton) findViewById(R.id.btnNext2);
         check = (Button) findViewById(R.id.btnCheck2);
         help = (Button) findViewById(R.id.btnQuiz2);
-        img = (ImageView) findViewById(R.id.imageView2);
+        img = (TextView) findViewById(R.id.imageView2);
         enterText = (EditText) findViewById(R.id.editText2);
         hint = (TextView) findViewById(R.id.pic_hint2);
         button = (Button) findViewById(R.id.buttonAlert);
+        addNote = (Button) findViewById(R.id.btnAddNote2);
 
 
         audio.setOnClickListener(new View.OnClickListener() {
@@ -105,8 +127,11 @@ public class LevelKatakana extends Activity {
                         mp.stop();
                         mp.release();
                         updateCharacter();
-                    } mp.start();
-                } catch(Exception e) { e.printStackTrace(); }
+                    }
+                    mp.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -131,7 +156,7 @@ public class LevelKatakana extends Activity {
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                hint.setText(myKatakanaSet[myCurrentIndex].getMyAnswer());
+                hint.setText(myDictionSet[myCurrentIndex].getMyAnswer());
                 hint.setVisibility(View.VISIBLE);
             }
         });
@@ -140,7 +165,7 @@ public class LevelKatakana extends Activity {
             @Override
             public void onClick(View v) {
                 Random rand = new Random();
-                myCurrentIndex = rand.nextInt(myKatakanaSet.length);
+                myCurrentIndex = rand.nextInt(myDictionSet.length);
                 hint.setVisibility(View.INVISIBLE);
                 updateCharacter();
             }
@@ -150,6 +175,23 @@ public class LevelKatakana extends Activity {
             @Override
             public void onClick(View v) {
                 checkAnswer(LevelKatakana.this, enterText.getText().toString());
+            }
+        });
+
+        addNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                falseCT = 0;
+                addNote.setVisibility(View.INVISIBLE);
+
+                String character = myDictionSet[myCurrentIndex].getMyCharacter();
+                String answer = myDictionSet[myCurrentIndex].getMyAnswer();
+                String tmp = character + "  " + answer + "\n";
+
+                writeData(tmp);
+
+                Toast.makeText(context, myDictionSet[myCurrentIndex].getMyCharacter() +
+                        " was added to Notebook", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -176,7 +218,8 @@ public class LevelKatakana extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(LevelKatakana.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, NotebookActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.themes:
                 return true;

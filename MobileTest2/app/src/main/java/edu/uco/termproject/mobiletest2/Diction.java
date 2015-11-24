@@ -1,12 +1,14 @@
 package edu.uco.termproject.mobiletest2;
 
-public class Hiragana {
+public class Diction {
     private String myImgName;
     private String myAnswer;
+    private String myCharacter;
 
-    public Hiragana (String hiragana){
-        myImgName = hiragana;
-        myAnswer = hiragana;
+    public Diction(String imgName, String character, String answer){
+        myImgName = imgName;
+        myAnswer = answer;
+        myCharacter = character;
     }
 
     public String getMyAnswer() {
@@ -24,4 +26,8 @@ public class Hiragana {
     public void setMyImgName(String myImgName) {
         this.myImgName = myImgName;
     }
+
+    public String getMyCharacter() { return myCharacter; }
+
+    public void setMyCharacter(String myCharacter) { this.myCharacter = myCharacter; }
 }

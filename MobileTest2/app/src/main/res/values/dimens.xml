@@ -1,7 +1,7 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">5dp</dimen>
+    <dimen name="activity_vertical_margin">5dp</dimen>
     <dimen name="quiz_word">50sp</dimen>
     <dimen name="quiz_button">80sp</dimen>
     <dimen name="button_margin">5sp</dimen>
@@ -23,4 +23,5 @@
     <dimen name="guess_exercise_top_margin">60sp</dimen>
     <dimen name="menu_button">40sp</dimen>
     <dimen name="setting_font_size">24sp</dimen>
+    <dimen name="img_font">100sp</dimen>
 </resources>

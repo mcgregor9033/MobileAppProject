@@ -1,6 +1,7 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,6 +23,7 @@ public class VocabListSelectionActivity extends Activity {
                         placesRadioButton,
                         verbsRadioButton,defaultRB;
     private String listChosen;
+    final Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,7 +126,8 @@ public class VocabListSelectionActivity extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(VocabListSelectionActivity.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, NotebookActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.themes:
                 return true;

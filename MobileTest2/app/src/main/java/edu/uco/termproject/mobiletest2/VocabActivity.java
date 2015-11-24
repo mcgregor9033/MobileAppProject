@@ -3,13 +3,12 @@ package edu.uco.termproject.mobiletest2;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 public class VocabActivity extends Activity implements
         VocabFragment.ListSelectionListener {
@@ -25,6 +24,7 @@ public class VocabActivity extends Activity implements
 
     private static final int MATCH_PARENT = LinearLayout.LayoutParams.MATCH_PARENT;
     private static final String TAG = "VocabActivity";
+    final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,7 +178,8 @@ public class VocabActivity extends Activity implements
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(VocabActivity.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, NotebookActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.themes:
                 return true;

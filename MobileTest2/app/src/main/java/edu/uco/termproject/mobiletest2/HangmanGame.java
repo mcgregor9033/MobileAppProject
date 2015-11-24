@@ -1,6 +1,8 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,7 +28,7 @@ public class HangmanGame extends Activity {
     private StringBuffer wordToBeGuessed = new StringBuffer();
     private StringBuffer lettersGuessed = new StringBuffer();
     private int wrongGuesses;
-
+    final Context context =this;
 
     private boolean gameOver;
     private boolean guessed;
@@ -282,7 +284,8 @@ public class HangmanGame extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(HangmanGame.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, NotebookActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.themes:
                 return true;

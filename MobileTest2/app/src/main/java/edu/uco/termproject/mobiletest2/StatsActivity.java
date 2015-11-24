@@ -1,15 +1,15 @@
 package edu.uco.termproject.mobiletest2;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -20,6 +20,7 @@ public class StatsActivity extends Activity {
     TextView stats;
     Button hiraButton, kataButton, kanButton;
     private ArrayList hiraganaScore, katakanaScore, kanjiScore;
+    final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +87,7 @@ public class StatsActivity extends Activity {
                 //float[] values = new float[] { 2.0f,1.5f, 2.5f, 1.0f , 3.0f };
                 String[] verlabels = new String[]{"great", "ok", "bad"};
                 String[] horlabels = new String[]{"oldest quiz", "recent quiz", "newest quiz"};
-                GraphView graphView = new GraphView(StatsActivity.this, tempList, "GraphViewDemo", horlabels, verlabels, GraphView.LINE, "Hiragana Statistics");
+                GraphView graphView = new GraphView(StatsActivity.this, tempList, "GraphViewDemo", horlabels, verlabels, GraphView.LINE, "KanaPool Statistics");
                 setContentView(graphView);
             }
         });
@@ -107,7 +108,7 @@ public class StatsActivity extends Activity {
                 //float[] values = new float[] { 2.0f,1.5f, 2.5f, 1.0f , 3.0f };
                 String[] verlabels = new String[]{"great", "ok", "bad"};
                 String[] horlabels = new String[]{"oldest quiz", "recent quiz", "newest quiz"};
-                GraphView graphView = new GraphView(StatsActivity.this, tempList, "GraphViewDemo", horlabels, verlabels, GraphView.LINE, "Katakana Statistics");
+                GraphView graphView = new GraphView(StatsActivity.this, tempList, "GraphViewDemo", horlabels, verlabels, GraphView.LINE, "Diction Statistics");
                 setContentView(graphView);
             }
         });
@@ -148,7 +149,8 @@ public class StatsActivity extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(StatsActivity.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, NotebookActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.themes:
                 return true;
