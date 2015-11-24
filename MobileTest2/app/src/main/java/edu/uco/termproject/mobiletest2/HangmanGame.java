@@ -6,9 +6,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,7 +43,7 @@ public class HangmanGame extends Activity {
     private TextView lettersGuessedTextView;
     private Button checkGuessButton, quitButton,playAgainButton;
     private ImageButton hangmanImage;
-
+    private Switch help;
 //---------------------------------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +60,11 @@ public class HangmanGame extends Activity {
         checkGuessButton = (Button) findViewById(R.id.check_guess_button);
         quitButton = (Button) findViewById(R.id.quit_button);
         playAgainButton = (Button) findViewById(R.id.play_again_button);
+        help=(Switch)findViewById(R.id.help);
 
-        if (wordBank.size()==0)
-        {setUpWordBank();}
+        if (wordBank.size() == 0) {
+            setUpWordBank();
+        }
         setUpNewGame();
 
 
@@ -99,6 +103,23 @@ public class HangmanGame extends Activity {
                 finish();
             }
         });
+
+        help.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                //switch true
+                if (isChecked) {
+                    playerGuessEditTextDebugging.setVisibility(View.VISIBLE);
+
+
+                } else {
+                    playerGuessEditTextDebugging.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+
     }
 
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

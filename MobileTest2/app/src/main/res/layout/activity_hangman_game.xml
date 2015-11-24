@@ -11,6 +11,16 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:orientation="vertical">
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:switchMinWidth="100sp"
+            android:textOn="@string/help_on"
+            android:textOff="@string/help_off"
+            android:id="@+id/help"
+
+            />
+
         <TextView
             android:id="@+id/word_to_be_guessed_japanese"
             android:layout_width="wrap_content"
@@ -32,7 +42,8 @@
             android:id="@+id/word_to_be_guessed_text_view_debugging"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/word_to_be_guessed_text_view"
