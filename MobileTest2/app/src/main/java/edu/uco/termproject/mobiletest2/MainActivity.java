@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-    private Button gameButton, katakanaButton, hiraganaButton, kanjiButton, vocabButton, statsButton;
+    private Button linksButton, gameButton, katakanaButton, hiraganaButton, kanjiButton, vocabButton, statsButton;
     private ImageButton titleScreen;
 
     final Context context = this;
@@ -37,12 +37,14 @@ public class MainActivity extends Activity {
         hiraganaButton = (Button) findViewById(R.id.hiragana_button);
         kanjiButton = (Button) findViewById(R.id.kanji_button);
         vocabButton = (Button) findViewById(R.id.vocab_button);
+        linksButton = (Button) findViewById(R.id.links_button);
         statsButton = (Button) findViewById(R.id.stats_button);
 
         gameButton.setVisibility(View.INVISIBLE);
         hiraganaButton.setVisibility(View.INVISIBLE);
         katakanaButton.setVisibility(View.INVISIBLE);
         kanjiButton.setVisibility(View.INVISIBLE);
+        linksButton.setVisibility((View.INVISIBLE));
 
         kanjiButton.setEnabled(false);
         gameButton.setEnabled(false);
@@ -68,6 +70,7 @@ public class MainActivity extends Activity {
                 hiraganaButton.setVisibility(View.VISIBLE);
                 katakanaButton.setVisibility(View.VISIBLE);
                 kanjiButton.setVisibility(View.VISIBLE);
+                linksButton.setVisibility((View.VISIBLE));
                 titleScreen.setVisibility(View.INVISIBLE);
             }
         });
@@ -175,7 +178,13 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
-
+        linksButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, JapaneseLanguageLinksActivity.class);
+                startActivity(intent);
+            }
+        });
         statsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -78,6 +78,10 @@
             android:name=".NotebookActivity"
             android:label="@string/title_activity_notebook" >
         </activity>
+        <activity
+            android:name=".JapaneseLanguageLinksActivity"
+            android:label="@string/title_activity_japanese_language_links" >
+        </activity>
     </application>
 
 </manifest>

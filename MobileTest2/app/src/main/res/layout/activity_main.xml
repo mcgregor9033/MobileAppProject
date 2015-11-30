@@ -49,7 +49,12 @@
             android:layout_height="wrap_content"
             android:text="@string/vocab_button"
             android:layout_marginBottom="20sp"/>
-
+        <Button
+            android:id="@+id/links_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/links_button"
+            android:layout_marginBottom="20sp"/>
         <Button
             android:id="@+id/stats_button"
             android:layout_width="match_parent"
