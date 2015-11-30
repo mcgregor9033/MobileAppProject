@@ -21,6 +21,8 @@
     <string name="title_activity_results">ResultsActivity</string>
     <string name="title_activity_vocab_list_selection">VocabListSelectionActivity</string>
     <string name="links_button">Useful\u0020Links</string>
+    <string name="grammar_button">Beginning\u0020Grammar</string>
+    <string name="dictionary_button">Online\u0020Dictionary</string>
     <!--Menu-->
     <string name="action_settings">Settings</string>
     <string name="settings">Settings</string>
