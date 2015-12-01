@@ -67,7 +67,6 @@
     <string name="vocab_places">Places</string>
     <string name="vocab_list">Vocab\u0020Lists</string>
     <string name="generate_vocab_list_button">Get\u0020Vocab\u0020List</string>
-
     <string name="quit_button">Want\u0020to\u0020Quit?</string>
     <string name="play_again_button">Play\u0020Again?</string>
     <string name="check_guess">Check\u0020Guess</string>
@@ -86,10 +85,5 @@
     <string name="results_wrong">wrong</string>
     <string name="results_score">score</string>
     <string name="results_okay">Okay</string>
-<<<<<<< HEAD
-    <string name="title_activity_notebook">NotebookActivity</string>
     <string name="title_activity_japanese_language_links">JapaneseLanguageLinksActivity</string>
-=======
-
->>>>>>> origin/master
 </resources>
