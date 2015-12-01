@@ -1,55 +1,79 @@
 package edu.uco.termproject.mobiletest2;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
 
 public class LevelKanji2 extends Activity {
     private Button choice1, choice2,choice3,choice4;
-    private ImageView img;
+    private int num1, num2, num3, num4;
+    private TextView img;
+    final Context context = this;
+    Random rand = new Random();
 
-    private Kanji [] myKanjiSet = new Kanji[] {
-            new Kanji("one","いち"), new Kanji("two","に"), new Kanji("three","さん"),
-            new Kanji("four","し"), new Kanji("five","ご"),
-            new Kanji("six","ろく"), new Kanji("seven","しち"), new Kanji("eight","はち"),
-            new Kanji("nine","きゅう"), new Kanji("ten","じゅう"),
-            new Kanji("yen","えん"), new Kanji("hundred","ひゃく"), new Kanji("thousand","せん"),
-            new Kanji("tenthousand","まん"), new Kanji("what","なに"),
-            new Kanji("sun","ひ"), new Kanji("moon","つき"), new Kanji("light","あか"),
-            new Kanji("temple","てら"), new Kanji("time","じ"),
-            new Kanji("fire","ひ"), new Kanji("water","みず"), new Kanji("tree","き"),
-            new Kanji("money","かね"), new Kanji("soil","つち")/*,
-            new Kanji("",""), new Kanji("",""), new Kanji("",""),
-            new Kanji("",""), new Kanji("","")*/
+    private Diction [] myKanjiSet = new Diction[] {
+            new Diction("one","一","いち"), new Diction("two","二","に"), new Diction("three","三","さん"),
+            new Diction("four","四","し"), new Diction("five","五","ご"), new Diction("six","六","ろく"),
+            new Diction("seven","七","しち"), new Diction("eight","八","はち"), new Diction("nine","九","きゅう"),
+            new Diction("ten","十","じゅう"), new Diction("yen","円","えん"), new Diction("hundred","百","ひゃく"),
+            new Diction("thousand","千","せん"),new Diction("tenthousand","万","まん"), new Diction("what","何","なに"),
+            new Diction("sun","日","ひ"), new Diction("moon","月","つき"), new Diction("light","明","あか"),
+            new Diction("temple","寺","てら"), new Diction("time","時","じ"), new Diction("fire","火","ひ"),
+            new Diction("water","水","みず"), new Diction("tree","木","き"), new Diction("money","金","かね"), new Diction("soil","土","つち")
     };
 
     private int myCurrentIndex;
 
     private void updateCharacter(){
         String character = myKanjiSet[myCurrentIndex].getMyImgName();
-        String uri = "@drawable/" + character;
+
+        /*String uri = "@drawable/" + character;
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
-        img.setImageDrawable(res);
+        img.setImageDrawable(res);*/
+        img.setText(myKanjiSet[myCurrentIndex].getMyCharacter());
+        img.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getResources().getDimension(R.dimen.img_font));
 
-        Random rand = new Random();
-        int tmp = rand.nextInt(myKanjiSet.length);
-        choice1.setText(myKanjiSet[tmp].getMyImgName());
-        tmp = rand.nextInt(myKanjiSet.length);
-        choice2.setText(myKanjiSet[tmp].getMyImgName());
-        tmp = rand.nextInt(myKanjiSet.length);
-        choice3.setText(character);
-        tmp = rand.nextInt(myKanjiSet.length);
-        choice4.setText(myKanjiSet[tmp].getMyImgName());
+        num1 = num2 = num3 = num4 = rand.nextInt(myKanjiSet.length);
+        while (num2 == num1)
+            num2 = rand.nextInt(myKanjiSet.length);
+        while (num3 == num1 || num3 == num2)
+            num3 = rand.nextInt(myKanjiSet.length);
+        while (num4 == num3 || num4 == num2 || num4 == num1)
+            num4 = rand.nextInt(myKanjiSet.length);
+
+        int reference = rand.nextInt(4);
+
+        switch (reference) {
+            case 0:
+                num1 = myCurrentIndex;
+                break;
+            case 1:
+                num2 = myCurrentIndex;
+                break;
+            case 2:
+                num3 = myCurrentIndex;
+                break;
+            case 3:
+                num4 = myCurrentIndex;
+                break;
+        }
+
+        choice1.setText(myKanjiSet[num1].getMyImgName());
+        choice2.setText(myKanjiSet[num2].getMyImgName());
+        choice3.setText(myKanjiSet[num3].getMyImgName());
+        choice4.setText(myKanjiSet[num4].getMyImgName());
     }
 
     private void checkAnswer (LevelKanji2 levelKanji2, String userEnterAnswer){
@@ -78,7 +102,7 @@ public class LevelKanji2 extends Activity {
         choice2 = (Button) findViewById(R.id.btnChoice2);
         choice3 = (Button) findViewById(R.id.btnChoice3);
         choice4 = (Button) findViewById(R.id.btnChoice4);
-        img = (ImageView) findViewById(R.id.imageView4);
+        img = (TextView) findViewById(R.id.imageView4);
 
         Intent intent = getIntent();
         myCurrentIndex = intent.getIntExtra("myCurrentIndex", 0);
@@ -130,7 +154,8 @@ public class LevelKanji2 extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(LevelKanji2.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, NotebookActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.themes:
                 return true;

@@ -5,7 +5,7 @@
         <!-- "file" submenu -->
         <menu>
             <item android:id="@+id/guess_count"
-                android:title="@string/guess_count" />
+                android:title="@string/notebook" />
             <item
                 android:id="@+id/themes"
                 android:title="@string/theme">

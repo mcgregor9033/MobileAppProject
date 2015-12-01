@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -216,7 +215,8 @@ public class MainActivity extends Activity {
             case R.id.settings:
                 return true;
             case R.id.guess_count:
-                Toast.makeText(MainActivity.this, R.string.guess_count, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, NotebookActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.themes:
                 return true;

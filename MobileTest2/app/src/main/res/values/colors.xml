@@ -4,8 +4,8 @@
     <color name="black_dark">#702E2E2E</color>
 
     <color name="blue_light">#00A0E9</color>
-    <color name="blue_dark">#700B0B3B</color>
+    <color name="blue_dark">#95001e50</color>
 
     <color name="yellow_light">#FFBF00</color>
-    <color name="yellow_dark">#703B240B</color>
+    <color name="yellow_dark">#b38b6132</color>
 </resources>
